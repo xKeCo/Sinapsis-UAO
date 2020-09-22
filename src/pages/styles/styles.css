@@ -1,0 +1,196 @@
+h1 {
+  font-weight: 700;
+}
+
+strong {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* Login & Register Conatianer */
+.LoginRegister {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.LoginRegister-content {
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginRegister-content-title {
+  font-size: 4em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.LoginRegister-content-image {
+  width: 80%;
+}
+
+.LoginRegister-form {
+  background: rgba(154, 102, 168, 0.71);
+  color: #fff;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.LoginRegister-form-logo {
+  height: 5.5em;
+}
+
+.LoginRegister-form-label {
+  height: 3em;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.LoginRegister-form-input {
+  background: none;
+  height: 100%;
+  font-size: 1.1em;
+  padding-right: 1em;
+  outline: none;
+  border: none;
+  width: 100%;
+  color: #000;
+}
+
+.LoginRegister-form-label-icon {
+  width: 40%;
+}
+
+.LoginRegister-form-button {
+  margin-top: 1em;
+  height: 3em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #000;
+  border: 1px solid black;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  color: white;
+}
+
+.LoginRegister-form-button:hover {
+  background: white;
+  color: black;
+  /* opacity: 0.7; */
+}
+
+.LoginRegister-form-question-link {
+  color: white;
+}
+
+.LoginRegister-form-links {
+  margin-top: 2em;
+  padding-top: 1em;
+  width: 100%;
+  border-top: 1px solid #383838;
+  display: inline-grid;
+}
+
+.LoginRegister-links-question {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.LoginRegister-form-links-link {
+  color: #727272;
+  font-size: 0.9em;
+  margin-right: 1em;
+}
+
+.LoginRegister__errors {
+  color: rgb(255, 102, 102);
+  margin-top: 2em;
+}
+
+.LoginRegister__errors--li {
+  list-style-position: inside;
+  margin-top: 1em;
+}
+
+.LoginRegister-form-question-link {
+  text-decoration: none;
+  transition: 0.2s all ease;
+}
+
+.LoginRegister-form-question-link:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+/* Login & Register Conatianer END */
+
+/* Login */
+.login-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5em;
+  margin-top: 3em;
+}
+/* Login END */
+
+/* Register */
+.register-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5em;
+  margin-top: 3em;
+}
+
+.register-grid-division {
+  grid-column: span 2;
+}
+
+.register-grid-coreccion-icon {
+  grid-template-columns: 2fr 10fr;
+}
+/* Register END */
+
+/* Media Queries */
+
+@media screen and (max-width: 1400px) {
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 6fr;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .LoginRegister {
+    grid-template-columns: 1fr;
+  }
+  .LoginRegister-content {
+    display: none;
+  }
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 10fr;
+  }
+}
+
+/* Media Queries END */
