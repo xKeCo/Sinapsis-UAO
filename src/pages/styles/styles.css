@@ -1,5 +1,5 @@
 h1 {
-  font-weight: 700;
+  font-size: 36px;
 }
 
 strong {
@@ -13,7 +13,7 @@ strong {
   display: grid;
   grid-template-columns: 1fr 2fr;
   min-height: 100vh;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .LoginRegister-content {
@@ -45,7 +45,7 @@ strong {
 }
 
 .LoginRegister-form-logo {
-  height: 5.5em;
+  height: 4.5em;
 }
 
 .LoginRegister-form-label {
@@ -76,7 +76,7 @@ strong {
 }
 
 .LoginRegister-form-button {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   height: 3em;
   border: none;
   outline: none;
@@ -106,16 +106,23 @@ strong {
   width: 100%;
   border-top: 1px solid #383838;
   display: inline-grid;
+  text-align: center;
+}
+
+.LoginRegister-form-links > a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .LoginRegister-links-question {
   width: 100%;
   margin-top: 12px;
+  text-align: center;
 }
 
 .LoginRegister-form-links-link {
   color: #727272;
-  font-size: 0.9em;
+  font-size: 14px;
   margin-right: 1em;
 }
 
@@ -154,25 +161,43 @@ strong {
 .register-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1.5em;
-  margin-top: 3em;
+  margin-top: 1em;
 }
-
+/* 
 .register-grid-division {
   grid-column: span 2;
 }
 
 .register-grid-coreccion-icon {
   grid-template-columns: 2fr 10fr;
-}
+} */
 /* Register END */
 
 /* Media Queries */
 
+@media screen and (max-width: 1686px) {
+  .LoginRegister-form-input {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1484px) {
+  .LoginRegister-form-input {
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 1400px) {
   .LoginRegister-form-label {
     grid-template-columns: 1fr 6fr;
+  }
+}
+@media screen and (max-width: 1332px) {
+  h1 {
+    font-size: 32px;
+  }
+  .LoginRegister-form-logo {
+    height: 4.5em;
   }
 }
 @media screen and (max-width: 1200px) {

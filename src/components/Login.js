@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import EmailIcon from "../images/email.svg";
 import PasswordIcon from "../images/password.svg";
+import TextField from "@material-ui/core/TextField";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Login() {
   useEffect(() => {
@@ -10,19 +12,35 @@ export default function Login() {
   return (
     <>
       <div className="LoginRegister-Container-grid">
-        <h1>Inicia Sesión</h1>
+        <h1 className="text-center font-weight-bold mt-3">Inicia Sesión</h1>
         <form className="login-grid">
-          <label className="LoginRegister-form-label">
+          <TextField
+            id="outlined-basic "
+            className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            label="Correo institucional"
+            variant="outlined"
+            required
+          />
+          {/* <label className="LoginRegister-form-label">
             <img src={EmailIcon} alt="E" className="LoginRegister-form-label-icon" />
             <input
               type="email"
               name="email"
-              placeholder="Correo Estudiantil"
+              placeholder="Correo institucional"
               className="LoginRegister-form-input"
               required
             />
-          </label>
-          <label className="LoginRegister-form-label">
+          </label> */}
+
+          <TextField
+            id="outlined-basic "
+            className="txtField"
+            label="Contraseña"
+            variant="outlined"
+            type="password"
+            required
+          />
+          {/* <label className="LoginRegister-form-label">
             <img src={PasswordIcon} alt="P" className="LoginRegister-form-label-icon" />
             <input
               type="password"
@@ -31,7 +49,7 @@ export default function Login() {
               className="LoginRegister-form-input"
               required
             />
-          </label>
+          </label> */}
           <input type="submit" className="LoginRegister-form-button" value="Inicar Sesión" />
         </form>
       </div>

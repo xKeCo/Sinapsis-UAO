@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import EmailIcon from "../images/email.svg";
 import PasswordIcon from "../images/password.svg";
 import UserIcon from "../images/user.svg";
+import TextField from "@material-ui/core/TextField";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Login() {
   useEffect(() => {
@@ -11,9 +13,19 @@ export default function Login() {
   return (
     <>
       <div className="LoginRegister-Container-grid">
-        <h1>Dale vida a tu idea de negocio!</h1>
+        <h1 className="text-center font-weight-bold ">Dale vida a tu idea de negocio!</h1>
         <form className="register-grid">
-          <label className="LoginRegister-form-label register-grid-division">
+          <TextField
+            id="outlined-basic "
+            className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            label="Nombre"
+            variant="outlined"
+            inputProps={{
+              maxLength: 35,
+            }}
+            required
+          />
+          {/* <label className="LoginRegister-form-label register-grid-division">
             <img src={UserIcon} alt="p" className="LoginRegister-form-label-icon" />
             <input
               type="text"
@@ -23,20 +35,39 @@ export default function Login() {
               required
               maxLength="30"
             />
-          </label>
+          </label> */}
 
-          <label className="LoginRegister-form-label register-grid-division">
+          <TextField
+            id="outlined-basic "
+            className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            label="Correo institucional"
+            variant="outlined"
+            type="email"
+            required
+          />
+          {/* <label className="LoginRegister-form-label register-grid-division">
             <img src={EmailIcon} alt="E" className="LoginRegister-form-label-icon" />
             <input
               type="email"
               name="email"
-              placeholder="Correo Estudiantil"
+              placeholder="Correo institucional"
               className="LoginRegister-form-input"
               required
             />
-          </label>
+          </label> */}
 
-          <label className="LoginRegister-form-label register-grid-coreccion-icon">
+          <TextField
+            id="outlined-basic "
+            className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            label="Contraseña"
+            type="password"
+            variant="outlined"
+            inputProps={{
+              maxLength: 12,
+            }}
+            required
+          />
+          {/* <label className="LoginRegister-form-label register-grid-coreccion-icon">
             <img src={PasswordIcon} alt="P" className="LoginRegister-form-label-icon" />
             <input
               type="password"
@@ -46,9 +77,20 @@ export default function Login() {
               required
               maxLength="8"
             />
-          </label>
+          </label> */}
 
-          <label className="LoginRegister-form-label register-grid-coreccion-icon">
+          <TextField
+            id="outlined-basic "
+            className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            label="Confirmar contraseña"
+            variant="outlined"
+            type="password"
+            inputProps={{
+              maxLength: 12,
+            }}
+            required
+          />
+          {/* <label className="LoginRegister-form-label register-grid-coreccion-icon">
             <img src={PasswordIcon} alt="PC" className="LoginRegister-form-label-icon" />
             <input
               type="password"
@@ -58,7 +100,7 @@ export default function Login() {
               required
               maxLength="8"
             />
-          </label>
+          </label> */}
           <input
             type="submit"
             className="LoginRegister-form-button register-grid-division"

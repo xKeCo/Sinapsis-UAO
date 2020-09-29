@@ -57,7 +57,9 @@ export default function LoginRegister({ match }) {
             </a>
             <br />
             <br />
-            <span className="LoginRegister-form-links-link">© 2020 Abstract Code.</span>
+            <a href="https://abstractcode.co/" className="LoginRegister-form-links-link">
+              © 2020 Abstract Code.
+            </a>
           </div>
         </div>
         <div className="LoginRegister-content">

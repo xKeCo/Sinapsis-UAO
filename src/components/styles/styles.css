@@ -10,6 +10,13 @@
 /* NavBar END */
 
 /* NavBar Items */
+.MuiFormLabel-root {
+  color: white !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+}
 
 .NavegationBar-items {
   display: flex;
