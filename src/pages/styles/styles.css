@@ -1,5 +1,6 @@
 h1 {
   font-size: 36px;
+  margin-bottom: 1.05em;
 }
 
 strong {
@@ -40,12 +41,13 @@ strong {
   padding: 3em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   /* align-items: center; */
 }
 
 .LoginRegister-form-logo {
   height: 4.5em;
+  margin-bottom: 1.5em;
 }
 
 .LoginRegister-form-label {
@@ -116,7 +118,7 @@ strong {
 
 .LoginRegister-links-question {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 1.2em;
   text-align: center;
 }
 
@@ -174,6 +176,12 @@ strong {
   grid-template-columns: 2fr 10fr;
 } */
 /* Register END */
+
+.GoogleButton-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Media Queries */
 

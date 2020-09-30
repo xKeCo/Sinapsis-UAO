@@ -1,0 +1,29 @@
+/* Goblal Button */
+
+/* button > svg {
+  margin-right: 8px;
+} */
+
+button:hover {
+  opacity: 0.7;
+}
+
+/* Goblal Button End */
+
+/* Google Button */
+
+.btn.btn-Google {
+  align-items: center;
+  background-color: white;
+  border: none;
+  color: black;
+  display: flex;
+  font-weight: 600;
+  padding: 0.45rem 0.5rem;
+  transition: all 0.2s ease;
+  border-radius: 5px;
+  width: 51px;
+  height: 51px;
+}
+
+/* Google Button End*/

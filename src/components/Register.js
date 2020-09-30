@@ -1,41 +1,83 @@
-import React, { useEffect } from "react";
-import EmailIcon from "../images/email.svg";
-import PasswordIcon from "../images/password.svg";
-import UserIcon from "../images/user.svg";
+import React, { useEffect, useState, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
 import "bootstrap/dist/css/bootstrap.css";
+import { AuthContext } from "./Auth";
+import { Redirect } from "react-router-dom";
+import firebaseConfig from "../firebase/client";
+import Loader from "./Loader";
 
 export default function Login() {
+  const [form, setValues] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const { currentUser } = useContext(AuthContext);
+
   useEffect(() => {
     document.title = "Sinapsis UAO - Inicio de sesión";
   }, []);
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors({});
+    setLoading(true);
+    document.querySelectorAll("input").forEach((input) => (input.disabled = true));
+    if (form.password === form.confirmPassword) {
+      firebaseConfig
+        .auth()
+        .createUserWithEmailAndPassword(form.email, form.password)
+        .then((userCredentials) => {
+          return userCredentials.user.updateProfile({
+            displayName: form.name,
+          });
+        })
+        .catch((err) => {
+          if (err.code === "auth/email-already-in-use") {
+            setErrors({
+              email: true,
+            });
+          } else {
+            setErrors({
+              unexpected: true,
+            });
+          }
+        });
+    } else {
+      setErrors({
+        password: true,
+      });
+    }
+    document.querySelectorAll("input").forEach((input) => (input.disabled = false));
+    setLoading(false);
+  };
+
+  if (currentUser) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <>
       <div className="LoginRegister-Container-grid">
         <h1 className="text-center font-weight-bold ">Dale vida a tu idea de negocio!</h1>
-        <form className="register-grid">
+        <form onSubmit={handleSubmit} className="register-grid">
           <TextField
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
-            label="Nombre"
+            label="Nombre Completo"
+            name="name"
             variant="outlined"
             inputProps={{
               maxLength: 35,
             }}
             required
+            onChange={handleInput}
           />
-          {/* <label className="LoginRegister-form-label register-grid-division">
-            <img src={UserIcon} alt="p" className="LoginRegister-form-label-icon" />
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre"
-              className="LoginRegister-form-input"
-              required
-              maxLength="30"
-            />
-          </label> */}
 
           <TextField
             id="outlined-basic "
@@ -43,41 +85,24 @@ export default function Login() {
             label="Correo institucional"
             variant="outlined"
             type="email"
+            name="email"
             required
+            onChange={handleInput}
           />
-          {/* <label className="LoginRegister-form-label register-grid-division">
-            <img src={EmailIcon} alt="E" className="LoginRegister-form-label-icon" />
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo institucional"
-              className="LoginRegister-form-input"
-              required
-            />
-          </label> */}
 
           <TextField
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             label="Contraseña"
             type="password"
+            name="password"
             variant="outlined"
             inputProps={{
               maxLength: 12,
             }}
             required
+            onChange={handleInput}
           />
-          {/* <label className="LoginRegister-form-label register-grid-coreccion-icon">
-            <img src={PasswordIcon} alt="P" className="LoginRegister-form-label-icon" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              className="LoginRegister-form-input"
-              required
-              maxLength="8"
-            />
-          </label> */}
 
           <TextField
             id="outlined-basic "
@@ -85,28 +110,40 @@ export default function Login() {
             label="Confirmar contraseña"
             variant="outlined"
             type="password"
+            name="confirmPassword"
             inputProps={{
               maxLength: 12,
             }}
             required
+            onChange={handleInput}
           />
-          {/* <label className="LoginRegister-form-label register-grid-coreccion-icon">
-            <img src={PasswordIcon} alt="PC" className="LoginRegister-form-label-icon" />
-            <input
-              type="password"
-              name="ConfirmPassword"
-              placeholder="Confirmar contraseña"
-              className="LoginRegister-form-input"
-              required
-              maxLength="8"
-            />
-          </label> */}
           <input
             type="submit"
             className="LoginRegister-form-button register-grid-division"
             value="Registrarse"
           />
         </form>
+        {loading && <Loader />}
+        <div className="login-register__errors">
+          <span>
+            <ul>
+              {errors.password && (
+                <li className="login-register__errors--li">Las contraseñas no coinciden.</li>
+              )}
+              {errors.email && (
+                <li className="login-register__errors--li">
+                  Este correo institucional ya se encuentra registrado.
+                </li>
+              )}
+              {errors.unexpected && (
+                <li className="login-register__errors--li">
+                  Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
+                  nuevamente.
+                </li>
+              )}
+            </ul>
+          </span>
+        </div>
       </div>
     </>
   );
