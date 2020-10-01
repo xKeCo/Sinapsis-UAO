@@ -72,11 +72,11 @@ export default function Login() {
             label="Nombre Completo"
             name="name"
             variant="outlined"
+            required
+            onChange={handleInput}
             inputProps={{
               maxLength: 35,
             }}
-            required
-            onChange={handleInput}
           />
 
           <TextField
@@ -97,11 +97,11 @@ export default function Login() {
             type="password"
             name="password"
             variant="outlined"
+            required
+            onChange={handleInput}
             inputProps={{
               maxLength: 12,
             }}
-            required
-            onChange={handleInput}
           />
 
           <TextField
@@ -128,15 +128,15 @@ export default function Login() {
           <span>
             <ul>
               {errors.password && (
-                <li className="login-register__errors--li">Las contraseñas no coinciden.</li>
+                <li className="login-register__errors--li mt-3">Las contraseñas no coinciden.</li>
               )}
               {errors.email && (
-                <li className="login-register__errors--li">
+                <li className="login-register__errors--li mt-3">
                   Este correo institucional ya se encuentra registrado.
                 </li>
               )}
               {errors.unexpected && (
-                <li className="login-register__errors--li">
+                <li className="login-register__errors--li mt-3">
                   Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
                   nuevamente.
                 </li>
