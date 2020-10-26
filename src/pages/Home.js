@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
 import { Redirect } from "react-router-dom";
-// import FirstLogin from "../components/FirstLoginEmprendedor";
 import Diagnostico from "../components/Autodiagnostico/Diagnostico";
 import Hecho from "../components/Autodiagnostico/Hecho";
+import AdminHome from "../components/AdminHome";
 
 export default function Home() {
   const { currentUser, userData } = useContext(AuthContext);
@@ -33,11 +33,7 @@ export default function Home() {
         !userData.ruta_asignada && <Hecho />}
 
       {userData && userData.rol === "emprendedor" && userData.ruta_asignada && <h1>holi</h1>}
-      {userData && userData.rol === "admin" && (
-        <div>
-          <h1>Holis admin</h1>
-        </div>
-      )}
+      {userData && userData.rol === "admin" && <AdminHome />}
       {userData && userData.rol === "mentor" && (
         <div>
           <h1>Holis mentor</h1>

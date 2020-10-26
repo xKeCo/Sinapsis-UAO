@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -48,21 +49,40 @@ export default function NavegationBar(props) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {userData && userData.ruta_asignada === true && (
+              {userData && userData.ruta_asignada && (
                 <Dropdown.Item className="dropdown">
                   <Link to="/" className="nav-item text-decoration-none items-dropdown">
                     Inicio
                   </Link>
                 </Dropdown.Item>
               )}
-              {userData && userData.ruta_asignada === true && (
+              {userData && userData.ruta_asignada && (
                 <Dropdown.Item className="dropdown">
                   <Link to="/" className="nav-item text-decoration-none items-dropdown">
                     Other thing
                   </Link>
                 </Dropdown.Item>
               )}
-              {userData && userData.ruta_asignada === true && <Dropdown.Divider />}
+              {(userData && userData.rol === "mentor") ||
+                (userData.rol === "admin" && (
+                  <Dropdown.Item className="dropdown">
+                    <Link to="/home" className="nav-item text-decoration-none items-dropdown">
+                      Inicio
+                    </Link>
+                  </Dropdown.Item>
+                ))}
+              {(userData && userData.rol === "mentor") ||
+                (userData.rol === "admin" && <Dropdown.Divider />)}
+              {(userData && userData.rol === "mentor") ||
+                (userData.rol === "admin" && (
+                  <Dropdown.Item className="dropdown">
+                    <Link to="/" className="nav-item text-decoration-none items-dropdown">
+                      Other thing
+                    </Link>
+                  </Dropdown.Item>
+                ))}
+              {(userData && userData.rol === "mentor") ||
+                (userData.rol === "admin" && <Dropdown.Divider />)}
               <Dropdown.Item onClick={logOut} className="dropdown text-danger">
                 Cerrar sesi&oacute;n
               </Dropdown.Item>

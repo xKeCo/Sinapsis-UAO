@@ -39,14 +39,16 @@ export default function Login() {
           setErrors({
             incorrect: true,
           });
+          setLoading(false);
         } else {
           setErrors({
             unexpected: true,
           });
+          setLoading(false);
         }
       });
     document.querySelectorAll("input").forEach((input) => (input.disabled = false));
-    setLoading(false);
+    setLoading(true);
   };
 
   if (currentUser) {
@@ -83,23 +85,28 @@ export default function Login() {
           />
           <input type="submit" className="LoginRegister-form-button" value="Inicar Sesión" />
         </form>
-        {loading && <Loader />}
-        <div className="LoginRegister__error">
-          <span>
-            <ul>
-              {errors.incorrect && (
-                <li className="LoginRegister__errors--li">
-                  El correo o la contraseña es incorrecto.
-                </li>
-              )}
-              {errors.unexpected && (
-                <li className="LoginRegister__errors--li">
-                  Ocurrió un error al enviar la información. Por favor intenta de nuevo
-                </li>
-              )}
-            </ul>
-          </span>
-        </div>
+        {loading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <div className="LoginRegister__error">
+            <span>
+              <ul>
+                {errors.incorrect && (
+                  <li className="LoginRegister__errors--li">
+                    El correo o la contraseña es incorrecto.
+                  </li>
+                )}
+                {errors.unexpected && (
+                  <li className="LoginRegister__errors--li">
+                    Ocurrió un error al enviar la información. Por favor intenta de nuevo
+                  </li>
+                )}
+              </ul>
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

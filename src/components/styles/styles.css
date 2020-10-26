@@ -54,6 +54,7 @@
   justify-content: center;
   color: black;
   margin-top: 22px;
+  cursor: pointer;
 }
 
 .Avatar {
@@ -125,6 +126,11 @@ span:hover {
 
 .encuesta_container {
   width: 100% !important;
+}
+
+.confirmacion_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .encuesta_buttons_container {
@@ -221,6 +227,7 @@ span:hover {
   background-color: #ffffff;
   padding: 1rem;
   width: 315px;
+  border-radius: 15px;
 }
 
 .Modal__close-button {
@@ -234,8 +241,186 @@ span:hover {
 
 /* Modal END */
 
+/* Loader */
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+/* Loader END */
+/* AdminHome */
+
+.AdminHome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
+  height: 80vh;
+}
+
+.AdminHome_container {
+  display: flex;
+  justify-content: space-between;
+  width: 1300px;
+  /* flex-wrap: wrap; */
+}
+.Novedades_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px 15px 15px;
+  max-width: 881px;
+  height: 65px;
+  /* border: black 1px solid; */
+  margin-bottom: 8px;
+  padding-left: 15px;
+  background: #ffffff;
+  border: 0.7px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.Novedades-details_container {
+  font-size: 18px;
+  max-width: 704.8px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.Novedades-details_containerr .avatar-Container {
+  margin-top: 0 !important;
+  margin-right: 8px;
+}
+
+.Novedades-details_containerr {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.Novedades-button_container {
+  text-align: center;
+  min-width: 176.2px;
+}
+
+.novedades-name {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Novedades-button {
+  background: #ffffff !important;
+  border: 1px solid #000000 !important;
+  box-sizing: border-box !important;
+  border-radius: 5px !important;
+  color: #000000 !important;
+}
+
+.Novedades-details {
+  margin-bottom: 0;
+  font-size: 17px;
+}
+.calendario-prueba {
+  min-width: 294px;
+  height: 286px;
+  margin: 0 15px 15px 15px;
+}
+
+/* Calendario */
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+}
+
+.react-calendar__tile--now {
+  background: #9a66a8 !important;
+  color: white;
+  border-radius: 9999px;
+}
+.react-calendar__tile {
+  padding: 0.65em 0.65em !important;
+}
+.react-calendar__navigation {
+  margin-bottom: 0 !important;
+}
+.react-calendar {
+  line-height: 1.3em !important;
+  border: none !important;
+  width: 294px !important;
+  height: 286px !important;
+}
+
+.button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer !important;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: none !important;
+  border-radius: 9999px;
+}
+.react-calendar__tile--active {
+  background: none !important;
+  border-radius: 9999px;
+}
+.react-calendar__tile--active abbr {
+  color: black !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth.react-calendar__tile--now {
+  color: white;
+}
+/* Calendario END */
+/* AdminHome END */
+
+/* Revisar autodiagnostico */
+.MuiListItem-gutters {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.datos-proyecto_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.875em 15%;
+}
+
+.datos-proyecto_container .datos-proyecto {
+  width: 95% !important;
+}
+
+.MuiList-root {
+  width: 95%;
+}
+/* Revisar autodiagnostico END */
 /* Media Queries */
 
+@media screen and (max-width: 1240px) {
+  .Novedades-details {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1069px) {
+  .confirmacion_container {
+    grid-template-columns: 1fr;
+  }
+  .react-calendar {
+    display: none;
+  }
+  .calendario-prueba {
+    display: none;
+  }
+  .AdminHome_container {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .datos-proyecto_container {
+    grid-template-columns: 1fr;
+  }
+}
 @media screen and (max-width: 991px) {
   .nav-item-register {
     margin-left: unset;
@@ -280,6 +465,9 @@ span:hover {
 
   .todo_encuesta_container {
     padding: 0.85em 10%;
+  }
+  .datos-proyecto_container {
+    padding: 0.85em 7%;
   }
   /* .navbar {
     flex-wrap: nowrap;

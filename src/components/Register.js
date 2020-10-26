@@ -48,12 +48,15 @@ export default function Login() {
             setErrors({
               email: true,
             });
+            setLoading(false);
           } else {
             setErrors({
               unexpected: true,
             });
+            setLoading(false);
           }
         });
+      setLoading(true);
     } else {
       setErrors({
         password: true,
@@ -128,27 +131,32 @@ export default function Login() {
             value="Registrarse"
           />
         </form>
-        {loading && <Loader />}
-        <div className="login-register__errors">
-          <span>
-            <ul>
-              {errors.password && (
-                <li className="LoginRegister__errors--li">Las contraseñas no coinciden.</li>
-              )}
-              {errors.email && (
-                <li className="LoginRegister__errors--li">
-                  Este correo institucional ya se encuentra registrado.
-                </li>
-              )}
-              {errors.unexpected && (
-                <li className="LoginRegister__errors--li">
-                  Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
-                  nuevamente.
-                </li>
-              )}
-            </ul>
-          </span>
-        </div>
+        {loading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <div className="login-register__errors">
+            <span>
+              <ul>
+                {errors.password && (
+                  <li className="LoginRegister__errors--li">Las contraseñas no coinciden.</li>
+                )}
+                {errors.email && (
+                  <li className="LoginRegister__errors--li">
+                    Este correo institucional ya se encuentra registrado.
+                  </li>
+                )}
+                {errors.unexpected && (
+                  <li className="LoginRegister__errors--li">
+                    Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
+                    nuevamente.
+                  </li>
+                )}
+              </ul>
+            </span>
+          </div>
+        )}
       </div>
     </>
   );
