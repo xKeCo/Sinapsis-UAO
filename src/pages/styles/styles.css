@@ -163,10 +163,11 @@ strong {
 .register-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1.5em;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-gap: 1em;
   margin-top: 1em;
 }
+
 /* 
 .register-grid-division {
   grid-column: span 2;
@@ -182,6 +183,17 @@ strong {
   justify-content: center;
   align-items: center;
 }
+
+/* Page not Found  */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  text-align: center;
+  min-height: 100vh;
+}
+/* Page not Found END */
 
 /* Media Queries */
 
@@ -223,6 +235,9 @@ strong {
   }
   .LoginRegister-form-label {
     grid-template-columns: 1fr 10fr;
+  }
+  .register-grid {
+    grid-template-columns: 1fr;
   }
 }
 

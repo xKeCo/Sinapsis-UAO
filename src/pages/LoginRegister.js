@@ -5,12 +5,15 @@ import { Link } from "react-router-dom";
 import SinapsisLoginRegister from "../images/SinapsisUAO.png";
 // import SinapsisColor from "../images/SinapsisColor.png";
 import SinapsisBlanco from "../images/SinapsisBlanco.png";
-import GoogleIcon from "../components/buttons/icons/GoogleIcon";
-import GoogleButton from "../components/buttons/GoogleButton";
+// import GoogleIcon from "../components/buttons/icons/GoogleIcon";
+// import GoogleButton from "../components/buttons/GoogleButton";
 import { Redirect } from "react-router-dom";
 import "../pages/styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { loginWithGoogle, onAuthStateChanged } from "../firebase/client";
+import {
+  //   loginWithGoogle,
+  onAuthStateChanged,
+} from "../firebase/client";
 
 export default function LoginRegister({ match }) {
   const [user, setUser] = useState(undefined);
@@ -19,13 +22,13 @@ export default function LoginRegister({ match }) {
     onAuthStateChanged(setUser);
   }, []);
 
-  const handleClickGoogle = () => {
-    loginWithGoogle()
-      .then(setUser)
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const handleClickGoogle = () => {
+  //   loginWithGoogle()
+  //     .then(setUser)
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   if (user) {
     return <Redirect to="/home" />;
@@ -58,13 +61,13 @@ export default function LoginRegister({ match }) {
               </span>
             )}
           </div>
-          <div className="GoogleButton-Container mt-4">
+          {/* <div className="GoogleButton-Container mt-4">
             {user === null && (
               <GoogleButton onClick={handleClickGoogle}>
                 <GoogleIcon width={36} height={36}></GoogleIcon>
               </GoogleButton>
             )}
-          </div>
+          </div> */}
           <div className="LoginRegister-form-links">
             {/* <Link className="LoginRegister-form-links-link" to="/">
               Términos y condiciones

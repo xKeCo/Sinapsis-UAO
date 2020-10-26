@@ -18,6 +18,14 @@ export const AuthProvider = ({ children }) => {
           uID: user.uid,
           rol: "emprendedor",
           username: user.displayName,
+          form_complete: false,
+          ruta_asignada: false,
+          // nacimiento: user.nacimiento,
+          // genero: user.genero,
+          // celular: user.phoneNumber,
+          // vinculo: user.vinculo,
+          // programa: user.programa,
+          // cedula: user.cedula,
           email: user.email,
           avatar:
             user.photoURL ||

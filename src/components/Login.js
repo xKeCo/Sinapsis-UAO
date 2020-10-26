@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-// import EmailIcon from "../images/email.svg";
-// import PasswordIcon from "../images/password.svg";
-import TextField from "@material-ui/core/TextField";
 import "bootstrap/dist/css/bootstrap.css";
 import { AuthContext } from "./Auth";
 import { Redirect } from "react-router-dom";
 import firebaseConfig from "../firebase/client";
 import Loader from "./Loader";
+
+// MATERIAL UI
+import { TextField } from "@material-ui/core";
+// MATERIAL UI END
 
 export default function Login() {
   const [form, setValues] = useState({});
@@ -83,18 +84,17 @@ export default function Login() {
           <input type="submit" className="LoginRegister-form-button" value="Inicar Sesión" />
         </form>
         {loading && <Loader />}
-        <div className="login-register__errors">
+        <div className="LoginRegister__error">
           <span>
             <ul>
               {errors.incorrect && (
                 <li className="LoginRegister__errors--li">
-                  Datos err&oacute;neos. Por favor intentelo nuevamente
+                  El correo o la contraseña es incorrecto.
                 </li>
               )}
               {errors.unexpected && (
-                <li className="login-register__errors--li">
-                  Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
-                  nuevamente.
+                <li className="LoginRegister__errors--li">
+                  Ocurrió un error al enviar la información. Por favor intenta de nuevo
                 </li>
               )}
             </ul>

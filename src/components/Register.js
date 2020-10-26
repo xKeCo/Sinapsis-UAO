@@ -1,13 +1,19 @@
 import React, { useEffect, useState, useContext } from "react";
-import TextField from "@material-ui/core/TextField";
 import "bootstrap/dist/css/bootstrap.css";
 import { AuthContext } from "./Auth";
 import { Redirect } from "react-router-dom";
 import firebaseConfig from "../firebase/client";
 import Loader from "./Loader";
 
+// Material UI
+import { TextField } from "@material-ui/core";
+// Material UI End
+
 export default function Login() {
-  const [form, setValues] = useState({});
+  const [form, setValues] = useState({
+    username: "",
+    email: "",
+  });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const { currentUser } = useContext(AuthContext);
@@ -34,7 +40,7 @@ export default function Login() {
         .createUserWithEmailAndPassword(form.email, form.password)
         .then((userCredentials) => {
           return userCredentials.user.updateProfile({
-            displayName: form.name,
+            displayName: form.nombre,
           });
         })
         .catch((err) => {
@@ -70,15 +76,15 @@ export default function Login() {
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             label="Nombre Completo"
-            name="name"
             variant="outlined"
+            type="text"
+            name="nombre"
             required
-            onChange={handleInput}
             inputProps={{
               maxLength: 35,
             }}
+            onChange={handleInput}
           />
-
           <TextField
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
@@ -103,7 +109,6 @@ export default function Login() {
               maxLength: 12,
             }}
           />
-
           <TextField
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
@@ -119,7 +124,7 @@ export default function Login() {
           />
           <input
             type="submit"
-            className="LoginRegister-form-button register-grid-division"
+            className="LoginRegister-form-button register-grid-division mt-3 "
             value="Registrarse"
           />
         </form>
@@ -128,15 +133,15 @@ export default function Login() {
           <span>
             <ul>
               {errors.password && (
-                <li className="login-register__errors--li mt-3">Las contraseñas no coinciden.</li>
+                <li className="LoginRegister__errors--li">Las contraseñas no coinciden.</li>
               )}
               {errors.email && (
-                <li className="login-register__errors--li mt-3">
+                <li className="LoginRegister__errors--li">
                   Este correo institucional ya se encuentra registrado.
                 </li>
               )}
               {errors.unexpected && (
-                <li className="login-register__errors--li mt-3">
+                <li className="LoginRegister__errors--li">
                   Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intentelo
                   nuevamente.
                 </li>

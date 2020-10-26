@@ -11,9 +11,6 @@ const firebaseConfig = firebase.initializeApp({
   measurementId: "G-Y8Q5BVVVLD",
 });
 
-!firebase.apps.length && firebase.initializeApp(firebaseConfig);
-
-export default firebaseConfig;
 const mapUserFromFirebaseAuthToUser = (user) => {
   const { displayName, email, photoURL } = user;
   return {
@@ -36,3 +33,5 @@ export const loginWithGoogle = () => {
   const GoogleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(GoogleProvider);
 };
+
+export default firebaseConfig;

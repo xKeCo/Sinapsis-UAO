@@ -38,26 +38,31 @@ export default function NavegationBar(props) {
         {/* <Navbar.Collapse id="responsive-navbar-nav"></Navbar.Collapse> */}
 
         {userData && (
-          <Dropdown className=" ">
-            <Badge color="secondary" variant="dot" className="mr-4">
+          <Dropdown alignRight>
+            <Badge color="secondary" className="mr-4">
               <NotificationsIcon />
             </Badge>
-            <Dropdown.Toggle className="menu-usuario">
+
+            <Dropdown.Toggle className="menu-usuario" id="dropdown-menu-align-right">
               <Avatar src={userData.avatar} alt={"Avatar"} text={userData.username} />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item className="dropdown">
-                <Link to="/" className="nav-item text-decoration-none items-dropdown">
-                  Inicio
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item className="dropdown">
-                <Link to="/" className="nav-item text-decoration-none items-dropdown">
-                  Other thing
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Divider />
+              {userData && userData.ruta_asignada === true && (
+                <Dropdown.Item className="dropdown">
+                  <Link to="/" className="nav-item text-decoration-none items-dropdown">
+                    Inicio
+                  </Link>
+                </Dropdown.Item>
+              )}
+              {userData && userData.ruta_asignada === true && (
+                <Dropdown.Item className="dropdown">
+                  <Link to="/" className="nav-item text-decoration-none items-dropdown">
+                    Other thing
+                  </Link>
+                </Dropdown.Item>
+              )}
+              {userData && userData.ruta_asignada === true && <Dropdown.Divider />}
               <Dropdown.Item onClick={logOut} className="dropdown text-danger">
                 Cerrar sesi&oacute;n
               </Dropdown.Item>
