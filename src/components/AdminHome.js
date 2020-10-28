@@ -13,7 +13,7 @@ const AdminHome = () => {
           <Calendar />
         </div>
         <div>
-          <h3 className="ml-3 mb-2">Novedades</h3>
+          <h3 className="ml-3 mb-2 font-weight-bold">Novedades</h3>
           <AdminHomeContainer />
         </div>
       </div>

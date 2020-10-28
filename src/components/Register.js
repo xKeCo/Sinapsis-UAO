@@ -83,6 +83,7 @@ export default function Login() {
             type="text"
             name="nombre"
             required
+            autoComplete="off"
             inputProps={{
               maxLength: 35,
             }}
@@ -102,6 +103,7 @@ export default function Login() {
           <TextField
             id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
+            autoComplete="off"
             label="Contraseña"
             type="password"
             name="password"
@@ -118,6 +120,7 @@ export default function Login() {
             label="Confirmar contraseña"
             variant="outlined"
             type="password"
+            autoComplete="off"
             name="confirmPassword"
             inputProps={{
               maxLength: 12,

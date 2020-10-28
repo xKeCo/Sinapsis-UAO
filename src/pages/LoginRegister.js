@@ -47,7 +47,7 @@ export default function LoginRegister({ match }) {
             {match.path === "/" ? (
               <span>
                 ¿No tienes cuenta?
-                <Link to="/register" className="LoginRegister-form-question-link">
+                <Link to="/registro" className="LoginRegister-form-question-link">
                   {" "}
                   <strong>Reg&iacute;strate</strong>{" "}
                 </Link>

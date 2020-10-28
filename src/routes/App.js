@@ -13,8 +13,8 @@ export default function App() {
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/" component={LoginRegister} />
-          <Route exact path="/register" component={LoginRegister} />
-          <Route exact path="/check/:id" component={RevisarAutodiagnostico} />
+          <Route exact path="/registro" component={LoginRegister} />
+          <Route exact path="/revisar/:id" component={RevisarAutodiagnostico} />
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>

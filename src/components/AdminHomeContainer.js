@@ -63,16 +63,24 @@ function AdminHomeContainer() {
                           />
                           <div className="Novedades-details">
                             <span className="novedades-name">{novedad.username}</span> se ha
-                            registrado. Revisalo, asignale un mentor y una ruta.
+                            registrado.{" "}
+                            <span className="novedades-otherText">
+                              Revisa su autodiagn&oacute;stico.
+                            </span>
                           </div>
                         </div>
                       </div>
                       <div className="Novedades-button_container">
                         <Link
-                          to={`/check/${novedad.id}`}
+                          to={`/revisar/${novedad.id}`}
                           className="text-decoration-none text-dark"
                         >
-                          <Tooltip title="Revisar" arrow TransitionComponent={Zoom}>
+                          <Tooltip
+                            title="Revisar"
+                            arrow
+                            TransitionComponent={Zoom}
+                            placement="right"
+                          >
                             <Button
                               variant="contained"
                               color="primary"
