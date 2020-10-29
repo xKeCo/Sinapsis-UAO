@@ -255,6 +255,7 @@ span:hover {
   margin-top: 25px;
 }
 /* Loader END */
+
 /* AdminHome */
 
 .AdminHome {
@@ -262,14 +263,18 @@ span:hover {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 25px;
-  height: 80vh;
 }
 
 .AdminHome_container {
   display: flex;
   justify-content: space-around;
   width: 1300px;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
+}
+
+.HomeButton-container {
+  width: 100%;
+  text-align: center;
 }
 .Novedades_container {
   display: flex;
@@ -287,7 +292,7 @@ span:hover {
   /* border-radius: 5px; */
 
   height: 68px;
-  margin: 0 3px 3px 3px;
+  margin: 0 3px 0px 3px;
   border: none;
   border-bottom: 0.7px solid #eaeaea;
   border-radius: 0;
@@ -333,6 +338,11 @@ span:hover {
   color: #000000 !important;
 }
 
+.Novedades-button:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
 .Novedades-details {
   margin-bottom: 0;
   font-size: 17px;
@@ -341,6 +351,49 @@ span:hover {
   min-width: 294px;
   height: 286px;
   margin: 0 15px 15px 15px;
+}
+
+.MuiMenuItem-root {
+  font-family: "Inter", sans-serif !important;
+  margin-left: 5px !important;
+}
+
+/* .accordion-container {
+  width: 97%;
+} */
+.SinNovedades-details {
+  min-width: 100%;
+}
+
+.SinNovedades_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 881px;
+  padding-left: 15px;
+  background: #ffffff;
+  box-sizing: border-box;
+
+  height: 68px;
+  margin: 0 3px 0px 3px;
+  border: none;
+  border-bottom: 0.7px solid #eaeaea;
+  border-radius: 0;
+}
+
+.MuiTypography-body2 {
+  font-family: "Inter", sans-serif !important;
+}
+.MuiFormLabel-root {
+  font-family: "Inter", sans-serif !important;
+}
+
+.MuiInputBase-root {
+  font-family: "Inter", sans-serif !important;
+}
+
+.MuiFormControl-root.AñadirUsuario-Button {
+  width: 92% !important;
 }
 
 /* Calendario */
@@ -380,6 +433,7 @@ span:hover {
 }
 .react-calendar__tile--active {
   background: none !important;
+  /* border: 1px solid #9a66a8 !important; */
   border-radius: 9999px;
 }
 .react-calendar__tile--active abbr {
@@ -398,6 +452,28 @@ span:hover {
 }
 /* Calendario END */
 
+/* Accordeon */
+.MuiAccordionDetails-root {
+  padding: 0px 10px 0px !important;
+}
+
+.MuiAccordionSummary-root {
+  min-height: 50px;
+}
+
+.MuiAccordionSummary-root.Mui-expanded {
+  min-height: 50px !important;
+}
+
+.MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+
+.MuiIconButton-label {
+  color: black !important;
+}
+/* Accordeon END */
+
 /* AdminHome END */
 
 /* Revisar autodiagnostico */
@@ -409,6 +485,16 @@ span:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0.875em 15%;
+  /* justify-items: center */
+}
+
+.datos-proyecto_container .FirstLogin_button_container {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.MuiButton-root.AñadirUsuario-input {
+  max-width: 150px;
 }
 
 .datos-proyecto_container .datos-proyecto {
@@ -464,6 +550,14 @@ span:hover {
     grid-template-columns: 1fr;
   }
 
+  .datos-proyecto_container .FirstLogin_button_container {
+    grid-column-end: unset;
+    grid-column-start: unset;
+  }
+
+  .MuiFormControl-root.AñadirUsuario-Button {
+    width: 100% !important;
+  }
   .datos-proyecto_container .datos-proyecto {
     width: 100% !important;
   }
@@ -485,7 +579,10 @@ span:hover {
   }
   span {
     /* display: none; */
-    font-size: 13px;
+    font-size: 14px;
+  }
+  .LoginRegister-form-question-link strong {
+    font-size: 16px;
   }
   .navbar {
     flex-wrap: nowrap;
@@ -513,6 +610,11 @@ span:hover {
   .Avatar {
     width: 30px;
     height: 30px;
+  }
+
+  .LoginRegister-form-button {
+    font-size: 16px !important;
+    height: 2.8em !important;
   }
 }
 @media screen and (max-width: 600px) {
@@ -548,9 +650,9 @@ span:hover {
   }
 
   .Novedades_container {
-    margin: 0 3px 3px 3px;
+    /* margin: 0 3px 3px 3px; */
     border: none;
-    border-bottom: 0.7px solid #999;
+    border-bottom: 0.7px solid #eaeaea;
     border-radius: 0;
   }
 
@@ -573,6 +675,30 @@ span:hover {
   }
   .Novedades_container {
     height: 67px;
+  }
+
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.mr-2.MuiButton-containedPrimary {
+    padding: 4px 10px;
+  }
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.ml-2.MuiButton-containedPrimary {
+    padding: 4px 10px;
+  }
+}
+@media screen and (max-width: 332px) {
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.mr-2.MuiButton-containedPrimary.HomeButton1 {
+    margin-right: 0px;
+  }
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.ml-2.MuiButton-containedPrimary.HomeButton2 {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 308px) {
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.mr-2.MuiButton-containedPrimary.HomeButton1 {
+    margin-right: auto !important;
+  }
+  .MuiButtonBase-root.MuiButton-root.MuiButton-contained.ml-2.MuiButton-containedPrimary.HomeButton2 {
+    margin-left: auto !important;
+    /* margin-top: 8px; */
   }
 }
 

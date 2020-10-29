@@ -52,7 +52,7 @@ export default function NavegationBar(props) {
 
               {userData.form_complete === "false" && (
                 <Link to="/" className="nav-item text-decoration-none items-dropdown">
-                  <Dropdown.Item className="dropdown">Other thing</Dropdown.Item>
+                  <Dropdown.Item className="dropdown">Perfil</Dropdown.Item>
                 </Link>
               )}
               {userData.form_complete === "false" && <Dropdown.Divider />}
@@ -82,7 +82,7 @@ export default function NavegationBar(props) {
                 </Link>
 
                 <Link to="/" className="nav-item text-decoration-none items-dropdown">
-                  <div className="dropdown-1">Other thing</div>
+                  <div className="dropdown-1">Perfil</div>
                 </Link>
                 <Dropdown.Divider />
 

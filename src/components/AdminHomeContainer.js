@@ -12,6 +12,7 @@ function AdminHomeContainer() {
 
   useEffect(() => {
     getNovedades();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getNovedades = async () => {
@@ -50,51 +51,61 @@ function AdminHomeContainer() {
             <h1>Ocurrio un errorsito</h1>
           ) : (
             <>
-              {novedades.map((novedad) => {
-                return (
-                  <div key={novedad.id}>
-                    <div className="Novedades_container">
-                      <div className="Novedades-details_container">
-                        <div className="Novedades-details_containerr">
-                          <Avatar
-                            src={novedad.avatar}
-                            alt={"Avatar"}
-                            className="Novedades-Avatar_container"
-                          />
-                          <div className="Novedades-details">
-                            <span className="novedades-name">{novedad.username}</span> se ha
-                            registrado.{" "}
-                            <span className="novedades-otherText">
-                              Revisa su autodiagn&oacute;stico.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="Novedades-button_container">
-                        <Link
-                          to={`/revisar/${novedad.id}`}
-                          className="text-decoration-none text-dark"
-                        >
-                          <Tooltip
-                            title="Revisar"
-                            arrow
-                            TransitionComponent={Zoom}
-                            placement="right"
-                          >
-                            <Button
-                              variant="contained"
-                              color="primary"
-                              className="Novedades-button"
-                            >
-                              Revisar
-                            </Button>
-                          </Tooltip>
-                        </Link>
-                      </div>
+              {novedades.length === 0 ? (
+                <div className="SinNovedades_container">
+                  <div className="full-width">
+                    <div className="SinNovedades-details">
+                      <h6>No hay novedades </h6>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ) : (
+                <>
+                  {novedades.map((novedad) => {
+                    return (
+                      <div className="Novedades_container" key={novedad.id}>
+                        <div className="Novedades-details_container">
+                          <div className="Novedades-details_containerr">
+                            <Avatar
+                              src={novedad.avatar}
+                              alt={"Avatar"}
+                              className="Novedades-Avatar_container"
+                            />
+                            <div className="Novedades-details">
+                              <span className="novedades-name">{novedad.username}</span> se ha
+                              registrado.{" "}
+                              <span className="novedades-otherText">
+                                Revisa su autodiagn&oacute;stico.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="Novedades-button_container">
+                          <Link
+                            to={`/revisar/${novedad.id}`}
+                            className="text-decoration-none text-dark"
+                          >
+                            <Tooltip
+                              title="Revisar"
+                              arrow
+                              TransitionComponent={Zoom}
+                              placement="right"
+                            >
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                className="Novedades-button"
+                              >
+                                Revisar
+                              </Button>
+                            </Tooltip>
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </>
           )}
         </>

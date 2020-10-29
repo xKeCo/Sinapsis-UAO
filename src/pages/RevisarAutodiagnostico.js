@@ -1,6 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./styles/Home.css";
 import "bootstrap/dist/css/bootstrap.css";
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
@@ -27,6 +25,7 @@ export default function RevisarAutodiagnostico(props) {
   const { currentUser } = useContext(AuthContext);
   const [Data, setData] = useState([]);
   const [DataMentor, setDataMentor] = useState([]);
+  const [DataUser, setDataUser] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Errors, setErrors] = useState(null);
   const [ruta, setRuta] = useState("");
@@ -43,6 +42,7 @@ export default function RevisarAutodiagnostico(props) {
     document.title = "Sinapsis UAO - Autodiagnostico";
     getData();
     getDataMentor();
+    getDataUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -57,6 +57,23 @@ export default function RevisarAutodiagnostico(props) {
       });
 
       setData(docs[0]);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setErrors(error);
+    }
+  };
+  const getDataUser = async () => {
+    try {
+      setLoading(true);
+      const res = await database.collection("users").where("uID", "==", id).get();
+      const docs = [];
+
+      res.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+
+      setDataUser(docs[0]);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -143,6 +160,13 @@ export default function RevisarAutodiagnostico(props) {
                       <List disablePadding>
                         <ListItem>
                           <ListItemText
+                            primary="Nombre del emprendedor"
+                            secondary={DataUser.username}
+                          />
+                        </ListItem>
+                        <Divider />
+                        <ListItem>
+                          <ListItemText
                             primary="Como se entero del programa Sinapsis UAO"
                             secondary={Data.conocioSinapsis}
                           />
@@ -161,7 +185,11 @@ export default function RevisarAutodiagnostico(props) {
                             secondary={Data.descIniciativa}
                           />
                         </ListItem>
+
                         <Divider />
+                      </List>
+
+                      <List disablePadding>
                         <ListItem>
                           <ListItemText
                             primary="Principal necesidad o problema que soluciona"
@@ -169,9 +197,6 @@ export default function RevisarAutodiagnostico(props) {
                           />
                         </ListItem>
                         <Divider />
-                      </List>
-
-                      <List disablePadding>
                         <ListItem>
                           <ListItemText
                             primary="Principal cliente o usuario"

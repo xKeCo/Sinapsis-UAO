@@ -32,7 +32,9 @@ export default function Home() {
         userData.form_complete &&
         !userData.ruta_asignada && <Hecho />}
 
-      {userData && userData.rol === "emprendedor" && userData.ruta_asignada && <h1>holi</h1>}
+      {userData && userData.rol === "emprendedor" && userData.ruta_asignada && (
+        <h1>holi emprendedor</h1>
+      )}
       {userData && userData.rol === "admin" && <AdminHome />}
       {userData && userData.rol === "mentor" && (
         <div>

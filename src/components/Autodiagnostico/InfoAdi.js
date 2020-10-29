@@ -38,7 +38,6 @@ export class InfoAdi extends Component {
               name="cedula"
               required
               autoComplete="off"
-              autoFocus={true}
               inputProps={{
                 maxLength: 11,
               }}
