@@ -1,13 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
-import "bootstrap/dist/css/bootstrap.css";
+// Conseguir datos de usuario actual
 import { AuthContext } from "./Auth";
+// Redirección del usuario
 import { Redirect } from "react-router-dom";
+// Conexión con firebase
 import firebaseConfig from "../firebase/client";
+// Componente Loader
 import Loader from "./Loader";
-
+// Estilos
+import "bootstrap/dist/css/bootstrap.css";
 // MATERIAL UI
 import { TextField } from "@material-ui/core";
-// MATERIAL UI END
 
 export default function Login() {
   const [form, setValues] = useState({});
@@ -19,6 +22,7 @@ export default function Login() {
     document.title = "Sinapsis UAO - Inicio de sesión";
   }, []);
 
+  // Función para saber lo que el ususario escribe
   const handleInput = (event) => {
     setValues({
       ...form,
@@ -26,6 +30,7 @@ export default function Login() {
     });
   };
 
+  // Función que envia los datos a Firebase
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors({});
@@ -51,6 +56,7 @@ export default function Login() {
     setLoading(true);
   };
 
+  // Función para redirigir al home si hay un usuario conectado
   if (currentUser) {
     return <Redirect to="/home" />;
   }

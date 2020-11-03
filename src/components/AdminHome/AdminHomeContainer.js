@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+// Conexión Base de datos
 import { database } from "../../firebase/client";
-import Loader from "../Loader";
+// Material UI
 import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../Avatar";
+// Links
 import { Link } from "react-router-dom";
+// Componentes Loader y Avatar
+import Loader from "../Loader";
+import Avatar from "../Avatar";
 
 function AdminHomeContainer() {
   const [novedades, setNovedades] = useState([]);
@@ -15,6 +19,7 @@ function AdminHomeContainer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Función para traer los emprendedores que acaban de hacer el autodiagnóstico
   const getNovedades = async () => {
     try {
       await database

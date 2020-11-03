@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Material UI
 import {
   TextField,
   Button,
@@ -7,16 +8,18 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  // Snackbar,
 } from "@material-ui/core";
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 export class InfoProyecto extends Component {
+  // Next Step
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
+  // Prev Step
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
@@ -34,13 +37,13 @@ export class InfoProyecto extends Component {
                 Como se entero del programa Sinapsis UAO
               </FormLabel>
               <RadioGroup
+                label="conocioSinapsis"
+                name="conocioSinapsis"
                 row
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
                 defaultValue={values.conocioSinapsis}
                 onChange={handleChange("conocioSinapsis")}
-                label="conocioSinapsis"
-                name="conocioSinapsis"
                 required
               >
                 <FormControlLabel
@@ -62,6 +65,7 @@ export class InfoProyecto extends Component {
                 <FormControlLabel value={"Otro"} label="Otro" control={<Radio />} />
               </RadioGroup>
             </FormControl>
+
             <TextField
               id="standard-basic"
               label="Nombre de la iniciativa"
@@ -69,13 +73,14 @@ export class InfoProyecto extends Component {
               name="nombreIniciativa"
               required
               autoComplete="off"
-              inputProps={{
-                maxLength: 41,
-              }}
+              // inputProps={{
+              //   maxLength: 41,
+              // }}
               onChange={handleChange("nombreIniciativa")}
               defaultValue={values.nombreIniciativa}
               multiline
             />
+
             <TextField
               id="standard-basic"
               className="MuiFormLabel-root mt-4"
@@ -88,10 +93,11 @@ export class InfoProyecto extends Component {
               multiline
               defaultValue={values.descIniciativa}
               onChange={handleChange("descIniciativa")}
-              inputProps={{
-                maxLength: 41,
-              }}
+              // inputProps={{
+              //   maxLength: 41,
+              // }}
             />
+
             <TextField
               id="standard-basic"
               className="MuiFormLabel-root mt-4"
@@ -101,12 +107,13 @@ export class InfoProyecto extends Component {
               name="prinSolucion"
               required
               multiline
-              inputProps={{
-                maxLength: 41,
-              }}
+              // inputProps={{
+              //   maxLength: 41,
+              // }}
               defaultValue={values.prinSolucion}
               onChange={handleChange("prinSolucion")}
             />
+
             <TextField
               id="standard-basic"
               className="MuiFormLabel-root mt-4"
@@ -116,12 +123,13 @@ export class InfoProyecto extends Component {
               name="prinUsuario"
               required
               multiline
-              inputProps={{
-                maxLength: 41,
-              }}
+              // inputProps={{
+              //   maxLength: 41,
+              // }}
               defaultValue={values.prinUsuario}
               onChange={handleChange("prinUsuario")}
             />
+
             <TextField
               id="standard-basic"
               className="MuiFormLabel-root mt-4"
@@ -131,25 +139,25 @@ export class InfoProyecto extends Component {
               name="valIniciaiva"
               required
               multiline
-              inputProps={{
-                maxLength: 41,
-              }}
+              // inputProps={{
+              //   maxLength: 41,
+              // }}
               defaultValue={values.valIniciaiva}
               onChange={handleChange("valIniciaiva")}
             />
+
             <FormControl component="fieldset" className="MuiFormLabel-root mt-4">
               <FormLabel id="demo-simple-select-filled-label">
                 Instrumentos que ha utilizado para las validaciones
               </FormLabel>
               <RadioGroup
+                label="MetodoValIniciaiva"
+                name="MetodoValIniciaiva"
                 row
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
                 defaultValue={values.MetodoValIniciaiva}
                 onChange={handleChange("MetodoValIniciaiva")}
-                label="MetodoValIniciaiva"
-                name="MetodoValIniciaiva"
-                // required
               >
                 <FormControlLabel value={"Ninguno"} label="Ninguno" control={<Radio />} />
                 <FormControlLabel value={"Entrevista"} label="Entrevista" control={<Radio />} />
@@ -158,6 +166,7 @@ export class InfoProyecto extends Component {
                 <FormControlLabel value={"Otro"} label="Otro" control={<Radio />} />
               </RadioGroup>
             </FormControl>
+
             <div className="encuesta_buttons_container mt-3">
               <Button variant="contained" color="primary" style={styles.button} onClick={this.back}>
                 Atr&aacute;s

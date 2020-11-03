@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+// Material UI
 import { Button } from "@material-ui/core";
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 export class InfoProyecto extends Component {
+  // Next Step
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();

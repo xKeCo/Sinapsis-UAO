@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
+// Conexión con la base de datos
 import { database } from "../../firebase/client";
-import Loader from "../Loader";
+// Material UI
 import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../Avatar";
+// Links
 import { Link } from "react-router-dom";
+// Importar el usuario actual
 import { AuthContext } from "../../components/Auth";
+// Importar componentes
+import Avatar from "../Avatar";
+import Loader from "../Loader";
 
 function EmprendedorActividades() {
   const [actividades, setActividades] = useState([]);
@@ -17,6 +22,7 @@ function EmprendedorActividades() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Función para traer las actividades relacionadas con el usuario
   const getActividades = async () => {
     try {
       await database
@@ -41,6 +47,7 @@ function EmprendedorActividades() {
       setErrors(error);
     }
   };
+
   return (
     <div>
       {Loading ? (

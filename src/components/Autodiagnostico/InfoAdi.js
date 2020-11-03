@@ -1,28 +1,16 @@
 import React, { Component } from "react";
-import {
-  TextField,
-  Button,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  // Snackbar,
-} from "@material-ui/core";
+// Material UI
+import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 export class InfoAdi extends Component {
+  // Next Step
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
-
-  // cedula: "",
-  //   direccion: "",
-  //   ciudad: "",
-  //   telefono: "",
-  //   vinculoUni: "",
-  //   programa: "",
 
   render() {
     const { values, handleChange } = this.props;
@@ -71,22 +59,22 @@ export class InfoAdi extends Component {
               type="date"
               name="nacimiento"
               required
-              onChange={handleChange("nacimiento")}
-              defaultValue={values.nacimiento}
               InputLabelProps={{
                 shrink: true,
               }}
+              onChange={handleChange("nacimiento")}
+              defaultValue={values.nacimiento}
             />
             <FormControl className="MuiFormLabel-root mt-3">
               <InputLabel id="demo-simple-select-filled-label">G&eacute;nero</InputLabel>
               <Select
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
-                defaultValue={values.genero}
-                onChange={handleChange("genero")}
                 label="genero"
                 name="genero"
                 required
+                defaultValue={values.genero}
+                onChange={handleChange("genero")}
               >
                 <MenuItem value={"Masculino"}>Masculino</MenuItem>
                 <MenuItem value={"Femenino"}>Femenino</MenuItem>
@@ -129,11 +117,11 @@ export class InfoAdi extends Component {
               <Select
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
-                defaultValue={values.vinculoUni}
-                onChange={handleChange("vinculoUni")}
                 label="vinculoUni"
                 name="vinculoUni"
                 required
+                defaultValue={values.vinculoUni}
+                onChange={handleChange("vinculoUni")}
               >
                 <MenuItem value={"Pregrado"}>Pregrado</MenuItem>
                 <MenuItem value={"PostGrado"}>PostGrado</MenuItem>
@@ -148,7 +136,7 @@ export class InfoAdi extends Component {
               label="Programa acad&eacute;mico"
               type="text"
               name="programa"
-              multiline
+              // multiline
               autoComplete="off"
               placeholder="Ej. Ing. Informatica"
               helperText="Ingrese el programa academico al que pertenece, si lo desea, es un campo Opcional :)"

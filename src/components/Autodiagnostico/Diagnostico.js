@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Importar componentes para el autodiagnóstico
 import InfoAdi from "./InfoAdi";
 import InfoProyecto from "./InfoProyecto";
 import FirstLoginEmprendedor from "./FirstLoginEmprendedor";
@@ -15,7 +16,7 @@ export class autoDiagnostico extends Component {
     vinculoUni: "",
     programa: "",
     genero: "",
-    nacimiento: new Date(),
+    nacimiento: "",
     conocioSinapsis: "",
     nombreIniciativa: "",
     descIniciativa: "",
@@ -55,7 +56,6 @@ export class autoDiagnostico extends Component {
   };
 
   // handleChange Inputs
-
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };

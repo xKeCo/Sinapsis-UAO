@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Material UI
 import {
   Button,
   List,
@@ -6,9 +7,11 @@ import {
   ListItemText,
   // Snackbar,
 } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Divider from "@material-ui/core/Divider";
+// Componente Dialogo
 import Dialogo from "./Dialogo";
 
 export class InfoProyecto extends Component {

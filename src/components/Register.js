@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
+// Estilos
 import "bootstrap/dist/css/bootstrap.css";
 import { AuthContext } from "./Auth";
+// Redirigir
 import { Redirect } from "react-router-dom";
+// Conexión con la base de datos
 import firebaseConfig from "../firebase/client";
+// Componente Loader
 import Loader from "./Loader";
-
 // Material UI
 import { TextField } from "@material-ui/core";
-// Material UI End
 
 export default function Login() {
   const [form, setValues] = useState({
@@ -19,9 +21,10 @@ export default function Login() {
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    document.title = "Sinapsis UAO - Inicio de sesión";
+    document.title = "Sinapsis UAO - Registro";
   }, []);
 
+  // Función para saber lo que el ususario escribe
   const handleInput = (event) => {
     setValues({
       ...form,
@@ -29,6 +32,7 @@ export default function Login() {
     });
   };
 
+  // Función que envia los datos a Firebase
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors({});

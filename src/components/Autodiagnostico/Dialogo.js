@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-
-import Modal from "./Modal";
+// Conexión bases de datos
 import { database } from "../../firebase/client";
+// Datos de la sesión actual
 import { AuthContext } from "../Auth";
+// Estilos
 import "bootstrap/dist/css/bootstrap.css";
+// Componente modal
+import Modal from "./Modal";
 
 const Dialogo = (props) => {
   const { userData, setUserData } = useContext(AuthContext);
@@ -28,6 +31,7 @@ const Dialogo = (props) => {
     },
   } = props;
 
+  // Añadir datos a la base de datos
   const handleChangeForm = async () => {
     try {
       if (userData.form_complete === false) {

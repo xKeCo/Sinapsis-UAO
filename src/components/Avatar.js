@@ -1,4 +1,5 @@
 import React from "react";
+// Estilos
 import "./styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 

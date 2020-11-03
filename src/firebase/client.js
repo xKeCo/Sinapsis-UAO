@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
 
+// SDK para la conexion con Firebase
 const firebaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyClkhLxN-42Gvh4ckFVHS5dd9M5cNOZqSo",
   authDomain: "sinapsisuao.firebaseapp.com",
@@ -19,7 +20,7 @@ const mapUserFromFirebaseAuthToUser = (user) => {
     email,
   };
 };
-
+// Exportamos la Base de datos Firestore
 export const database = firebaseConfig.firestore();
 
 export const onAuthStateChanged = (onChange) => {

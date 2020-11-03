@@ -6,9 +6,12 @@ import { Redirect } from "react-router-dom";
 import { database } from "../firebase/client";
 import Loader from "../components/Loader";
 import { List, ListItem, ListItemText, Divider, Button } from "@material-ui/core";
+import { Breadcrumbs, Typography } from "@material-ui/core";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import Avatar from "../components/Avatar";
+import EditIcon from "@material-ui/icons/Edit";
 
 export default function PerfilUsuario(props) {
   const { userData } = useContext(AuthContext);
@@ -61,6 +64,21 @@ export default function PerfilUsuario(props) {
             <>
               {
                 <>
+                  <div className="BreadCrumbs-container ">
+                    <Breadcrumbs
+                      separator={<NavigateNextIcon fontSize="small" />}
+                      aria-label="breadcrumb"
+                    >
+                      <Link
+                        color="inherit"
+                        to="/home"
+                        className="text-decoration-none text-black-50"
+                      >
+                        Inicio
+                      </Link>
+                      <Typography color="textPrimary">Perfil del emprendedor</Typography>
+                    </Breadcrumbs>
+                  </div>
                   <div className="todo-revisarautodiagnostico_container">
                     <h3 className="text-center mt-4 font-weight-bold mb-4">
                       Perfil del emprendedor
@@ -72,21 +90,23 @@ export default function PerfilUsuario(props) {
                           alt={"Avatar"}
                           className="User-Avatar_container"
                         />
-                        <div className="FirstLogin_button_container mt-4">
-                          <div>
-                            <Link to="/home">
-                              <Button
-                                type="input"
-                                variant="contained"
-                                className="button-1"
-                                color="primary"
-                                // onClick={handleAddInfo}
-                              >
-                                Emprendimientos
-                              </Button>
-                            </Link>
+                        {Data.rol === "emprendedor" && (
+                          <div className="FirstLogin_button_container mt-4">
+                            <div>
+                              <Link to="/home">
+                                <Button
+                                  type="input"
+                                  variant="contained"
+                                  className="button-1"
+                                  color="primary"
+                                  // onClick={handleAddInfo}
+                                >
+                                  Emprendimientos
+                                </Button>
+                              </Link>
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                       <div className="UserInformation_container">
                         <List disablePadding className="RevisarAutodiagnostico-List">
@@ -156,38 +176,59 @@ export default function PerfilUsuario(props) {
                           {Data.programa !== "" && <Divider />}
                         </List>
                       </div>
-                      <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
-                        <div>
-                          <Link to="/home">
-                            <Button
-                              type="input"
-                              variant="contained"
-                              className="button-0"
-                              color="primary"
-                            >
-                              Reporte de etapas
-                            </Button>
-                          </Link>
+                      {Data.rol === "emprendedor" && (
+                        <>
+                          <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
+                            <div>
+                              <Link to="/home">
+                                <Button
+                                  type="input"
+                                  variant="contained"
+                                  className="button-0"
+                                  color="primary"
+                                >
+                                  Reporte de etapas
+                                </Button>
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="FirstLogin_button_container mr-3 ml-3 mt-4">
+                            <div>
+                              <Link to="/home">
+                                <Button
+                                  type="input"
+                                  variant="contained"
+                                  className="button-0"
+                                  color="primary"
+                                >
+                                  Actividades
+                                </Button>
+                              </Link>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                      {Data.uID === userData.uID && (
+                        <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
+                          <div>
+                            <Link to="/home">
+                              <Button
+                                type="input"
+                                variant="contained"
+                                className="button-0"
+                                color="primary"
+                                endIcon={<EditIcon />}
+                              >
+                                Editar Perfil
+                              </Button>
+                            </Link>
+                          </div>
                         </div>
-                      </div>
-                      <div className="FirstLogin_button_container mr-3 ml-3 mt-4">
-                        <div>
-                          <Link to="/home">
-                            <Button
-                              type="input"
-                              variant="contained"
-                              className="button-0"
-                              color="primary"
-                            >
-                              Actividades
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
+                      )}
                     </div>
 
                     <div className="Button-volver mt-4 mb-5 ">
-                      <Link to="/home">
+                      <Link to="/">
                         <Button
                           variant="contained"
                           color="secondary"

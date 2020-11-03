@@ -17,6 +17,7 @@ function EmprendedorReuniones() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Función para traer las reuniones relacionadas con el usuario
   const getReuniones = async () => {
     try {
       await database
@@ -40,6 +41,7 @@ function EmprendedorReuniones() {
       setErrors(error);
     }
   };
+
   return (
     <div>
       {Loading ? (

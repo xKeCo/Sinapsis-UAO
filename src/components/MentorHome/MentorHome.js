@@ -24,7 +24,7 @@ const AdminHome = () => {
 
   return (
     <>
-      <div className="AdminHome">
+      <div className="Home">
         <div className="AdminHome_container">
           <div className="calendario-prueba">
             <Calendar />

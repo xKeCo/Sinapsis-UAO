@@ -1,8 +1,10 @@
 import React from "react";
+// Material UI
 import { Paper, IconButton, InputBase, Divider, makeStyles } from "@material-ui/core";
+// Iconos Material UI
+// import DirectionsIcon from "@material-ui/icons/Directions";
 // import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-// import DirectionsIcon from "@material-ui/icons/Directions";
 import TuneIcon from "@material-ui/icons/Tune";
 
 const useStyles = makeStyles((theme) => ({

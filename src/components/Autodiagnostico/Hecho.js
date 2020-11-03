@@ -1,6 +1,8 @@
 import React from "react";
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
+// Material UI
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 export default function Hecho() {

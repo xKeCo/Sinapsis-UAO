@@ -15,7 +15,7 @@ export default function Home() {
   const { currentUser, userData } = useContext(AuthContext);
 
   useEffect(() => {
-    document.title = "Sinapsis UAO - Home";
+    document.title = "Sinapsis UAO - Inicio";
   }, []);
 
   if (!currentUser) {
@@ -29,14 +29,36 @@ export default function Home() {
       {userData && userData.rol === "emprendedor" && userData.form_complete === false && (
         <Diagnostico />
       )}
+
       {userData &&
         userData.rol === "emprendedor" &&
         userData.form_complete &&
         !userData.ruta_asignada && <Hecho />}
 
-      {userData && userData.rol === "emprendedor" && userData.ruta_asignada && <EmprendedorHome />}
-      {userData && userData.rol === "admin" && <AdminHome />}
-      {userData && userData.rol === "mentor" && <MentorHome />}
+      {userData && userData.rol === "emprendedor" && userData.ruta_asignada && (
+        <>
+          <div className="BreadCrumbs-container ">
+            <h3 className="font-weight-bold text-center">Inicio</h3>
+          </div>
+          <EmprendedorHome />
+        </>
+      )}
+      {userData && userData.rol === "admin" && (
+        <>
+          <div className="BreadCrumbs-container text-center">
+            <h3 className="font-weight-bold">Inicio</h3>
+          </div>
+          <AdminHome />
+        </>
+      )}
+      {userData && userData.rol === "mentor" && (
+        <>
+          <div className="BreadCrumbs-container text-center">
+            <h3 className="font-weight-bold">Inicio</h3>
+          </div>
+          <MentorHome />
+        </>
+      )}
     </>
   );
 }

@@ -16,9 +16,12 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Breadcrumbs,
+  Typography,
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import { Link } from "react-router-dom";
 
 export default function RevisarAutodiagnostico(props) {
@@ -120,14 +123,6 @@ export default function RevisarAutodiagnostico(props) {
     setSectorEconomia(event.target.value);
   };
 
-  // const clg = () => {
-  //   console.log(mentor);
-  //   console.log(ruta);
-  //   console.log(tipoEconomia);
-  //   console.log(tipoEmprendimiento);
-  //   console.log(sectorEconomia);
-  // };
-
   const handleAddInfo = async () => {
     try {
       await database
@@ -179,6 +174,21 @@ export default function RevisarAutodiagnostico(props) {
             <>
               {
                 <>
+                  <div className="BreadCrumbs-container ">
+                    <Breadcrumbs
+                      separator={<NavigateNextIcon fontSize="small" />}
+                      aria-label="breadcrumb"
+                    >
+                      <Link
+                        color="inherit"
+                        to="/home"
+                        className="text-decoration-none text-black-50"
+                      >
+                        Inicio
+                      </Link>
+                      <Typography color="textPrimary">Revisar autodiagn&oacute;stico</Typography>
+                    </Breadcrumbs>
+                  </div>
                   <div className="todo-revisarautodiagnostico_container">
                     <h3 className="text-center mt-4 font-weight-bold mb-4">Datos del proyecto</h3>
                     <div className="datos-proyecto_container ">

@@ -258,11 +258,11 @@ span:hover {
 
 /* AdminHome */
 
-.AdminHome {
+.Home {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 25px;
+  /* margin-top: 25px; */
 }
 
 .AdminHome_container {
@@ -678,6 +678,15 @@ span:hover {
   width: 100%;
 }
 /* Perfil Usuario END */
+
+.BreadCrumbs-container {
+  /* margin: auto; */
+  padding: 0.875em 15%;
+}
+
+/* .MuiBreadcrumbs-ol {
+  justify-content: center;
+} */
 
 /* Media Queries */
 

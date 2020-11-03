@@ -1,20 +1,26 @@
 /* eslint-disable no-mixed-operators */
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+// Estilos
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/styles.css";
+// Componente de avatar
 import Avatar from "../components/Avatar";
+// React-Bootstrap
 import { Dropdown, Navbar } from "react-bootstrap";
+// Conexión con la base de datos
 import firebaseConfig from "../firebase/client";
+// Imagenes
 import SinapsisColor from "../images/SinapsisColor.png";
 import { AuthContext } from "./Auth";
+// Material UI
 import Badge from "@material-ui/core/Badge";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { Tooltip, Zoom } from "@material-ui/core";
 
 export default function NavegationBar(props) {
   const { userData, setUserData } = useContext(AuthContext);
-
+  // Función para cerrar sesión
   const logOut = () => {
     firebaseConfig
       .auth()
@@ -51,7 +57,10 @@ export default function NavegationBar(props) {
               )}
 
               {userData.form_complete !== "false" && (
-                <Link to="/" className="nav-item text-decoration-none items-dropdown">
+                <Link
+                  to={`/perfil/${userData.uID}`}
+                  className="nav-item text-decoration-none items-dropdown"
+                >
                   <div className="dropdown-1">Perfil</div>
                 </Link>
               )}
@@ -81,7 +90,10 @@ export default function NavegationBar(props) {
                   <div className="dropdown-1">Inicio</div>
                 </Link>
 
-                <Link to="/" className="nav-item text-decoration-none items-dropdown">
+                <Link
+                  to={`/perfil/${userData.uID}`}
+                  className="nav-item text-decoration-none items-dropdown"
+                >
                   <div className="dropdown-1">Perfil</div>
                 </Link>
                 <Dropdown.Divider />

@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
+// Conexión Base de datos
 import { database } from "../../firebase/client";
+// Loader
 import Loader from "../Loader";
+
+// Material UI
 // import { Button, Tooltip, Zoom } from "@material-ui/core";
 import Avatar from "../Avatar";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Auth";
+
+// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -20,6 +26,7 @@ function MentorNovedades() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Función para traer los emprendedores que se le asignaron al mentor
   const getNovedades = async () => {
     try {
       await database

@@ -193,7 +193,7 @@ const EmprendedorHome = () => {
 
   return (
     <>
-      <div className="AdminHome">
+      <div className="Home">
         <div className="AdminHome_container-emprendedor">
           <div className="accordion-container-emprendedor">
             <HeadInfo />
