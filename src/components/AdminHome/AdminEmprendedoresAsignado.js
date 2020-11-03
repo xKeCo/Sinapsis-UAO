@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { database } from "../firebase/client";
-import Loader from "../components/Loader";
-import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../components/Avatar";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { database } from "../../firebase/client";
+import Loader from "../Loader";
+// import { Button, Tooltip, Zoom } from "@material-ui/core";
+import Avatar from "../Avatar";
+// import { Link } from "react-router-dom";
+import { AuthContext } from "../Auth";
+import "../styles/styles.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-function AdminHomeContainer() {
+function MentorNovedades() {
   const [novedades, setNovedades] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Errors, setErrors] = useState(null);
+  const { userData } = useContext(AuthContext);
 
   useEffect(() => {
     getNovedades();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -19,7 +24,7 @@ function AdminHomeContainer() {
     try {
       await database
         .collection("users")
-        .where("ruta_asignada", "==", false)
+        .where("mentor", "==", userData.username)
         .onSnapshot((querysnapshot) => {
           const docs = [];
 
@@ -40,7 +45,7 @@ function AdminHomeContainer() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       {Loading ? (
         <div>
           <Loader />
@@ -48,14 +53,14 @@ function AdminHomeContainer() {
       ) : (
         <>
           {Errors ? (
-            <h1>Ocurrio un errorsito</h1>
+            <h3>Ocurrio un error.</h3>
           ) : (
             <>
               {novedades.length === 0 ? (
                 <div className="SinNovedades_container">
                   <div className="full-width">
                     <div className="SinNovedades-details">
-                      <h6>No hay novedades </h6>
+                      <h6>A&uacute;n no tienes emprendedores asignados.</h6>
                     </div>
                   </div>
                 </div>
@@ -72,34 +77,16 @@ function AdminHomeContainer() {
                               className="Novedades-Avatar_container"
                             />
                             <div className="Novedades-details">
-                              <span className="novedades-name">{novedad.username}</span> se ha
-                              registrado.{" "}
-                              <span className="novedades-otherText">
-                                Revisa su autodiagn&oacute;stico.
+                              <span className="novedades-name">
+                                {novedad.username}
+                                <br />
+                              </span>
+                              <span className="novedades-otherText-mentor">
+                                Etapa actual:{" "}
+                                <span className="font-weight-bold">{novedad.ruta}</span>
                               </span>
                             </div>
                           </div>
-                        </div>
-                        <div className="Novedades-button_container">
-                          <Link
-                            to={`/revisar/${novedad.id}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            <Tooltip
-                              title="Revisar"
-                              arrow
-                              TransitionComponent={Zoom}
-                              placement="right"
-                            >
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="Novedades-button"
-                              >
-                                Revisar
-                              </Button>
-                            </Tooltip>
-                          </Link>
                         </div>
                       </div>
                     );
@@ -110,8 +97,8 @@ function AdminHomeContainer() {
           )}
         </>
       )}
-    </div>
+    </React.Fragment>
   );
 }
 
-export default AdminHomeContainer;
+export default MentorNovedades;

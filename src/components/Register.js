@@ -83,9 +83,10 @@ export default function Login() {
             type="text"
             name="nombre"
             required
+            multiline
             autoComplete="off"
             inputProps={{
-              maxLength: 35,
+              maxLength: 30,
             }}
             onChange={handleInput}
           />
@@ -97,6 +98,7 @@ export default function Login() {
             type="email"
             name="email"
             required
+            multiline
             onChange={handleInput}
           />
 

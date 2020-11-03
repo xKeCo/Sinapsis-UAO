@@ -37,13 +37,14 @@ export class InfoAdi extends Component {
               type="number"
               name="cedula"
               required
+              multiline
               autoComplete="off"
               inputProps={{
                 maxLength: 11,
               }}
               onChange={handleChange("cedula")}
               defaultValue={values.cedula}
-              helperText="Ingrese su número de identificación sin puntos, gracias :)"
+              helperText="Ingrese su número de identificación sin ningun tipo de caracter especial, gracias :)"
               placeholder="Ej. 11111111111"
             />
             <TextField
@@ -52,6 +53,7 @@ export class InfoAdi extends Component {
               label="Telefono"
               type="tel"
               name="telefono"
+              multiline
               placeholder="Ej. 3132645894"
               required
               autoComplete="off"
@@ -101,6 +103,7 @@ export class InfoAdi extends Component {
               type="text"
               name="ciudad"
               required
+              multiline
               autoComplete="off"
               onChange={handleChange("ciudad")}
               defaultValue={values.ciudad}
@@ -112,6 +115,7 @@ export class InfoAdi extends Component {
               type="text"
               name="direccion"
               required
+              multiline
               autoComplete="off"
               helperText="Ingrese la direccion de su residencia con todos los caracteres necesarios, Tranquilo! Tu información esta a salvo ;)"
               placeholder="Ej. Calle 1 # 1-11"
@@ -144,6 +148,7 @@ export class InfoAdi extends Component {
               label="Programa acad&eacute;mico"
               type="text"
               name="programa"
+              multiline
               autoComplete="off"
               placeholder="Ej. Ing. Informatica"
               helperText="Ingrese el programa academico al que pertenece, si lo desea, es un campo Opcional :)"

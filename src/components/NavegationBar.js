@@ -44,18 +44,18 @@ export default function NavegationBar(props) {
             </Tooltip>
 
             <Dropdown.Menu>
-              {userData.form_complete === "false" && (
+              {userData.form_complete !== "false" && (
                 <Link to="/home" className="nav-item text-decoration-none items-dropdown">
-                  <Dropdown.Item className="dropdown">Inicio</Dropdown.Item>
+                  <div className="dropdown-1">Inicio</div>
                 </Link>
               )}
 
-              {userData.form_complete === "false" && (
+              {userData.form_complete !== "false" && (
                 <Link to="/" className="nav-item text-decoration-none items-dropdown">
-                  <Dropdown.Item className="dropdown">Perfil</Dropdown.Item>
+                  <div className="dropdown-1">Perfil</div>
                 </Link>
               )}
-              {userData.form_complete === "false" && <Dropdown.Divider />}
+              {userData.form_complete !== "false" && <Dropdown.Divider />}
 
               <Dropdown.Item onClick={logOut} className="dropdown text-danger">
                 Cerrar sesi&oacute;n

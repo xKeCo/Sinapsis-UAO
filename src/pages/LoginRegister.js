@@ -11,7 +11,7 @@ import { Redirect } from "react-router-dom";
 import "../pages/styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 import {
-  //   loginWithGoogle,
+  // loginWithGoogle,
   onAuthStateChanged,
 } from "../firebase/client";
 
@@ -48,8 +48,7 @@ export default function LoginRegister({ match }) {
               <span>
                 ¿No tienes cuenta?
                 <Link to="/registro" className="LoginRegister-form-question-link">
-                  {" "}
-                  <strong>Reg&iacute;strate</strong>{" "}
+                  <strong> Reg&iacute;strate</strong>
                 </Link>
               </span>
             ) : (
@@ -101,7 +100,7 @@ export default function LoginRegister({ match }) {
           </div>
         </div>
         <div className="LoginRegister-content">
-          <img src={SinapsisLoginRegister} alt="Imagen" className="LoginRegister-content-image" />
+          <img src={SinapsisLoginRegister} alt="Imagen" className="LoginRegister-content-image" />z
         </div>
       </div>
     </>

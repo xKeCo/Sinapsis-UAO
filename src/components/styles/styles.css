@@ -291,7 +291,7 @@ span:hover {
   box-sizing: border-box;
   /* border-radius: 5px; */
 
-  height: 68px;
+  height: 80px;
   margin: 0 3px 0px 3px;
   border: none;
   border-bottom: 0.7px solid #eaeaea;
@@ -345,11 +345,16 @@ span:hover {
 
 .Novedades-details {
   margin-bottom: 0;
-  font-size: 17px;
+  font-size: 16px;
 }
 .calendario-prueba {
   min-width: 294px;
   height: 286px;
+  margin: 0 15px 15px 15px;
+}
+.calendario-prueba-emprendedor {
+  width: 335px;
+  height: 330px;
   margin: 0 15px 15px 15px;
 }
 
@@ -358,9 +363,14 @@ span:hover {
   margin-left: 5px !important;
 }
 
-/* .accordion-container {
-  width: 97%;
-} */
+.accordion-container-emprendedor {
+  max-width: 718px;
+  width: 100%;
+}
+.accordion-container {
+  max-width: 905.8px;
+  width: 100%;
+}
 .SinNovedades-details {
   min-width: 100%;
 }
@@ -472,6 +482,10 @@ span:hover {
 .MuiIconButton-label {
   color: black !important;
 }
+
+.MuiAccordion-root::before {
+  background-color: unset !important;
+}
 /* Accordeon END */
 
 /* AdminHome END */
@@ -522,7 +536,121 @@ span:hover {
   font-weight: 500 !important;
   font-size: 15px !important;
 }
+
+.RevisarAutodiagnostico-List {
+  max-width: 635.733px !important;
+}
 /* Revisar autodiagnostico END */
+
+/* EmprendedorHome container */
+
+.head_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* max-width: 964px; */
+  flex-wrap: wrap;
+}
+
+.head-ruta_container {
+  display: flex;
+  align-items: center;
+}
+
+.head-activitiesReport_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 340px;
+}
+
+.head-activity {
+  display: flex;
+  max-width: 145px;
+}
+
+.AdminHome_container-emprendedor {
+  display: flex;
+  justify-content: space-around;
+  width: 1300px;
+  flex-wrap: wrap;
+}
+/* Emprendedor Home */
+.novedades-otherText-emprendedor {
+  font-size: 12px;
+}
+
+.novedades-otherText-emprendedor-reunion {
+  font-size: 12px;
+}
+.novedades-name-emprendedor {
+  font-weight: 500;
+}
+
+.Novedades-details-emprendedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.h1-headInfo {
+  font-weight: 600;
+}
+
+.sideMenu-Item-emprendedor .MuiTypography-body1 {
+  color: black;
+  font-size: 17px !important;
+}
+
+.sideMenu-Item-emprendedor:hover {
+  border-bottom: none;
+}
+/* Emprendedor Home END */
+
+/* Emprendedor calendario */
+.calendario-prueba-emprendedor .react-calendar {
+  width: 335px !important;
+  height: 330px !important;
+}
+
+/* Emprendedor calendario END */
+
+/* EmprendedorHome container END */
+
+.ml-1.mb-2.font-weight-bold {
+  font-weight: 600 !important;
+}
+
+/* MentorHome container  */
+.novedades-otherText-mentor {
+  font-size: 12px;
+}
+
+.accordion-icon_container {
+  display: flex;
+  align-items: center;
+}
+.addboxicon {
+  color: #9a66a8;
+  font-size: 27px !important;
+}
+
+.addboxicon_container {
+  padding: 5px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.HomeButton-container-mentor .MuiTypography-root {
+  width: unset;
+}
+
+.table-emprendedores_container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  max-height: 241px !important;
+}
+/* MentorHome container END */
 
 /* Media Queries */
 
@@ -531,18 +659,31 @@ span:hover {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 1069px) {
+@media screen and (max-width: 1230px) {
   .confirmacion_container {
     grid-template-columns: 1fr;
   }
   .react-calendar {
     display: none;
   }
+
+  .calendario-prueba-emprendedor .react-calendar {
+    display: inherit;
+  }
+
   .calendario-prueba {
     display: none;
   }
   .AdminHome_container {
     justify-content: center;
+  }
+  .AdminHome_container-emprendedor {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1082px) {
+  .calendario-prueba-emprendedor .react-calendar {
+    display: none;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -570,6 +711,11 @@ span:hover {
 
   .NavegationBar-items {
     margin-top: 25px;
+  }
+
+  .calendario-prueba-emprendedor {
+    width: unset;
+    height: unset;
   }
 }
 
@@ -602,6 +748,18 @@ span:hover {
 @media screen and (max-width: 681px) {
   .novedades-otherText {
     display: none;
+  }
+  .novedades-otherText-emprendedor {
+    display: none;
+  }
+
+  .novedades-fecha {
+    margin-left: 0 !important;
+  }
+  .novedades-fecha-reunion {
+    /* min-width: 130px !important; */
+
+    margin-left: 1rem !important;
   }
   .Novedades-details {
     font-size: 14px;
@@ -645,6 +803,10 @@ span:hover {
     font-size: 14px !important;
   }
 
+  .sideMenu-Item-emprendedor .MuiTypography-body1 {
+    font-size: 14px !important;
+  }
+
   h3 {
     font-size: 22px;
   }
@@ -656,14 +818,41 @@ span:hover {
     border-radius: 0;
   }
 
+  .table-emprendedores_container {
+    grid-template-columns: 1fr !important;
+    max-height: 320px !important;
+  }
+
   /* .navbar {
     flex-wrap: nowrap;
   } */
 }
 
+@media screen and (max-width: 524px) {
+  .Novedades_container {
+    padding-left: 5px;
+  }
+}
 @media screen and (max-width: 455px) {
   .Novedades-button_container {
     min-width: 118px;
+  }
+}
+@media screen and (max-width: 455px) {
+  .Novedades-button_container {
+    min-width: 118px;
+  }
+  .head_container {
+    justify-content: center;
+  }
+
+  .head-activitiesReport_container {
+    text-align: center;
+  }
+
+  .h1-headInfo {
+    margin-right: 0 !important;
+    margin-bottom: 12px !important;
   }
 }
 @media screen and (max-width: 387px) {
@@ -674,9 +863,8 @@ span:hover {
     min-width: 105px;
   }
   .Novedades_container {
-    height: 67px;
+    height: 80px;
   }
-
   .MuiButtonBase-root.MuiButton-root.MuiButton-contained.mr-2.MuiButton-containedPrimary {
     padding: 4px 10px;
   }
@@ -690,6 +878,9 @@ span:hover {
   }
   .MuiButtonBase-root.MuiButton-root.MuiButton-contained.ml-2.MuiButton-containedPrimary.HomeButton2 {
     margin-left: 0px;
+  }
+  .sinReuniones-h6 {
+    font-size: 13.6px;
   }
 }
 @media screen and (max-width: 308px) {

@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
       if (res.data() === undefined) {
         const newUser = {
           uID: user.uid,
-          rol: "emprendedor",
+          rol: "emprendedor" || user.rol,
           username: user.displayName,
           form_complete: false,
           // ruta_asignada: false,

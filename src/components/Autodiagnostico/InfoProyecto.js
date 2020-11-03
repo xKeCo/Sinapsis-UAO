@@ -65,6 +65,9 @@ export class InfoProyecto extends Component {
               name="nombreIniciativa"
               required
               autoComplete="off"
+              inputProps={{
+                maxLength: 41,
+              }}
               onChange={handleChange("nombreIniciativa")}
               defaultValue={values.nombreIniciativa}
               multiline
@@ -82,7 +85,7 @@ export class InfoProyecto extends Component {
               defaultValue={values.descIniciativa}
               onChange={handleChange("descIniciativa")}
               inputProps={{
-                maxLength: 250,
+                maxLength: 41,
               }}
             />
             <TextField
@@ -94,6 +97,9 @@ export class InfoProyecto extends Component {
               name="prinSolucion"
               required
               multiline
+              inputProps={{
+                maxLength: 41,
+              }}
               defaultValue={values.prinSolucion}
               onChange={handleChange("prinSolucion")}
             />
@@ -106,6 +112,9 @@ export class InfoProyecto extends Component {
               name="prinUsuario"
               required
               multiline
+              inputProps={{
+                maxLength: 41,
+              }}
               defaultValue={values.prinUsuario}
               onChange={handleChange("prinUsuario")}
             />
@@ -118,6 +127,9 @@ export class InfoProyecto extends Component {
               name="valIniciaiva"
               required
               multiline
+              inputProps={{
+                maxLength: 41,
+              }}
               defaultValue={values.valIniciaiva}
               onChange={handleChange("valIniciaiva")}
             />

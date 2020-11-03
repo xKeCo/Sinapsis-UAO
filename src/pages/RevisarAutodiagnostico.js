@@ -22,19 +22,18 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 
 export default function RevisarAutodiagnostico(props) {
-  const { currentUser } = useContext(AuthContext);
+  const { userData } = useContext(AuthContext);
   const [Data, setData] = useState([]);
   const [DataMentor, setDataMentor] = useState([]);
   const [DataUser, setDataUser] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Errors, setErrors] = useState(null);
   const [ruta, setRuta] = useState("");
+  const [tipoEmprendimiento, setTipoEmprendimiento] = useState("");
+  const [tipoEconomia, setTipoEconomia] = useState("");
+  const [sectorEconomia, setSectorEconomia] = useState("");
   const [mentor, setMentor] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [values, setValues] = useState({
-    mentor: "",
-    ruta: "",
-  });
 
   const id = props.match.params.id;
 
@@ -85,7 +84,7 @@ export default function RevisarAutodiagnostico(props) {
     try {
       await database
         .collection("users")
-        .where("rol", "==", "mentor")
+        .where("rol", "!=", "emprendedor")
         .onSnapshot((querysnapshot) => {
           const docs = [];
 
@@ -105,17 +104,28 @@ export default function RevisarAutodiagnostico(props) {
     }
   };
 
-  const handleInput = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
+  const handleInputRuta = (event) => {
     setRuta(event.target.value);
+  };
+
+  const handleInputTipoEmprendimiento = (event) => {
+    setTipoEmprendimiento(event.target.value);
+  };
+
+  const handleInputTipoEconomia = (event) => {
+    setTipoEconomia(event.target.value);
+  };
+
+  const handleInputSectorEconomia = (event) => {
+    setSectorEconomia(event.target.value);
   };
 
   // const clg = () => {
   //   console.log(mentor);
   //   console.log(ruta);
+  //   console.log(tipoEconomia);
+  //   console.log(tipoEmprendimiento);
+  //   console.log(sectorEconomia);
   // };
 
   const handleAddInfo = async () => {
@@ -124,6 +134,17 @@ export default function RevisarAutodiagnostico(props) {
         .collection("users")
         .doc(id)
         .set({ ruta_asignada: true, ruta: ruta, mentor: mentor }, { merge: true });
+
+      await database.collection("proyectos").doc(Data.id).set(
+        {
+          ruta: ruta,
+          mentor: mentor,
+          tipoEconomia: tipoEconomia,
+          tipoEmprendimiento: tipoEmprendimiento,
+          sectorEconomia: sectorEconomia,
+        },
+        { merge: true }
+      );
       setLoading(true);
     } catch (e) {
       setLoading(false);
@@ -135,8 +156,12 @@ export default function RevisarAutodiagnostico(props) {
     return mentor.username;
   });
 
-  if (!currentUser) {
+  if (!userData) {
     return <Redirect to="/" />;
+  }
+
+  if (userData.rol !== "admin") {
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -157,11 +182,25 @@ export default function RevisarAutodiagnostico(props) {
                   <div className="todo-revisarautodiagnostico_container">
                     <h3 className="text-center mt-4 font-weight-bold mb-4">Datos del proyecto</h3>
                     <div className="datos-proyecto_container ">
-                      <List disablePadding>
-                        <ListItem>
+                      <List disablePadding className="RevisarAutodiagnostico-List">
+                        <ListItem alignItems="flex-start">
                           <ListItemText
                             primary="Nombre del emprendedor"
-                            secondary={DataUser.username}
+                            secondary={Data.username}
+                          />
+                        </ListItem>
+                        <Divider />
+                        <ListItem>
+                          <ListItemText
+                            primary="Correo del emprendedor"
+                            secondary={DataUser.email}
+                          />
+                        </ListItem>
+                        <Divider />
+                        <ListItem>
+                          <ListItemText
+                            primary="Telefono del emprendedor"
+                            secondary={DataUser.telefono}
                           />
                         </ListItem>
                         <Divider />
@@ -179,6 +218,9 @@ export default function RevisarAutodiagnostico(props) {
                           />
                         </ListItem>
                         <Divider />
+                      </List>
+
+                      <List disablePadding className="RevisarAutodiagnostico-List">
                         <ListItem>
                           <ListItemText
                             primary="Descripción sobre la iniciativa"
@@ -187,9 +229,6 @@ export default function RevisarAutodiagnostico(props) {
                         </ListItem>
 
                         <Divider />
-                      </List>
-
-                      <List disablePadding>
                         <ListItem>
                           <ListItemText
                             primary="Principal necesidad o problema que soluciona"
@@ -221,9 +260,72 @@ export default function RevisarAutodiagnostico(props) {
                       </List>
                     </div>
                     <h3 className="text-center mt-4 font-weight-bold">
-                      Asiganción del mentor y ruta
+                      Asiganci&oacute;n del mentor y ruta
                     </h3>
-                    <div className="datos-proyecto_container mt-3">
+                    <form className="datos-proyecto_container mt-3">
+                      <FormControl className="MuiFormLabel-root mt-3">
+                        <InputLabel id="demo-simple-select-filled-label">
+                          Tipo de emprendimiento
+                        </InputLabel>
+                        <Select
+                          name="tipoEmprendimiento"
+                          labelid="demo-simple-select-outlined-label"
+                          id="demo-mutiple-name"
+                          label="genero"
+                          className="datos-proyecto mt-3"
+                          onChange={handleInputTipoEmprendimiento}
+                          value={tipoEmprendimiento}
+                          required
+                        >
+                          <MenuItem value={"Dinámico"}>Din&aacute;mico</MenuItem>
+                          <MenuItem value={"Alto impacto"}>Alto impacto</MenuItem>
+                        </Select>
+                      </FormControl>
+
+                      <FormControl className="MuiFormLabel-root mt-3">
+                        <InputLabel id="demo-simple-select-filled-label">
+                          Tipo de econom&iacute;a
+                        </InputLabel>
+                        <Select
+                          name="tipoEconomia"
+                          labelid="demo-simple-select-outlined-label"
+                          id="demo-mutiple-name"
+                          label="genero"
+                          className="datos-proyecto mt-3"
+                          onChange={handleInputTipoEconomia}
+                          value={tipoEconomia}
+                          required
+                        >
+                          <MenuItem value={"Digital"}>Digital</MenuItem>
+                          <MenuItem value={"Creativo y Cultural"}>Creativo y Cultural</MenuItem>
+                          <MenuItem value={"Verde"}>Verde</MenuItem>
+                          <MenuItem value={"Social y solidario"}>Social y solidario</MenuItem>
+                        </Select>
+                      </FormControl>
+
+                      <FormControl className="MuiFormLabel-root mt-3">
+                        <InputLabel id="demo-simple-select-filled-label">
+                          Sector de la econom&iacute;a
+                        </InputLabel>
+                        <Select
+                          name="sectorEconomia"
+                          labelid="demo-simple-select-outlined-label"
+                          id="demo-mutiple-name"
+                          label="genero"
+                          className="datos-proyecto mt-3"
+                          onChange={handleInputSectorEconomia}
+                          value={sectorEconomia}
+                          required
+                        >
+                          <MenuItem value={"Agropecuario"}>Agropecuario</MenuItem>
+                          <MenuItem value={"Industrial"}>Industrial</MenuItem>
+                          <MenuItem value={"Servicios"}>Servicios</MenuItem>
+                          <MenuItem value={"Comercio"}>Comercio</MenuItem>
+                          <MenuItem value={"Transporte"}>Transporte</MenuItem>
+                          <MenuItem value={"Construcción"}>Construcci&oacute;n</MenuItem>
+                        </Select>
+                      </FormControl>
+
                       <Autocomplete
                         options={MentoresRegistrados}
                         name="mentor"
@@ -243,6 +345,7 @@ export default function RevisarAutodiagnostico(props) {
                             id="standard-basic"
                             className="datos-proyecto mt-3"
                             label="Mentor"
+                            name="mentor"
                             // multiline
                           />
                         )}
@@ -255,31 +358,34 @@ export default function RevisarAutodiagnostico(props) {
                           labelid="demo-simple-select-outlined-label"
                           id="demo-mutiple-name"
                           label="genero"
-                          onChange={handleInput}
+                          onChange={handleInputRuta}
                           value={ruta}
                           required
+                          className="datos-proyecto mt-3"
                         >
-                          <MenuItem value={"soñar"}>Soñar</MenuItem>
-                          <MenuItem value={"pensar"}>Pensar</MenuItem>
-                          <MenuItem value={"testear"}>Testear</MenuItem>
-                          <MenuItem value={"arrancar"}>Arrancar</MenuItem>
+                          <MenuItem value={"Soñar"}>Soñar</MenuItem>
+                          <MenuItem value={"Pensar"}>Pensar</MenuItem>
+                          <MenuItem value={"Testear"}>Testear</MenuItem>
+                          <MenuItem value={"Arrancar"}>Arrancar</MenuItem>
                         </Select>
                       </FormControl>
-                    </div>
-                    <div className="FirstLogin_button_container mt-4">
-                      <div>
-                        <Link to="/home">
-                          <Button
-                            variant="contained"
-                            className="button-1"
-                            color="primary"
-                            onClick={handleAddInfo}
-                          >
-                            Asignar
-                          </Button>
-                        </Link>
+
+                      <div className="FirstLogin_button_container mt-4">
+                        <div>
+                          <Link to="/home">
+                            <Button
+                              type="input"
+                              variant="contained"
+                              className="button-1"
+                              color="primary"
+                              onClick={handleAddInfo}
+                            >
+                              Asignar
+                            </Button>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
+                    </form>
                     <div className="Button-volver mb-5 ">
                       <Link to="/home">
                         <Button

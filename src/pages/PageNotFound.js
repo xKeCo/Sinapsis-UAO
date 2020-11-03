@@ -11,8 +11,8 @@ export default function Home() {
       <div className="container">
         <GIF></GIF>
         <div className="details-container">
-          <h1>Pagina no encontrada :(</h1>
-          <Link to="/" className="text-decoration-none text-light btn btn-danger">
+          <h3>Pagina no encontrada!</h3>
+          <Link to="/" className="text-decoration-none text-light btn btn-danger mt-3">
             Volver al inicio
           </Link>
         </div>
