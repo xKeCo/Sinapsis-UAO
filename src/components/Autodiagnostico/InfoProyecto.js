@@ -49,7 +49,11 @@ export class InfoProyecto extends Component {
                   control={<Radio />}
                 />
                 <FormControlLabel value={"Referido"} label="Referido" control={<Radio />} />
-                <FormControlLabel value={"Pagina web"} label="Pagina web" control={<Radio />} />
+                <FormControlLabel
+                  value={"Pagina web"}
+                  label="P&aacute;gina web"
+                  control={<Radio />}
+                />
                 <FormControlLabel
                   value={"Correo institucional"}
                   label="Correo institucional"
@@ -76,7 +80,7 @@ export class InfoProyecto extends Component {
               id="standard-basic"
               className="MuiFormLabel-root mt-4"
               noValidate
-              label="Descripción sobre la inciativa"
+              label="Descripci&oacute;n sobre la inciativa"
               type="text"
               name="descIniciativa"
               required

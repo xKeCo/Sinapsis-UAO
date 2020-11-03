@@ -49,7 +49,7 @@ function EmprendedorReuniones() {
       ) : (
         <>
           {Errors ? (
-            <h3>Ocurrio un error</h3>
+            <h3>Ocurri&oacute; un error.</h3>
           ) : (
             <>
               {reuniones.length === 0 ? (

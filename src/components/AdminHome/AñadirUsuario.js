@@ -133,13 +133,13 @@ export default function AnadirUsuario() {
             name="rol"
             labelid="demo-simple-select-outlined-label"
             id="demo-mutiple-name"
-            label="genero"
+            label="Rol"
             onChange={handleInputRol}
             value={rol}
             required
             className="datos-proyecto mt-3"
           >
-            <MenuItem value={"admin"}>Admin</MenuItem>
+            <MenuItem value={"admin"}>Administrador</MenuItem>
             <MenuItem value={"mentor"}>Mentor</MenuItem>
           </Select>
         </FormControl>
@@ -147,7 +147,7 @@ export default function AnadirUsuario() {
         <TextField
           id="standard-basic"
           className="AñadirUsuario-Button mt-3"
-          label="Contraseña del Usuario"
+          label="Contraseña del usuario"
           type="password"
           name="password"
           required

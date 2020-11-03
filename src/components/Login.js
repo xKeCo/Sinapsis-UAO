@@ -100,7 +100,8 @@ export default function Login() {
                 )}
                 {errors.unexpected && (
                   <li className="LoginRegister__errors--li">
-                    Ocurrió un error al enviar la información. Por favor intenta de nuevo
+                    Ocurri&oacute; un error al enviar la informaci&oacute;n. Por favor intenta de
+                    nuevo.
                   </li>
                 )}
               </ul>

@@ -50,7 +50,7 @@ export class InfoAdi extends Component {
             <TextField
               id="standard-basic"
               className=" MuiFormLabel-root mt-3"
-              label="Telefono"
+              label="Tel&eacute;fono"
               type="tel"
               name="telefono"
               multiline
@@ -78,7 +78,7 @@ export class InfoAdi extends Component {
               }}
             />
             <FormControl className="MuiFormLabel-root mt-3">
-              <InputLabel id="demo-simple-select-filled-label">Género</InputLabel>
+              <InputLabel id="demo-simple-select-filled-label">G&eacute;nero</InputLabel>
               <Select
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
@@ -124,7 +124,7 @@ export class InfoAdi extends Component {
             />
             <FormControl className="MuiFormLabel-root mt-3">
               <InputLabel id="demo-simple-select-filled-label">
-                Vinculo con la universidad
+                V&iacute;nculo con la universidad
               </InputLabel>
               <Select
                 labelid="demo-simple-select-outlined-label"

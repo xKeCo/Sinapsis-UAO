@@ -652,6 +652,33 @@ span:hover {
 }
 /* MentorHome container END */
 
+/* Perfil Usuario  */
+
+.datos-usuario_container {
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+}
+
+.UserImage_container .Avatar {
+  width: 150px !important;
+  height: 150px !important;
+}
+.UserImage_container {
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+.UserInformation_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 70%;
+  width: 100%;
+}
+/* Perfil Usuario END */
+
 /* Media Queries */
 
 @media screen and (max-width: 1240px) {
@@ -716,6 +743,16 @@ span:hover {
   .calendario-prueba-emprendedor {
     width: unset;
     height: unset;
+  }
+}
+@media screen and (max-width: 943px) {
+  .UserInformation_container {
+    max-width: 85%;
+    margin-top: 2rem;
+  }
+
+  .UserInformation_container .MuiListItem-root {
+    text-align: center;
   }
 }
 
@@ -791,13 +828,18 @@ span:hover {
   }
   .Button-volver {
     padding: 0.85em 7%;
+    text-align: center;
   }
-  .button-2 {
-    display: none !important;
-  }
+  /* .button-2 {
+    display: unset !important;
+  } */
   .button-1 {
     margin: 0 auto !important;
     width: 86% !important;
+  }
+  .button-1 {
+    margin: 0 auto !important;
+    /* width: 86% !important; */
   }
   .MuiTypography-body1 {
     font-size: 14px !important;
@@ -823,9 +865,16 @@ span:hover {
     max-height: 320px !important;
   }
 
-  /* .navbar {
-    flex-wrap: nowrap;
-  } */
+  .UserInformation_container {
+    grid-template-columns: 1fr;
+  }
+
+  .UserInformation_container .MuiList-root {
+    width: unset;
+  }
+  .UserInformation_container {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 524px) {

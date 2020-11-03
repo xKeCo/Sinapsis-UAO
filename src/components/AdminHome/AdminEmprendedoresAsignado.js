@@ -3,7 +3,7 @@ import { database } from "../../firebase/client";
 import Loader from "../Loader";
 // import { Button, Tooltip, Zoom } from "@material-ui/core";
 import Avatar from "../Avatar";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../Auth";
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -53,7 +53,7 @@ function MentorNovedades() {
       ) : (
         <>
           {Errors ? (
-            <h3>Ocurrio un error.</h3>
+            <h3>Ocurri&oacute; un error.</h3>
           ) : (
             <>
               {novedades.length === 0 ? (
@@ -70,23 +70,28 @@ function MentorNovedades() {
                     return (
                       <div className="Novedades_container" key={novedad.id}>
                         <div className="Novedades-details_container">
-                          <div className="Novedades-details_containerr">
-                            <Avatar
-                              src={novedad.avatar}
-                              alt={"Avatar"}
-                              className="Novedades-Avatar_container"
-                            />
-                            <div className="Novedades-details">
-                              <span className="novedades-name">
-                                {novedad.username}
-                                <br />
-                              </span>
-                              <span className="novedades-otherText-mentor">
-                                Etapa actual:{" "}
-                                <span className="font-weight-bold">{novedad.ruta}</span>
-                              </span>
+                          <Link
+                            to={`/perfil/${novedad.id}`}
+                            className="text-decoration-none text-dark"
+                          >
+                            <div className="Novedades-details_containerr">
+                              <Avatar
+                                src={novedad.avatar}
+                                alt={"Avatar"}
+                                className="Novedades-Avatar_container"
+                              />
+                              <div className="Novedades-details">
+                                <span className="novedades-name">
+                                  {novedad.username}
+                                  <br />
+                                </span>
+                                <span className="novedades-otherText-mentor">
+                                  Etapa actual:{" "}
+                                  <span className="font-weight-bold">{novedad.ruta}</span>
+                                </span>
+                              </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       </div>
                     );
