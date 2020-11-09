@@ -65,7 +65,6 @@ export default function Login() {
         <h1 className="text-center font-weight-bold mt-3">Inicia Sesión</h1>
         <form onSubmit={handleSubmit} className="login-grid">
           <TextField
-            id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             label="Correo institucional"
             variant="outlined"
@@ -75,7 +74,6 @@ export default function Login() {
           />
 
           <TextField
-            id="outlined-basic "
             className="txtField"
             label="Contraseña"
             variant="outlined"

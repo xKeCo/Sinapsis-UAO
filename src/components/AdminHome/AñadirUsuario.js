@@ -216,7 +216,7 @@ export default function AnadirUsuario() {
         </div>
       )}
       <div className="Button-volver mb-5 ">
-        <Link to="/home">
+        <Link to="/home" className=" text-decoration-none items-dropdown">
           <Button
             variant="contained"
             color="secondary"

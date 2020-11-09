@@ -397,7 +397,7 @@ export default function RevisarAutodiagnostico(props) {
 
                       <div className="FirstLogin_button_container mt-4">
                         <div>
-                          <Link to="/home">
+                          <Link to="/home" className=" text-decoration-none items-dropdown">
                             <Button
                               type="input"
                               variant="contained"
@@ -412,7 +412,7 @@ export default function RevisarAutodiagnostico(props) {
                       </div>
                     </form>
                     <div className="Button-volver mb-5 ">
-                      <Link to="/home">
+                      <Link to="/home" className=" text-decoration-none items-dropdown">
                         <Button
                           variant="contained"
                           color="secondary"

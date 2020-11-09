@@ -168,14 +168,6 @@ strong {
   margin-top: 1em;
 }
 
-/* 
-.register-grid-division {
-  grid-column: span 2;
-}
-
-.register-grid-coreccion-icon {
-  grid-template-columns: 2fr 10fr;
-} */
 /* Register END */
 
 .GoogleButton-Container {
@@ -184,14 +176,22 @@ strong {
   align-items: center;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 30px white inset;
+}
+
 /* Page not Found  */
 .container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* align-items: center; */
+  align-items: center;
   text-align: center;
-  min-height: 100vh;
+  min-height: 60vh;
+}
+
+.imgNotFound-container {
+  width: 100%;
 }
 /* Page not Found END */
 

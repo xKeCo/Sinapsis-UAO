@@ -65,7 +65,7 @@ function MentorReuniones() {
                       <div className="accordion-icon_container">
                         <h6 className="sinReuniones-h6">No hay reuniones programadas.</h6>
 
-                        <Link to={`/revisar`}>
+                        <Link to={`/revisar`} className=" text-decoration-none items-dropdown">
                           <Tooltip
                             title="Crear reunion"
                             arrow

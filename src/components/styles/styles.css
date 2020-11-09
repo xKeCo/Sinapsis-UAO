@@ -302,8 +302,9 @@ span:hover {
   font-size: 18px;
   max-width: 704.8px;
   height: 60px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
+  width: 100%;
 }
 .Novedades-details_containerr .avatar-Container {
   margin-top: 0 !important;
@@ -326,6 +327,12 @@ span:hover {
   text-transform: uppercase;
 }
 
+/* .ActNombre-container {
+  width: 327px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} */
 .novedades-otherText {
   font-size: 16px;
 }
@@ -584,6 +591,10 @@ span:hover {
   font-size: 12px;
 }
 
+.novedades-otherText-mentorName {
+  font-size: 12px;
+}
+
 .novedades-otherText-emprendedor-reunion {
   font-size: 12px;
 }
@@ -723,6 +734,14 @@ span:hover {
   padding: 0.875em 15%;
 }
 
+.MuiButtonBase-root {
+  outline: none !important;
+}
+
+.novedades-fecha {
+  min-width: 100px;
+}
+
 /* .MuiBreadcrumbs-ol {
   justify-content: center;
 } */
@@ -850,12 +869,12 @@ span:hover {
   .novedades-otherText {
     display: none;
   }
-  .novedades-otherText-emprendedor {
+  .novedades-otherText-mentorName {
     display: none;
   }
 
   .novedades-fecha {
-    margin-left: 0 !important;
+    margin-left: 1rem !important;
   }
   .novedades-fecha-reunion {
     /* min-width: 130px !important; */
@@ -866,10 +885,10 @@ span:hover {
     font-size: 14px;
   }
 
-  .Avatar {
+  /* .Avatar {
     width: 30px;
     height: 30px;
-  }
+  } */
 
   .LoginRegister-form-button {
     font-size: 16px !important;

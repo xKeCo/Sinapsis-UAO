@@ -231,7 +231,7 @@ const EmprendedorHome = () => {
           <div className="calendario-prueba-emprendedor">
             <Calendar />
             <div className="HomeButton-container mt-4 mb-5">
-              <Link to="/">
+              <Link to="/" className=" text-decoration-none items-dropdown">
                 <Button
                   variant="contained"
                   className="HomeButton1 mr-2"

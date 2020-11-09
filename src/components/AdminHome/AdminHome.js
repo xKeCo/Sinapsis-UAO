@@ -51,7 +51,7 @@ const AdminHome = () => {
               </AccordionDetails>
             </Accordion>
             <div className="HomeButton-container mt-5 mb-5">
-              <Link to="/añadir">
+              <Link to="/añadir" className=" text-decoration-none items-dropdown">
                 <Button
                   variant="contained"
                   className="HomeButton1 mr-2"

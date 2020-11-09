@@ -27,7 +27,6 @@ import {
   ExitToApp as ExitToAppIcon,
   Edit as EditIcon,
   MoreHoriz as MoreHorizIcon,
-  Close as CloseIcon,
   AddCircle as AddCircleIcon,
   PlaylistAdd as PlaylistAddIcon,
 } from "@material-ui/icons/";
@@ -172,7 +171,7 @@ export default function PerfilUsuario(props) {
                         {Data.rol === "emprendedor" && (
                           <div className="FirstLogin_button_container mt-4">
                             <div>
-                              <Link to="/home">
+                              <Link to="/home" className=" text-decoration-none items-dropdown">
                                 <Button
                                   type="input"
                                   variant="contained"
@@ -258,7 +257,7 @@ export default function PerfilUsuario(props) {
                         <>
                           <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                             <div>
-                              <Link to="/home">
+                              <Link to="/home" className=" text-decoration-none items-dropdown">
                                 <Button
                                   type="input"
                                   variant="contained"
@@ -272,7 +271,7 @@ export default function PerfilUsuario(props) {
                           </div>
                           <div className="FirstLogin_button_container mr-3 ml-3 mt-4">
                             <div>
-                              <Link to="/home">
+                              <Link to="/home" className=" text-decoration-none items-dropdown">
                                 <Button
                                   type="input"
                                   variant="contained"
@@ -313,7 +312,7 @@ export default function PerfilUsuario(props) {
                       {Data.uID === userData.uID && (
                         <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                           <div>
-                            <Link to="/home">
+                            <Link to="/home" className=" text-decoration-none items-dropdown">
                               <Button
                                 variant="contained"
                                 className="button-0"
@@ -329,7 +328,7 @@ export default function PerfilUsuario(props) {
                     </div>
 
                     <div className="Button-volver mt-4 mb-5 ">
-                      <Link to="/">
+                      <Link to="/" className=" text-decoration-none items-dropdown">
                         <Button
                           variant="contained"
                           color="secondary"

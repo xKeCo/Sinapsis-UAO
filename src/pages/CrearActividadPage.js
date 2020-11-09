@@ -304,7 +304,7 @@ export default function CrearActividadPage(props) {
                       >
                         Agregar
                       </Button>
-                      <Link to={`/perfil/${id}`}>
+                      <Link to={`/perfil/${id}`} className=" text-decoration-none items-dropdown">
                         <Button
                           className="LoginRegister-form-button  mr-2 ml-2"
                           value="Cancelar"

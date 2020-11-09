@@ -10,13 +10,16 @@ import SinapsisBlanco from "../images/SinapsisBlanco.png";
 import { Redirect } from "react-router-dom";
 import "../pages/styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-import {
-  // loginWithGoogle,
-  onAuthStateChanged,
-} from "../firebase/client";
+// import {
+//   // loginWithGoogle,
+//   onAuthStateChanged,
+// } from "../firebase/client";
 
 export default function LoginRegister({ match }) {
-  const [user, setUser] = useState(undefined);
+  const [
+    user,
+    // setUser
+  ] = useState(undefined);
 
   useEffect(() => {
     // onAuthStateChanged(setUser);
