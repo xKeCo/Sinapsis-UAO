@@ -19,7 +19,7 @@ export default function LoginRegister({ match }) {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    onAuthStateChanged(setUser);
+    // onAuthStateChanged(setUser);
   }, []);
 
   // const handleClickGoogle = () => {
@@ -68,9 +68,6 @@ export default function LoginRegister({ match }) {
             )}
           </div> */}
           <div className="LoginRegister-form-links">
-            {/* <Link className="LoginRegister-form-links-link" to="/">
-              Términos y condiciones
-            </Link> */}
             <a
               className="LoginRegister-form-links-link"
               href="http://www.uao.edu.co/sites/default/files/resoluciones/Resolucion-586-de-2018.pdf"
@@ -100,7 +97,7 @@ export default function LoginRegister({ match }) {
           </div>
         </div>
         <div className="LoginRegister-content">
-          <img src={SinapsisLoginRegister} alt="Imagen" className="LoginRegister-content-image" />z
+          <img src={SinapsisLoginRegister} alt="Imagen" className="LoginRegister-content-image" />
         </div>
       </div>
     </>

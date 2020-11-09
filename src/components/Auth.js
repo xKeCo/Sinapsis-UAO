@@ -24,8 +24,7 @@ export const AuthProvider = ({ children }) => {
           form_complete: false,
           // ruta_asignada: false,
           email: user.email,
-          avatar: user.photoURL || `https://www.gravatar.com/avatar/${hash}?d=identicon`,
-          // "https://firebasestorage.googleapis.com/v0/b/sinapsisuao.appspot.com/o/RosaPastel.png?alt=media&token=af822dac-a9c8-4e25-9361-761b14cfea18",
+          avatar: user.photoURL || `https://www.gravatar.com/avatar/${hash}?d=identicon`
         };
         await database.collection("users").doc(user.uid).set(newUser, { merge: true });
         setUserData(newUser);

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
+// Componentes utilizados
 import { AuthContext } from "../../components/Auth";
 
 function HeadInfo() {

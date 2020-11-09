@@ -1,17 +1,47 @@
 import React, { useEffect, useContext, useState } from "react";
+import { Redirect, Link } from "react-router-dom";
+// Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
+// Conexion Firebase Database
+import { database } from "../firebase/client";
+// Componentes utilizados
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
-import { Redirect } from "react-router-dom";
-import { database } from "../firebase/client";
 import Loader from "../components/Loader";
-import { List, ListItem, ListItemText, Divider, Button } from "@material-ui/core";
-import { Breadcrumbs, Typography } from "@material-ui/core";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { Link } from "react-router-dom";
 import Avatar from "../components/Avatar";
-import EditIcon from "@material-ui/icons/Edit";
+// Material UI
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Divider,
+  Button,
+  Drawer,
+  Breadcrumbs,
+  Typography,
+} from "@material-ui/core";
+// Material UI Icons
+import {
+  NavigateNext as NavigateNextIcon,
+  ExitToApp as ExitToAppIcon,
+  Edit as EditIcon,
+  MoreHoriz as MoreHorizIcon,
+  Close as CloseIcon,
+  AddCircle as AddCircleIcon,
+  PlaylistAdd as PlaylistAddIcon,
+} from "@material-ui/icons/";
+// Material UI Styles
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: "auto",
+  },
+});
 
 export default function PerfilUsuario(props) {
   const { userData } = useContext(AuthContext);
@@ -27,6 +57,7 @@ export default function PerfilUsuario(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Conseguir informacion del emprendedor a revisar
   const getDataEmprendedor = async () => {
     try {
       setLoading(true);
@@ -45,6 +76,54 @@ export default function PerfilUsuario(props) {
     }
   };
 
+  // Drawer - Menu desplazable
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    bottom: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+  const list = (anchor) => (
+    <div
+      className={classes.fullList}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List className="ml-3">
+        <Link to={`/crearActividad/${id}`} className="nav-item text-decoration-none items-dropdown">
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemIcon>
+              <AddCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Crear Actividad"} />
+          </ListItem>
+        </Link>
+        <Link to="/" className="nav-item text-decoration-none items-dropdown">
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemIcon>
+              <PlaylistAddIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Crear nuevo reporte"} />
+          </ListItem>
+        </Link>
+        <Link to="/" className="nav-item text-decoration-none items-dropdown">
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemText primary={"Resultados del autodiagnóstico"} />
+          </ListItem>
+        </Link>
+      </List>
+    </div>
+  );
+  // Drawer - Menu desplazable END
+
+  // Funcion para sacar a un usuario que no tiene la sesión activa
   if (!userData) {
     return <Redirect to="/" />;
   }
@@ -99,7 +178,6 @@ export default function PerfilUsuario(props) {
                                   variant="contained"
                                   className="button-1"
                                   color="primary"
-                                  // onClick={handleAddInfo}
                                 >
                                   Emprendimientos
                                 </Button>
@@ -208,12 +286,35 @@ export default function PerfilUsuario(props) {
                           </div>
                         </>
                       )}
+                      {userData.rol !== "emprendedor" && (
+                        <React.Fragment key={"bottom"}>
+                          <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
+                            <div>
+                              <Button
+                                variant="contained"
+                                className="button-0"
+                                color="primary"
+                                endIcon={<MoreHorizIcon />}
+                                onClick={toggleDrawer("bottom", true)}
+                              >
+                                Acciones
+                              </Button>
+                            </div>
+                          </div>
+                          <Drawer
+                            anchor={"bottom"}
+                            open={state["bottom"]}
+                            onClose={toggleDrawer("bottom", false)}
+                          >
+                            {list("bottom")}
+                          </Drawer>
+                        </React.Fragment>
+                      )}
                       {Data.uID === userData.uID && (
                         <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                           <div>
                             <Link to="/home">
                               <Button
-                                type="input"
                                 variant="contained"
                                 className="button-0"
                                 color="primary"

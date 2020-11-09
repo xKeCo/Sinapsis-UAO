@@ -6,12 +6,12 @@ import {
   ListItem,
   ListItemText,
   // Snackbar,
+  Divider,
 } from "@material-ui/core";
-import Divider from "@material-ui/core/Divider";
 // Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-// Componente Dialogo
+// Componentes Utilizados
 import Dialogo from "./Dialogo";
 
 export class InfoProyecto extends Component {

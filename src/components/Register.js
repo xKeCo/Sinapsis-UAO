@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Redirect } from "react-router-dom";
 // Estilos
 import "bootstrap/dist/css/bootstrap.css";
 import { AuthContext } from "./Auth";
-// Redirigir
-import { Redirect } from "react-router-dom";
 // Conexión con la base de datos
 import firebaseConfig from "../firebase/client";
-// Componente Loader
+// Componente Utilizadps
 import Loader from "./Loader";
-// Material UI
+// Material UI Components
 import { TextField } from "@material-ui/core";
 
 export default function Login() {
@@ -24,7 +23,7 @@ export default function Login() {
     document.title = "Sinapsis UAO - Registro";
   }, []);
 
-  // Función para saber lo que el ususario escribe
+  // Función para saber lo que el usuario escribe
   const handleInput = (event) => {
     setValues({
       ...form,

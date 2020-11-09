@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { database } from "../../firebase/client";
-import Loader from "../Loader";
-// import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../Avatar";
 import { Link } from "react-router-dom";
+// Conexión con Firebase Database
+import { database } from "../../firebase/client";
+// Componentes Utilizados
+import Loader from "../Loader";
+import Avatar from "../Avatar";
 import { AuthContext } from "../Auth";
+// import { Button, Tooltip, Zoom } from "@material-ui/core";
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -16,10 +19,10 @@ function MentorEmprendedoresAsignado() {
 
   useEffect(() => {
     getEmprendedores();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Funcion para obtener los emprendedores asignados del mentor
   const getEmprendedores = async () => {
     try {
       await database

@@ -1,10 +1,12 @@
 import React, { useEffect, useContext } from "react";
 // import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+// Estilos CSS
 // import "./styles/Home.css";
 import "bootstrap/dist/css/bootstrap.css";
+// Componentes utilizados
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
-import { Redirect } from "react-router-dom";
 import Diagnostico from "../components/Autodiagnostico/Diagnostico";
 import Hecho from "../components/Autodiagnostico/Hecho";
 import AdminHome from "../components/AdminHome/AdminHome";

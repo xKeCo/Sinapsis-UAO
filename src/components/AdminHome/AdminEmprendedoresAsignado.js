@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 // Conexión Base de datos
 import { database } from "../../firebase/client";
-// Loader
+// Componentes Utilizados
 import Loader from "../Loader";
-
+import Avatar from "../Avatar";
+import { AuthContext } from "../Auth";
 // Material UI
 // import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../Avatar";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../Auth";
-
-// Estilos
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 

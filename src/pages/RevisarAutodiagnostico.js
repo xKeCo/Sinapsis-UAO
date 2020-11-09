@@ -1,10 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
+import { Redirect, Link } from "react-router-dom";
+// Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
-import NavegationBar from "../components/NavegationBar";
-import { AuthContext } from "../components/Auth";
-import { Redirect } from "react-router-dom";
+// Conexión Firebase Database
 import { database } from "../firebase/client";
+// Componentes usados
+import NavegationBar from "../components/NavegationBar";
 import Loader from "../components/Loader";
+import { AuthContext } from "../components/Auth";
+// Material UI Components
 import {
   TextField,
   List,
@@ -20,9 +24,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import { Link } from "react-router-dom";
+// Material UI Icons
+import { ExitToApp as ExitToAppIcon, NavigateNext as NavigateNextIcon } from "@material-ui/icons/";
 
 export default function RevisarAutodiagnostico(props) {
   const { userData } = useContext(AuthContext);
@@ -48,6 +51,7 @@ export default function RevisarAutodiagnostico(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Conseguir los datos del proyecto
   const getData = async () => {
     try {
       setLoading(true);
@@ -65,6 +69,8 @@ export default function RevisarAutodiagnostico(props) {
       setErrors(error);
     }
   };
+
+  // Conseguir los datos del usuario
   const getDataUser = async () => {
     try {
       setLoading(true);
@@ -83,6 +89,7 @@ export default function RevisarAutodiagnostico(props) {
     }
   };
 
+  // Conseguir los datos del mentor
   const getDataMentor = async () => {
     try {
       await database
@@ -107,22 +114,27 @@ export default function RevisarAutodiagnostico(props) {
     }
   };
 
+  // Establecer el valor que se eligio en la casilla de ruta
   const handleInputRuta = (event) => {
     setRuta(event.target.value);
   };
 
+  // Establecer el valor que se eligio en la casilla de Tipo de emprendimiento
   const handleInputTipoEmprendimiento = (event) => {
     setTipoEmprendimiento(event.target.value);
   };
 
+  // Establecer el valor que se eligio en la casilla de Tipo de economia
   const handleInputTipoEconomia = (event) => {
     setTipoEconomia(event.target.value);
   };
 
+  // Establecer el valor que se eligio en la casilla de Sector de la economia
   const handleInputSectorEconomia = (event) => {
     setSectorEconomia(event.target.value);
   };
 
+  // Añadir los datos a la Firestore(Database)
   const handleAddInfo = async () => {
     try {
       await database
@@ -147,14 +159,17 @@ export default function RevisarAutodiagnostico(props) {
     }
   };
 
+  // Conseguir todos los mentores registrados para ponerlos en el AutoComplete
   const MentoresRegistrados = DataMentor.map((mentor) => {
     return mentor.username;
   });
 
+  // Funcion de que si no hay un usuario logeado lo saque al inicio de sesión
   if (!userData) {
     return <Redirect to="/" />;
   }
 
+  // Funcion para sacar a todo usuario que no sea un administrador
   if (userData.rol !== "admin") {
     return <Redirect to="/home" />;
   }

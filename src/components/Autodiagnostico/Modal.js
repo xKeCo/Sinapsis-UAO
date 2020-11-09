@@ -1,6 +1,7 @@
 import React from "react";
-import "../styles/styles.css";
 import ReactDOM from "react-dom";
+// Estilos CSS
+import "../styles/styles.css";
 
 const Modal = (props) => {
   if (!props.isOpen) {

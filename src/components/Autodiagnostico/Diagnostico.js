@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// Importar componentes para el autodiagnóstico
+// Componentes Utilizados
 import InfoAdi from "./InfoAdi";
 import InfoProyecto from "./InfoProyecto";
 import FirstLoginEmprendedor from "./FirstLoginEmprendedor";

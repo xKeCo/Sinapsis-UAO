@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 // Conexión bases de datos
 import { database } from "../../firebase/client";
-// Datos de la sesión actual
-import { AuthContext } from "../Auth";
-// Estilos
-import "bootstrap/dist/css/bootstrap.css";
-// Componente modal
+// Componente Utilizados
 import Modal from "./Modal";
+import { AuthContext } from "../Auth";
+// Estilos CSS
+import "bootstrap/dist/css/bootstrap.css";
 
 const Dialogo = (props) => {
   const { userData, setUserData } = useContext(AuthContext);

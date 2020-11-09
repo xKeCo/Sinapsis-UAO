@@ -1,8 +1,9 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+// Estilos CSS
 import "./styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link } from "react-router-dom";
+// GIF Importado
 import GIF from "../images/404GIF";
 
 export default function Home() {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// Material UI
+// Material UI Components
 import {
   TextField,
   Button,
@@ -9,7 +9,7 @@ import {
   FormControlLabel,
   Radio,
 } from "@material-ui/core";
-// Estilos
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 

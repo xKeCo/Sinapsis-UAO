@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // Conexión Base de datos
 import { database } from "../../firebase/client";
-// Material UI
+// Material UI Components
 import { Button, Tooltip, Zoom } from "@material-ui/core";
-// Links
-import { Link } from "react-router-dom";
-// Componentes Loader y Avatar
+// Componentes Utilizados
 import Loader from "../Loader";
 import Avatar from "../Avatar";
 

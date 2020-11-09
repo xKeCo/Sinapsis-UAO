@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { database } from "../../firebase/client";
-import Loader from "../Loader";
-import { Button, Tooltip, Zoom } from "@material-ui/core";
-import Avatar from "../Avatar";
 import { Link } from "react-router-dom";
+// Conexion con Firebase Database
+import { database } from "../../firebase/client";
+// Componentes Utilizados
+import Loader from "../Loader";
+import Avatar from "../Avatar";
 import { AuthContext } from "../Auth";
+// Material UI Components
+import { Button, Tooltip, Zoom } from "@material-ui/core";
 
 function MentorNovedades() {
   const [novedades, setNovedades] = useState([]);
@@ -18,6 +21,7 @@ function MentorNovedades() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Funcion para obtener todas las actividades que han entregado
   const getNovedades = async () => {
     try {
       await database

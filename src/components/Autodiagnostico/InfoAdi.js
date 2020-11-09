@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // Material UI
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
-// Estilos
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 

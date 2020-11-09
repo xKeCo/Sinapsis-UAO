@@ -1,15 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
-// Conseguir datos de usuario actual
-import { AuthContext } from "./Auth";
-// Redirección del usuario
 import { Redirect } from "react-router-dom";
 // Conexión con firebase
 import firebaseConfig from "../firebase/client";
-// Componente Loader
+// Componentes Utilizados
 import Loader from "./Loader";
-// Estilos
+import { AuthContext } from "./Auth";
+// Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
-// MATERIAL UI
+// MATERIAL UI Components
 import { TextField } from "@material-ui/core";
 
 export default function Login() {

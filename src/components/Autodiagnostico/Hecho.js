@@ -1,5 +1,5 @@
 import React from "react";
-// Estilos
+// Estilos CSS
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 // Material UI

@@ -1,11 +1,12 @@
 import React from "react";
-// Calendario
+import { Link } from "react-router-dom";
+// React Calendar
 import Calendar from "react-calendar";
+// Estilos CSS
 import "react-calendar/dist/Calendar.css";
-// Estilos
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
-// Material UI
+// Material UI Components
 import {
   Accordion,
   AccordionSummary,
@@ -13,16 +14,14 @@ import {
   Button,
   TableContainer,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import AddIcon from "@material-ui/icons/Add";
-// Links
-import { Link } from "react-router-dom";
-// Estilos JSX
-import { makeStyles } from "@material-ui/core/styles";
-// Importar componentes del AdminHome
+// Material UI Icons
+import { ExpandMore as ExpandMoreIcon, Add as AddIcon } from "@material-ui/icons";
+// Componetes Utilizados AdminHome
 import AdminEmprendedoresAsignado from "../MentorHome/MentorEmprendedoresAsignado";
 import AdminHomeContainer from "./AdminHomeContainer";
 import Searchbar from "./Searchbar";
+// Material UI Styles
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {

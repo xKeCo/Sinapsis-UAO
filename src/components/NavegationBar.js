@@ -13,7 +13,7 @@ import firebaseConfig from "../firebase/client";
 // Imagenes
 import SinapsisColor from "../images/SinapsisColor.png";
 import { AuthContext } from "./Auth";
-// Material UI
+// Material UI Components
 import Badge from "@material-ui/core/Badge";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { Tooltip, Zoom } from "@material-ui/core";

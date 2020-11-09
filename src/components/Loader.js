@@ -1,5 +1,7 @@
 import React from "react";
+// Material UI Components
 import { CircularProgress } from "@material-ui/core/";
+// Estilos CSS
 import "../components/styles/styles.css";
 
 export default function Loader() {

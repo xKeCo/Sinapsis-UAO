@@ -1,11 +1,17 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+// Componentes Utilizados
 import EmprendedorActividades from "./EmprendedorActividades";
 import EmprendedorReuniones from "./EmprendedorReuniones";
 import HeadInfo from "./HeadInfo";
+import { AuthContext } from "../Auth";
+// React Calendar
 import Calendar from "react-calendar";
+// Estilos CSS
 import "react-calendar/dist/Calendar.css";
 import "../styles/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
+// Material UI Components
 import {
   Accordion,
   AccordionSummary,
@@ -17,13 +23,11 @@ import {
   ListItemText,
   Drawer,
 } from "@material-ui/core";
-
-import CloseIcon from "@material-ui/icons/Close";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+// Material UI Icons
+import { Close as CloseIcon, ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 // import AddIcon from "@material-ui/icons/Add";
-import { Link } from "react-router-dom";
+// Material UI Styles
 import { makeStyles } from "@material-ui/core/styles";
-import { AuthContext } from "../Auth";
 
 const useStyles = makeStyles({
   list: {
