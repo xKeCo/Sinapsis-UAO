@@ -54,7 +54,7 @@ export default function PerfilUsuario(props) {
     document.title = "Sinapsis UAO - Perfil";
     getDataEmprendedor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   // Conseguir informacion del emprendedor a revisar
   const getDataEmprendedor = async () => {
@@ -112,11 +112,11 @@ export default function PerfilUsuario(props) {
             <ListItemText primary={"Crear nuevo reporte"} />
           </ListItem>
         </Link>
-        <Link to="/" className="nav-item text-decoration-none items-dropdown">
+        {/* <Link to="/" className="nav-item text-decoration-none items-dropdown">
           <ListItem className="sideMenu-Item-emprendedor">
             <ListItemText primary={"Resultados del autodiagnóstico"} />
           </ListItem>
-        </Link>
+        </Link> */}
       </List>
     </div>
   );
@@ -171,7 +171,10 @@ export default function PerfilUsuario(props) {
                         {Data.rol === "emprendedor" && (
                           <div className="FirstLogin_button_container mt-4">
                             <div>
-                              <Link to="/home" className=" text-decoration-none items-dropdown">
+                              <Link
+                                to={`/emprendimientos/${id}`}
+                                className=" text-decoration-none items-dropdown"
+                              >
                                 <Button
                                   type="input"
                                   variant="contained"
@@ -285,7 +288,7 @@ export default function PerfilUsuario(props) {
                           </div>
                         </>
                       )}
-                      {userData.rol !== "emprendedor" && (
+                      {userData.rol !== "emprendedor" && Data.uID !== userData.uID && (
                         <React.Fragment key={"bottom"}>
                           <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                             <div>

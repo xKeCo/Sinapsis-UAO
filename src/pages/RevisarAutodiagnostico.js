@@ -33,7 +33,7 @@ export default function RevisarAutodiagnostico(props) {
   const [DataMentor, setDataMentor] = useState([]);
   const [DataUser, setDataUser] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const [Errors, setErrors] = useState(null);
+  const [Errors, setErrors] = useState({});
   const [ruta, setRuta] = useState("");
   const [tipoEmprendimiento, setTipoEmprendimiento] = useState("");
   const [tipoEconomia, setTipoEconomia] = useState("");
@@ -208,7 +208,7 @@ export default function RevisarAutodiagnostico(props) {
                     <h3 className="text-center mt-4 font-weight-bold mb-4">Datos del proyecto</h3>
                     <div className="datos-proyecto_container ">
                       <List disablePadding className="RevisarAutodiagnostico-List">
-                        <ListItem alignItems="flex-start">
+                        <ListItem className="overflow-wrap " alignItems="flex-start">
                           <ListItemText
                             primary="Nombre del emprendedor"
                             secondary={Data.username}
@@ -222,21 +222,21 @@ export default function RevisarAutodiagnostico(props) {
                           />
                         </ListItem>
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Telefono del emprendedor"
                             secondary={DataUser.telefono}
                           />
                         </ListItem>
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Como se entero del programa Sinapsis UAO"
                             secondary={Data.conocioSinapsis}
                           />
                         </ListItem>
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Nombre de la iniciativa"
                             secondary={Data.nombreIniciativa}
@@ -246,7 +246,7 @@ export default function RevisarAutodiagnostico(props) {
                       </List>
 
                       <List disablePadding className="RevisarAutodiagnostico-List">
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Descripción sobre la iniciativa"
                             secondary={Data.descIniciativa}
@@ -254,14 +254,14 @@ export default function RevisarAutodiagnostico(props) {
                         </ListItem>
 
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Principal necesidad o problema que soluciona"
                             secondary={Data.prinSolucion}
                           />
                         </ListItem>
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Principal cliente o usuario"
                             secondary={Data.prinUsuario}
@@ -275,7 +275,7 @@ export default function RevisarAutodiagnostico(props) {
                           />
                         </ListItem>
                         <Divider />
-                        <ListItem>
+                        <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Instrumentos que ha utilizado para las validaciones"
                             secondary={Data.MetodoValIniciaiva}

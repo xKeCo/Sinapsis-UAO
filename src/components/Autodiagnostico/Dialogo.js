@@ -57,6 +57,7 @@ const Dialogo = (props) => {
             prinUsuario,
             valIniciaiva,
             MetodoValIniciaiva,
+            estado: "activo",
           },
           { merge: true }
         );

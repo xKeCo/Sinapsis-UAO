@@ -81,7 +81,12 @@ function EmprendedorActividades() {
                             to={`/actividad/${novedad.id}`}
                             className="text-decoration-none text-dark"
                           >
-                            <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
+                            <Tooltip
+                              title="Ver actividad"
+                              arrow
+                              TransitionComponent={Zoom}
+                              placement="right"
+                            >
                               <div className="Novedades-details_containerr">
                                 <Avatar
                                   src={novedad.avatarMentor}

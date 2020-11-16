@@ -16,8 +16,10 @@ import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
 // Componente Utilizados
 import Loader from "../Loader";
 // Conexion con Firebase Database
-// import firebaseConfig from "../firebase/client";
-// import { database } from "../firebase/client";
+// import firebaseConfig from "../../firebase/client";
+// import { database } from "../../firebase/client";
+// Hash Gravatar
+// import md5 from "md5";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -31,7 +33,7 @@ export default function AnadirUsuario() {
   });
   const [
     loading,
-    // setLoading
+    //  setLoading
   ] = useState(false);
   const [
     errors,
@@ -65,11 +67,17 @@ export default function AnadirUsuario() {
   //   event.preventDefault();
   //   setErrors({});
   //   setLoading(true);
+  //   const hash = md5(form.email);
   //   document.querySelectorAll("input").forEach((input) => (input.disabled = true));
   //   if (form.password === form.confirmPassword) {
   //     firebaseConfig
   //       .auth()
-  //       .createUserWithEmailAndPassword(form.email, form.password)
+  //       .createUser({
+  //         email: form.email,
+  //         password: form.password,
+  //         username: form.nombre,
+  //         avatar: `https://www.gravatar.com/avatar/${hash}?d=identicon`,
+  //       })
   //       .then((userCredentials) => {
   //         return userCredentials.user.updateProfile({
   //           displayName: form.nombre,

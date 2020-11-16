@@ -34,13 +34,19 @@ export default function Login() {
   // Función que envia los datos a Firebase
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!form.email.trim()) {
+      setErrors({
+        emailTrim: true,
+      });
+      return null;
+    }
     setErrors({});
     setLoading(true);
     document.querySelectorAll("input").forEach((input) => (input.disabled = true));
     if (form.password === form.confirmPassword) {
       firebaseConfig
         .auth()
-        .createUserWithEmailAndPassword(form.email, form.password)
+        .createUserWithEmailAndPassword(`${form.email}@uao.edu.co`, form.password)
         .then((userCredentials) => {
           return userCredentials.user.updateProfile({
             displayName: form.nombre,
@@ -79,7 +85,6 @@ export default function Login() {
         <h1 className="text-center font-weight-bold ">Dale vida a tu idea de negocio!</h1>
         <form onSubmit={handleSubmit} className="register-grid">
           <TextField
-            id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             label="Nombre Completo"
             variant="outlined"
@@ -94,11 +99,10 @@ export default function Login() {
             onChange={handleInput}
           />
           <TextField
-            id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
-            label="Correo institucional"
+            label="Nombre de usuario UAO"
             variant="outlined"
-            type="email"
+            type="text"
             name="email"
             required
             multiline
@@ -106,7 +110,6 @@ export default function Login() {
           />
 
           <TextField
-            id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             autoComplete="off"
             label="Contraseña"
@@ -120,7 +123,6 @@ export default function Login() {
             }}
           />
           <TextField
-            id="outlined-basic "
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
             label="Confirmar contraseña"
             variant="outlined"
@@ -153,6 +155,11 @@ export default function Login() {
                 {errors.email && (
                   <li className="LoginRegister__errors--li">
                     Este correo institucional ya se encuentra registrado.
+                  </li>
+                )}
+                {errors.emailTrim && (
+                  <li className="LoginRegister__errors--li">
+                    El nombre de usuario no debe tener espacios.
                   </li>
                 )}
                 {errors.unexpected && (

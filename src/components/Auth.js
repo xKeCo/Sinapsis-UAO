@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
           form_complete: false,
           // ruta_asignada: false,
           email: user.email,
-          avatar: user.photoURL || `https://www.gravatar.com/avatar/${hash}?d=identicon`
+          avatar: user.photoURL || `https://www.gravatar.com/avatar/${hash}?d=identicon`,
         };
         await database.collection("users").doc(user.uid).set(newUser, { merge: true });
         setUserData(newUser);

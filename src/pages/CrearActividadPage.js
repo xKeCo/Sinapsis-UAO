@@ -49,13 +49,13 @@ export default function CrearActividadPage(props) {
     nomActividad: "",
     descActividad: "",
     fechaEntregaAct: "",
+    file: "",
   });
   const [selectedDate, setSelectedDate] = useState(`${new Date()}`);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const { userData } = useContext(AuthContext);
   const [Data, setData] = useState([]);
-  const [fileUrl, setFileUrl] = useState(null);
   const [open, setOpen] = useState(false);
 
   const id = props.match.params.id;
@@ -98,38 +98,51 @@ export default function CrearActividadPage(props) {
     setSelectedDate(event.target.value);
   };
 
-  const onChangeFile = async (e) => {
+  const handleInputFile = (e) => {
     const file = e.target.files[0];
-    const storageRef = firebaseConfig.storage().ref();
-    const fileRef = storageRef.child(file.name);
-    await fileRef.put(file);
-
-    setFileUrl(await fileRef.getDownloadURL());
+    setValues({
+      ...form,
+      [e.target.name]: file,
+      fileName: e.target.files[0].name,
+    });
   };
 
   // Función que envia los datos a Firebase
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, e) => {
     event.preventDefault();
     const userUsername = Data.username;
     const userAvatar = Data.avatar;
+    let refArchivo;
+    if (form.file) {
+      const storageRef = firebaseConfig.storage().ref("actividades");
+      const fileRef = storageRef.child(form.fileName);
+      await fileRef.put(form.file);
+
+      refArchivo = await fileRef.getDownloadURL();
+    }
+
     try {
-      await database.collection("actividades").doc().set(
-        {
-          ActHecho: false,
-          fechaEntregaAct: selectedDate,
-          mentorUsername: userData.username,
-          mentorID: userData.uID,
-          avatarMentor: userData.avatar,
-          nomActividad: form.nomActividad,
-          descActividad: form.descActividad,
-          userID: id,
-          userUsername: userUsername,
-          userAvatar: userAvatar,
-          archivo: fileUrl,
-        },
-        { merge: true }
-      );
+      await database
+        .collection("actividades")
+        .doc()
+        .set(
+          {
+            ActHecho: false,
+            fechaEntregaAct: selectedDate,
+            mentorUsername: userData.username,
+            mentorID: userData.uID,
+            avatarMentor: userData.avatar,
+            nomActividad: form.nomActividad,
+            descActividad: form.descActividad,
+            userID: id,
+            userUsername: userUsername,
+            userAvatar: userAvatar,
+            archivo: refArchivo || null,
+          },
+          { merge: true }
+        );
       setOpen(true);
+      setValues({ nomActividad: "", descActividad: "", fechaEntregaAct: "" });
     } catch (error) {
       setLoading(false);
       setErrors(error);
@@ -195,7 +208,11 @@ export default function CrearActividadPage(props) {
                       required
                       multiline
                       autoComplete="off"
+                      value={form.nomActividad}
                       onChange={handleInput}
+                      inputProps={{
+                        maxLength: 30,
+                      }}
                       placeholder="Ej. Realizar el modelo canvas"
                     />
                     <TextField
@@ -204,6 +221,7 @@ export default function CrearActividadPage(props) {
                       label="Descripci&oacute;n"
                       type="text"
                       name="descActividad"
+                      value={form.descActividad}
                       multiline
                       placeholder="Ej. Siga los siguientes pasos para realizar la actividad..."
                       helperText="Max. 250 caracteres"
@@ -252,14 +270,16 @@ export default function CrearActividadPage(props) {
                       </div>
                       <div>
                         <input
-                          accept="image/*"
+                          accept="media_type"
+                          name="file"
                           // className={classes.input}
                           className="inputAct ml-2 mr-2 mt-3"
                           id="contained-button-file"
                           multiple
                           type="file"
-                          onChange={onChangeFile}
+                          onChange={handleInputFile}
                         />
+
                         {/* <label htmlFor="contained-button-file">
                           <Button
                             variant="contained"

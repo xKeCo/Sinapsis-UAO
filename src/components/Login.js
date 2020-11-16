@@ -36,7 +36,7 @@ export default function Login() {
     document.querySelectorAll("input").forEach((input) => (input.disabled = true));
     firebaseConfig
       .auth()
-      .signInWithEmailAndPassword(form.email, form.password)
+      .signInWithEmailAndPassword(`${form.email}@uao.edu.co`, form.password)
       .catch((err) => {
         if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
           setErrors({
