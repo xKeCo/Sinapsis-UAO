@@ -322,9 +322,9 @@ span:hover {
   text-overflow: ellipsis; */
 }
 
-/* .ActNombre-container {
-  width: 327px;
-} */
+.ActNombre-container {
+  overflow-wrap: anywhere;
+}
 .novedades-otherText {
   font-size: 16px;
 }
@@ -735,6 +735,7 @@ span:hover {
 
 .actividades-info-details_container {
   max-width: 736px;
+  overflow-wrap: anywhere;
 }
 
 .actividades-info-comments_container {
@@ -778,6 +779,34 @@ span:hover {
 /* .EmprendimientoPage-details_container {
 } */
 /* Emprendimientos Page END */
+
+/* Emprendimientos Info */
+
+.EmprendimientoInfo_container {
+  display: flex;
+  padding: 0.875em 15%;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height: 50vh;
+  height: 100vh;
+}
+
+.EmprendimientoInfo-subDetails_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.EmprendimientoInfo-subDetails_container .datos {
+  /* max-width: 257px; */
+  max-width: 48%;
+  width: 100%;
+}
+
+/* Emprendimientos Info END */
+
 .BreadCrumbs-container {
   /* margin: auto; */
   padding: 0.875em 15%;
@@ -789,6 +818,15 @@ span:hover {
 
 .novedades-fecha {
   min-width: 100px;
+}
+
+.MuiBreadcrumbs-separator {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.MuiBreadcrumbs-ol {
+  font-size: 13px;
 }
 
 /* .MuiBreadcrumbs-ol {
@@ -913,6 +951,23 @@ span:hover {
     font-size: 20px;
     text-align: center;
   }
+
+  .EmprendimientoPage {
+    padding: 0.875em 7%;
+  }
+
+  .BreadCrumbs-container {
+    /* margin: auto; */
+    padding: 0.875em 7%;
+  }
+
+  .datos-proyecto_container {
+    padding: 0.85em 7%;
+  }
+
+  .EmprendimientoInfo_container {
+    padding: 0.875em 7%;
+  }
 }
 @media screen and (max-width: 681px) {
   .novedades-otherText {
@@ -924,6 +979,7 @@ span:hover {
 
   .novedades-fecha {
     margin-left: 1rem !important;
+    margin-right: 0 !important;
   }
   .novedades-fecha-reunion {
     /* min-width: 130px !important; */
@@ -1007,6 +1063,9 @@ span:hover {
   .UserInformation_container {
     max-width: 100%;
   }
+  .EmprendimientoInfo-Button-volver {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 524px) {
@@ -1014,11 +1073,7 @@ span:hover {
     padding-left: 5px;
   }
 }
-@media screen and (max-width: 455px) {
-  .Novedades-button_container {
-    min-width: 118px;
-  }
-}
+
 @media screen and (max-width: 455px) {
   .Novedades-button_container {
     min-width: 118px;
@@ -1034,6 +1089,10 @@ span:hover {
   .h1-headInfo {
     margin-right: 0 !important;
     margin-bottom: 12px !important;
+  }
+
+  .EmprendimientoInfo-subDetails_container .datos {
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 387px) {

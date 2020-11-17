@@ -33,7 +33,7 @@ export default function RevisarAutodiagnostico(props) {
   const [DataMentor, setDataMentor] = useState([]);
   const [DataUser, setDataUser] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const [Errors, setErrors] = useState({});
+  const [Errors, setErrors] = useState(null);
   const [ruta, setRuta] = useState("");
   const [tipoEmprendimiento, setTipoEmprendimiento] = useState("");
   const [tipoEconomia, setTipoEconomia] = useState("");

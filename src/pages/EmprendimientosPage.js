@@ -107,11 +107,9 @@ const EmprendimientosPage = (props) => {
                             )}
                           </div>
                           <div className="EmprendimientoPage-details_container">
-                            {/* <div className="Novedades-details_containerr"> */}
                             <div className="Novedades-details">
-                              <h4 className="font-weight-bold mb-0">{data.nombreIniciativa}</h4>
+                              <h5 className="font-weight-bold mb-0">{data.nombreIniciativa}</h5>
                             </div>
-                            {/* </div> */}
                           </div>
                         </div>
                       </div>

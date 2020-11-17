@@ -13,7 +13,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 // import DateFnsUtils from "@date-io/date-fns";
 // import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
 // Material UI Icons
-import { NavigateNext as NavigateNextIcon } from "@material-ui/icons";
+import { NavigateNext as NavigateNextIcon, Publish as PublishIcon } from "@material-ui/icons";
 
 // Estilos CSS
 import "./styles/styles.css";
@@ -211,7 +211,7 @@ export default function CrearActividadPage(props) {
                       value={form.nomActividad}
                       onChange={handleInput}
                       inputProps={{
-                        maxLength: 30,
+                        maxLength: 35,
                       }}
                       placeholder="Ej. Realizar el modelo canvas"
                     />
@@ -272,24 +272,25 @@ export default function CrearActividadPage(props) {
                         <input
                           accept="media_type"
                           name="file"
-                          // className={classes.input}
-                          className="inputAct ml-2 mr-2 mt-3"
+                          className={classes.input}
+                          // className="inputAct ml-2 mr-2 mt-3"
                           id="contained-button-file"
                           multiple
                           type="file"
                           onChange={handleInputFile}
                         />
-
-                        {/* <label htmlFor="contained-button-file">
+                        <label htmlFor="contained-button-file">
                           <Button
                             variant="contained"
                             color="primary"
                             component="span"
                             className="ml-2 mr-2 mt-3"
+                            endIcon={<PublishIcon />}
                           >
-                            Upload
+                            Subir archivo
                           </Button>
-                        </label> */}
+                        </label>
+                        <p className="mb-0">{form.file.name}</p>
                       </div>
                       <div>
                         <TextField

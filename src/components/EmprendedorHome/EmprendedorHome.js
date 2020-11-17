@@ -70,16 +70,19 @@ const EmprendedorHome = () => {
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
           </ListItemIcon>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller “Ser Emprendedor”"} />
             </ListItem>
           </Link>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller Perfil competencias en Emprendimiento"} />
             </ListItem>
           </Link>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller para descubrimiento/ideación"} />

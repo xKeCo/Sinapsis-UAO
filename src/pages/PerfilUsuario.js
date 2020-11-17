@@ -154,7 +154,13 @@ export default function PerfilUsuario(props) {
                       >
                         Inicio
                       </Link>
-                      <Typography color="textPrimary">Perfil del emprendedor</Typography>
+
+                      {Data.uID !== userData.uID && (
+                        <Typography color="textPrimary">Perfil del emprendedor</Typography>
+                      )}
+                      {Data.uID === userData.uID && (
+                        <Typography color="textPrimary">Mi perfil</Typography>
+                      )}
                     </Breadcrumbs>
                   </div>
                   <div className="todo-revisarautodiagnostico_container">
