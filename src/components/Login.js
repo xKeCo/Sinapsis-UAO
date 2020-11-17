@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 // Conexión con firebase
 import firebaseConfig from "../firebase/client";
 // Componentes Utilizados
-import Loader from "./Loader";
+import LoaderBottom from "./LoaderBottom";
 import { AuthContext } from "./Auth";
 // Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
@@ -89,7 +89,7 @@ export default function Login() {
         </form>
         {loading ? (
           <div>
-            <Loader />
+            <LoaderBottom />
           </div>
         ) : (
           <div className="LoginRegister__error">

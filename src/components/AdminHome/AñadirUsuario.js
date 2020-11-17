@@ -111,7 +111,6 @@ export default function AnadirUsuario() {
       <h3 className="text-center mt-4 font-weight-bold">Añadir Usuario</h3>
       <form className="datos-proyecto_container ">
         <TextField
-          id="standard-basic"
           className="AñadirUsuario-Button mt-3"
           label="Nombre del Usuario"
           type="text"
@@ -126,7 +125,6 @@ export default function AnadirUsuario() {
           placeholder="Ej. Pepito Antonio Perez Sarama"
         />
         <TextField
-          id="standard-basic"
           className="AñadirUsuario-Button mt-3"
           label="Correo institucional"
           type="email"
@@ -156,7 +154,6 @@ export default function AnadirUsuario() {
         </FormControl>
 
         <TextField
-          id="standard-basic"
           className="AñadirUsuario-Button mt-3"
           label="Contraseña del usuario"
           type="password"
@@ -166,7 +163,6 @@ export default function AnadirUsuario() {
           onChange={handleInput}
         />
         <TextField
-          id="standard-basic"
           className="AñadirUsuario-Button mt-3"
           label="Confirmar contraseña"
           type="password"
@@ -189,6 +185,7 @@ export default function AnadirUsuario() {
               color="primary"
               className="AñadirUsuario-input mt-4"
               // onClick={handleSubmit}
+              disabled
             >
               Añadir
             </Button>

@@ -67,7 +67,6 @@ export class InfoProyecto extends Component {
             </FormControl>
 
             <TextField
-              id="standard-basic"
               label="Nombre de la iniciativa"
               type="text"
               name="nombreIniciativa"
@@ -82,7 +81,6 @@ export class InfoProyecto extends Component {
             />
 
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-4"
               noValidate
               label="Descripci&oacute;n sobre la inciativa"
@@ -99,7 +97,6 @@ export class InfoProyecto extends Component {
             />
 
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-4"
               noValidate
               label="Principal problema que soluciona"
@@ -115,7 +112,6 @@ export class InfoProyecto extends Component {
             />
 
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-4"
               noValidate
               label="Principal cliente o usuario"
@@ -131,7 +127,6 @@ export class InfoProyecto extends Component {
             />
 
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-4"
               noValidate
               label="Validaciones que ha realizado"

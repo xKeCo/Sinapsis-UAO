@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { database } from "../firebase/client";
 // Componentes usados
 import NavegationBar from "../components/NavegationBar";
-import Loader from "../components/Loader";
+import LoaderBottom from "../components/LoaderBottom";
 import { AuthContext } from "../components/Auth";
 // Material UI Components
 import {
@@ -38,7 +38,7 @@ export default function RevisarAutodiagnostico(props) {
   const [tipoEmprendimiento, setTipoEmprendimiento] = useState("");
   const [tipoEconomia, setTipoEconomia] = useState("");
   const [sectorEconomia, setSectorEconomia] = useState("");
-  const [mentor, setMentor] = useState("");
+  const [mentor, setMentor] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
   const id = props.match.params.id;
@@ -179,7 +179,7 @@ export default function RevisarAutodiagnostico(props) {
       <NavegationBar />
       {Loading ? (
         <div>
-          <Loader />
+          <LoaderBottom />
         </div>
       ) : (
         <>
@@ -367,7 +367,6 @@ export default function RevisarAutodiagnostico(props) {
                         renderInput={(params) => (
                           <TextField
                             {...params}
-                            id="standard-basic"
                             className="datos-proyecto mt-3"
                             label="Mentor"
                             name="mentor"

@@ -21,7 +21,6 @@ export class InfoAdi extends Component {
           <h3>Informaci&oacute;n adicional del usuario</h3>
           <div className="encuesta_container">
             <TextField
-              id="standard-basic"
               label="C&eacute;dula"
               type="number"
               name="cedula"
@@ -37,7 +36,6 @@ export class InfoAdi extends Component {
               placeholder="Ej. 11111111111"
             />
             <TextField
-              id="standard-basic"
               className=" MuiFormLabel-root mt-3"
               label="Tel&eacute;fono"
               type="tel"
@@ -69,7 +67,7 @@ export class InfoAdi extends Component {
               />
             </div>
             {/* <TextField
-              id="standard-basic"
+              
               className="MuiFormLabel-root mt-3"
               noValidate
               label="Fecha de nacimiento"
@@ -102,7 +100,6 @@ export class InfoAdi extends Component {
               </Select>
             </FormControl>
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-3"
               label="Ciudad"
               type="text"
@@ -114,7 +111,6 @@ export class InfoAdi extends Component {
               defaultValue={values.ciudad}
             />
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-3"
               label="Direcci&oacute;n"
               type="text"
@@ -148,7 +144,6 @@ export class InfoAdi extends Component {
             </FormControl>
 
             <TextField
-              id="standard-basic"
               className="MuiFormLabel-root mt-3"
               label="Programa acad&eacute;mico"
               type="text"

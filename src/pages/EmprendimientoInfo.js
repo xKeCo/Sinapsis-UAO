@@ -7,7 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 // Componentes utilizados
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
-import Loader from "../components/Loader";
+import LoaderBottom from "../components/LoaderBottom";
+
 // Material UI
 import {
   TextField,
@@ -156,7 +157,7 @@ const EmprendimientosInfo = (props) => {
       </div>
       {Loading ? (
         <div>
-          <Loader />
+          <LoaderBottom />
         </div>
       ) : (
         <>

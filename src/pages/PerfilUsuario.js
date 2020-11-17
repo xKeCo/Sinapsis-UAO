@@ -7,7 +7,8 @@ import { database } from "../firebase/client";
 // Componentes utilizados
 import NavegationBar from "../components/NavegationBar";
 import { AuthContext } from "../components/Auth";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
+import LoaderBottom from "../components/LoaderBottom";
 import Avatar from "../components/Avatar";
 // Material UI
 import {
@@ -132,7 +133,8 @@ export default function PerfilUsuario(props) {
       <NavegationBar />
       {Loading ? (
         <div>
-          <Loader />
+          <LoaderBottom />
+          {/* <Loader /> */}
         </div>
       ) : (
         <>

@@ -5,7 +5,7 @@ import firebaseConfig from "../firebase/client";
 import { database } from "../firebase/client";
 // Componentes Utilizados
 import NavegationBar from "../components/NavegationBar";
-import Loader from "../components/Loader";
+import LoaderBottom from "../components/LoaderBottom";
 import { AuthContext } from "../components/Auth";
 // Material UI Components
 import { TextField, Button, Breadcrumbs, Typography, Snackbar } from "@material-ui/core";
@@ -176,7 +176,7 @@ export default function CrearActividadPage(props) {
       <NavegationBar />
       {loading ? (
         <div>
-          <Loader />
+          <LoaderBottom />
         </div>
       ) : (
         <>
@@ -207,7 +207,6 @@ export default function CrearActividadPage(props) {
                 <div className="AdminHome_container">
                   <form onSubmit={handleSubmit} className="crearActividad_container">
                     <TextField
-                      id="standard-basic"
                       label="Nombre de la actividad"
                       type="text"
                       name="nomActividad"
@@ -222,7 +221,6 @@ export default function CrearActividadPage(props) {
                       placeholder="Ej. Realizar el modelo canvas"
                     />
                     <TextField
-                      id="standard-basic"
                       className=" MuiFormLabel-root mt-4"
                       label="Descripci&oacute;n"
                       type="text"
@@ -305,7 +303,6 @@ export default function CrearActividadPage(props) {
                       </div>
                       <div>
                         <TextField
-                          id="standard-basic"
                           className=" MuiFormLabel-root mt-4 ml-2 mb-1"
                           label="Nombre del emprendedor"
                           type="text"
