@@ -169,6 +169,8 @@ export default function CrearActividadPage(props) {
     return <Redirect to="/home" />;
   }
 
+  const fechaHoy = new Date();
+
   return (
     <div>
       <NavegationBar />
@@ -259,16 +261,22 @@ export default function CrearActividadPage(props) {
                             }}
                           />
                         </MuiPickersUtilsProvider> */}
-                        <TextField
+                        <p className="mb-0">Fecha de entrega</p>
+                        <input
                           id="date"
                           label="Fecha de entrega"
                           name="fechaEntregaAct"
-                          className="MuiFormLabel-root mt-3 mr-2"
+                          className="MuiFormLabel-root mr-2"
                           type="date"
-                          defaultValue={`${new Date()}`}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
+                          min={`${fechaHoy.getFullYear()}-${
+                            fechaHoy.getMonth() + 1
+                          }-${fechaHoy.getDate()}`}
+                          defaultValue={`${fechaHoy.getFullYear()}-${
+                            fechaHoy.getMonth() + 1
+                          }-${fechaHoy.getDate()}`}
+                          // InputLabelProps={{
+                          //   shrink: true,
+                          // }}
                           onChange={handleDateChange}
                         />
                       </div>

@@ -14,6 +14,7 @@ export class InfoAdi extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    const fechaHoy = new Date();
     return (
       <>
         <div className="todo_encuesta_container">
@@ -51,7 +52,23 @@ export class InfoAdi extends Component {
               onChange={handleChange("telefono")}
               defaultValue={values.telefono}
             />
-            <TextField
+            <div>
+              <p className="mb-0 mt-3">Fecha de entrega</p>
+              <input
+                id="date"
+                label="Fecha de entrega"
+                name="fechaEntregaAct"
+                className="MuiFormLabel-root mr-2"
+                type="date"
+                min={`${fechaHoy.getFullYear() - 80}-01-01`}
+                max={`${fechaHoy.getFullYear() - 15}-${
+                  fechaHoy.getMonth() + 1
+                }-${fechaHoy.getDate()}`}
+                defaultValue={values.nacimiento}
+                onChange={handleChange("nacimiento")}
+              />
+            </div>
+            {/* <TextField
               id="standard-basic"
               className="MuiFormLabel-root mt-3"
               noValidate
@@ -64,7 +81,7 @@ export class InfoAdi extends Component {
               }}
               onChange={handleChange("nacimiento")}
               defaultValue={values.nacimiento}
-            />
+            /> */}
             <FormControl className="MuiFormLabel-root mt-3">
               <InputLabel id="demo-simple-select-filled-label">G&eacute;nero</InputLabel>
               <Select

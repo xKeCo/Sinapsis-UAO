@@ -105,7 +105,6 @@ export default function Login() {
             type="text"
             name="email"
             required
-            multiline
             onChange={handleInput}
           />
 
