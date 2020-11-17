@@ -13,7 +13,10 @@ import MuiAlert from "@material-ui/lab/Alert";
 // import DateFnsUtils from "@date-io/date-fns";
 // import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
 // Material UI Icons
-import { NavigateNext as NavigateNextIcon, Publish as PublishIcon } from "@material-ui/icons";
+import {
+  NavigateNext as NavigateNextIcon,
+  // Publish as PublishIcon
+} from "@material-ui/icons";
 
 // Estilos CSS
 import "./styles/styles.css";
@@ -114,10 +117,10 @@ export default function CrearActividadPage(props) {
     const userAvatar = Data.avatar;
     let refArchivo;
     if (form.file) {
+      setLoading(true);
       const storageRef = firebaseConfig.storage().ref("actividades");
       const fileRef = storageRef.child(form.fileName);
       await fileRef.put(form.file);
-
       refArchivo = await fileRef.getDownloadURL();
     }
 
@@ -141,6 +144,7 @@ export default function CrearActividadPage(props) {
           },
           { merge: true }
         );
+      setLoading(false);
       setOpen(true);
       setValues({ nomActividad: "", descActividad: "", fechaEntregaAct: "" });
     } catch (error) {
@@ -272,14 +276,13 @@ export default function CrearActividadPage(props) {
                         <input
                           accept="media_type"
                           name="file"
-                          className={classes.input}
-                          // className="inputAct ml-2 mr-2 mt-3"
+                          // className={classes.input}
+                          className="inputAct ml-2 mr-2 mt-3"
                           id="contained-button-file"
-                          multiple
                           type="file"
                           onChange={handleInputFile}
                         />
-                        <label htmlFor="contained-button-file">
+                        {/* <label htmlFor="contained-button-file">
                           <Button
                             variant="contained"
                             color="primary"
@@ -289,8 +292,8 @@ export default function CrearActividadPage(props) {
                           >
                             Subir archivo
                           </Button>
-                        </label>
-                        <p className="mb-0">{form.file.name}</p>
+                        </label> */}
+                        {/* <p className="mb-0">{form.file.name}</p> */}
                       </div>
                       <div>
                         <TextField
