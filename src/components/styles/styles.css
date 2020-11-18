@@ -832,6 +832,7 @@ span:hover {
 
 .MuiListItem-root {
   overflow-wrap: anywhere;
+  padding-top: 6px !important;
 }
 
 /* .MuiBreadcrumbs-ol {

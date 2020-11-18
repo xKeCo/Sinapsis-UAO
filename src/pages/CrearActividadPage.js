@@ -242,23 +242,6 @@ export default function CrearActividadPage(props) {
                     />
                     <div className="buttons-crearActividad mt-3">
                       <div className="selectDate">
-                        {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                          <KeyboardDatePicker
-                            minDate={`${new Date()}`}
-                            className="mr-2"
-                            disableToolbar
-                            variant="dialog"
-                            format="dd/MM/yyyy"
-                            margin="normal"
-                            id="date-picker-inline"
-                            label="Fecha de entrega"
-                            value={selectedDate}
-                            onChange={handleDateChange}
-                            KeyboardButtonProps={{
-                              "aria-label": "change date",
-                            }}
-                          />
-                        </MuiPickersUtilsProvider> */}
                         <p className="mb-0">Fecha de entrega</p>
                         <input
                           id="date"
@@ -272,9 +255,6 @@ export default function CrearActividadPage(props) {
                           defaultValue={`${fechaHoy.getFullYear()}-${
                             fechaHoy.getMonth() + 1
                           }-${fechaHoy.getDate()}`}
-                          // InputLabelProps={{
-                          //   shrink: true,
-                          // }}
                           onChange={handleDateChange}
                         />
                       </div>

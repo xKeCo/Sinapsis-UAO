@@ -205,30 +205,31 @@ export default function PerfilUsuario(props) {
                             />
                           </ListItem>
                           <Divider />
+
                           <ListItem>
                             <ListItemText primary="Correo del emprendedor" secondary={Data.email} />
                           </ListItem>
                           <Divider />
+
                           <ListItem>
                             <ListItemText
                               primary="Tel&eacute;fono del emprendedor"
                               secondary={Data.telefono}
                             />
                           </ListItem>
-
                           <Divider />
+
                           <ListItem>
                             <ListItemText primary="Ciudad" secondary={Data.ciudad} />
                           </ListItem>
-
                           <Divider />
+
                           <ListItem>
                             <ListItemText
                               primary="V&iacute;nculo con la universidad"
                               secondary={Data.vinculoUni}
                             />
                           </ListItem>
-
                           <Divider />
                         </List>
 
@@ -264,7 +265,7 @@ export default function PerfilUsuario(props) {
                           {Data.programa !== "" && <Divider />}
                         </List>
                       </div>
-                      {Data.rol === "emprendedor" && (
+                      {Data.rol === "emprendedor" && Data.ruta_asignada && (
                         <>
                           <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                             <div>
@@ -296,30 +297,32 @@ export default function PerfilUsuario(props) {
                           </div>
                         </>
                       )}
-                      {userData.rol !== "emprendedor" && Data.uID !== userData.uID && (
-                        <React.Fragment key={"bottom"}>
-                          <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
-                            <div>
-                              <Button
-                                variant="contained"
-                                className="button-0"
-                                color="primary"
-                                endIcon={<MoreHorizIcon />}
-                                onClick={toggleDrawer("bottom", true)}
-                              >
-                                Acciones
-                              </Button>
+                      {userData.rol !== "emprendedor" &&
+                        Data.ruta_asignada &&
+                        Data.uID !== userData.uID && (
+                          <React.Fragment key={"bottom"}>
+                            <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
+                              <div>
+                                <Button
+                                  variant="contained"
+                                  className="button-0"
+                                  color="primary"
+                                  endIcon={<MoreHorizIcon />}
+                                  onClick={toggleDrawer("bottom", true)}
+                                >
+                                  Acciones
+                                </Button>
+                              </div>
                             </div>
-                          </div>
-                          <Drawer
-                            anchor={"bottom"}
-                            open={state["bottom"]}
-                            onClose={toggleDrawer("bottom", false)}
-                          >
-                            {list("bottom")}
-                          </Drawer>
-                        </React.Fragment>
-                      )}
+                            <Drawer
+                              anchor={"bottom"}
+                              open={state["bottom"]}
+                              onClose={toggleDrawer("bottom", false)}
+                            >
+                              {list("bottom")}
+                            </Drawer>
+                          </React.Fragment>
+                        )}
                       {Data.uID === userData.uID && (
                         <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                           <div>

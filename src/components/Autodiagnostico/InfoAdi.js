@@ -8,13 +8,30 @@ import "bootstrap/dist/css/bootstrap.css";
 export class InfoAdi extends Component {
   // Next Step
   continue = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     this.props.nextStep();
   };
 
   render() {
     const { values, handleChange } = this.props;
     const fechaHoy = new Date();
+
+    const NextPage = (e) => {
+      e.preventDefault();
+      if (
+        values.cedula !== "" &&
+        values.telefono !== "" &&
+        values.genero !== "" &&
+        values.ciudad !== "" &&
+        values.direccion !== "" &&
+        values.vinculoUni !== ""
+      ) {
+        this.continue();
+      } else {
+        return null;
+      }
+    };
+
     return (
       <>
         <div className="todo_encuesta_container">
@@ -50,8 +67,8 @@ export class InfoAdi extends Component {
               onChange={handleChange("telefono")}
               defaultValue={values.telefono}
             />
-            <div>
-              <p className="mb-0 mt-3">Fecha de entrega</p>
+            <div className="mt-4">
+              <p className="mb-0 ">Fecha de entrega</p>
               <input
                 id="date"
                 label="Fecha de entrega"
@@ -66,20 +83,6 @@ export class InfoAdi extends Component {
                 onChange={handleChange("nacimiento")}
               />
             </div>
-            {/* <TextField
-              
-              className="MuiFormLabel-root mt-3"
-              noValidate
-              label="Fecha de nacimiento"
-              type="date"
-              name="nacimiento"
-              required
-              InputLabelProps={{
-                shrink: true,
-              }}
-              onChange={handleChange("nacimiento")}
-              defaultValue={values.nacimiento}
-            /> */}
             <FormControl className="MuiFormLabel-root mt-3">
               <InputLabel id="demo-simple-select-filled-label">G&eacute;nero</InputLabel>
               <Select
@@ -88,7 +91,7 @@ export class InfoAdi extends Component {
                 label="genero"
                 name="genero"
                 required
-                defaultValue={values.genero}
+                value={values.genero}
                 onChange={handleChange("genero")}
               >
                 <MenuItem value={"Masculino"}>Masculino</MenuItem>
@@ -99,6 +102,7 @@ export class InfoAdi extends Component {
                 <MenuItem value={"Otro"}>Otro</MenuItem>
               </Select>
             </FormControl>
+
             <TextField
               className="MuiFormLabel-root mt-3"
               label="Ciudad"
@@ -110,6 +114,7 @@ export class InfoAdi extends Component {
               onChange={handleChange("ciudad")}
               defaultValue={values.ciudad}
             />
+
             <TextField
               className="MuiFormLabel-root mt-3"
               label="Direcci&oacute;n"
@@ -123,6 +128,7 @@ export class InfoAdi extends Component {
               onChange={handleChange("direccion")}
               defaultValue={values.direccion}
             />
+
             <FormControl className="MuiFormLabel-root mt-3">
               <InputLabel id="demo-simple-select-filled-label">
                 V&iacute;nculo con la universidad
@@ -133,7 +139,7 @@ export class InfoAdi extends Component {
                 label="vinculoUni"
                 name="vinculoUni"
                 required
-                defaultValue={values.vinculoUni}
+                value={values.vinculoUni}
                 onChange={handleChange("vinculoUni")}
               >
                 <MenuItem value={"Pregrado"}>Pregrado</MenuItem>
@@ -143,26 +149,23 @@ export class InfoAdi extends Component {
               </Select>
             </FormControl>
 
-            <TextField
-              className="MuiFormLabel-root mt-3"
-              label="Programa acad&eacute;mico"
-              type="text"
-              name="programa"
-              // multiline
-              autoComplete="off"
-              placeholder="Ej. Ing. Informatica"
-              helperText="Ingrese el programa academico al que pertenece, si lo desea, es un campo Opcional :)"
-              onChange={handleChange("programa")}
-              defaultValue={values.programa}
-            />
+            {values.vinculoUni === "Pregrado" && (
+              <TextField
+                className="MuiFormLabel-root mt-3"
+                label="Programa acad&eacute;mico"
+                type="text"
+                name="programa"
+                required
+                autoComplete="off"
+                placeholder="Ej. Ing. Informatica"
+                helperText="Ingrese el programa academico al que pertenece, si lo desea, es un campo Opcional :)"
+                onChange={handleChange("programa")}
+                defaultValue={values.programa}
+              />
+            )}
 
             <div className="encuesta_buttons_container mt-3 mb-3">
-              <Button
-                variant="contained"
-                color="primary"
-                style={styles.button}
-                onClick={this.continue}
-              >
+              <Button variant="contained" color="primary" style={styles.button} onClick={NextPage}>
                 Continuar
               </Button>
             </div>

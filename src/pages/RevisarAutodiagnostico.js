@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 // Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
 // Conexión Firebase Database
@@ -22,10 +22,16 @@ import {
   MenuItem,
   Breadcrumbs,
   Typography,
+  Snackbar,
 } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 // Material UI Icons
 import { ExitToApp as ExitToAppIcon, NavigateNext as NavigateNextIcon } from "@material-ui/icons/";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function RevisarAutodiagnostico(props) {
   const { userData } = useContext(AuthContext);
@@ -40,6 +46,8 @@ export default function RevisarAutodiagnostico(props) {
   const [sectorEconomia, setSectorEconomia] = useState("");
   const [mentor, setMentor] = useState(null);
   const [inputValue, setInputValue] = useState("");
+  const [openSuccess, setOpenSuccess] = useState(false);
+  let history = useHistory();
 
   const id = props.match.params.id;
 
@@ -135,28 +143,48 @@ export default function RevisarAutodiagnostico(props) {
   };
 
   // Añadir los datos a la Firestore(Database)
-  const handleAddInfo = async () => {
-    try {
-      await database
-        .collection("users")
-        .doc(id)
-        .set({ ruta_asignada: true, ruta: ruta, mentor: mentor }, { merge: true });
+  const handleAddInfo = async (e) => {
+    e.preventDefault();
+    if (
+      ruta !== "" &&
+      mentor !== null &&
+      tipoEconomia !== "" &&
+      tipoEmprendimiento !== "" &&
+      sectorEconomia !== ""
+    ) {
+      try {
+        await database
+          .collection("users")
+          .doc(id)
+          .set({ ruta_asignada: true, ruta: ruta, mentor: mentor }, { merge: true });
 
-      await database.collection("proyectos").doc(Data.id).set(
-        {
-          ruta: ruta,
-          mentor: mentor,
-          tipoEconomia: tipoEconomia,
-          tipoEmprendimiento: tipoEmprendimiento,
-          sectorEconomia: sectorEconomia,
-        },
-        { merge: true }
-      );
-      setLoading(true);
-    } catch (e) {
-      setLoading(false);
-      setErrors(e);
+        await database.collection("proyectos").doc(Data.id).set(
+          {
+            ruta: ruta,
+            mentor: mentor,
+            tipoEconomia: tipoEconomia,
+            tipoEmprendimiento: tipoEmprendimiento,
+            sectorEconomia: sectorEconomia,
+          },
+          { merge: true }
+        );
+        setLoading(true);
+      } catch (e) {
+        setLoading(false);
+        setErrors(e);
+      }
+      history.push("/home");
+    } else {
+      setOpenSuccess(true);
     }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSuccess(false);
   };
 
   // Conseguir todos los mentores registrados para ponerlos en el AutoComplete
@@ -356,6 +384,7 @@ export default function RevisarAutodiagnostico(props) {
                         name="mentor"
                         // multiple
                         value={mentor}
+                        autoComplete="off"
                         onChange={(event, newValue) => {
                           setMentor(newValue);
                         }}
@@ -393,20 +422,22 @@ export default function RevisarAutodiagnostico(props) {
                           <MenuItem value={"Arrancar"}>Arrancar</MenuItem>
                         </Select>
                       </FormControl>
-
+                      <Snackbar open={openSuccess} autoHideDuration={2000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="error">
+                          Debe asignar todos los datos!
+                        </Alert>
+                      </Snackbar>
                       <div className="FirstLogin_button_container mt-4">
                         <div>
-                          <Link to="/home" className=" text-decoration-none items-dropdown">
-                            <Button
-                              type="input"
-                              variant="contained"
-                              className="button-1"
-                              color="primary"
-                              onClick={handleAddInfo}
-                            >
-                              Asignar
-                            </Button>
-                          </Link>
+                          <Button
+                            type="input"
+                            variant="contained"
+                            className="button-1"
+                            color="primary"
+                            onClick={handleAddInfo}
+                          >
+                            Asignar
+                          </Button>
                         </div>
                       </div>
                     </form>

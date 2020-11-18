@@ -16,7 +16,6 @@ import "bootstrap/dist/css/bootstrap.css";
 export class InfoProyecto extends Component {
   // Next Step
   continue = (e) => {
-    e.preventDefault();
     this.props.nextStep();
   };
   // Prev Step
@@ -27,6 +26,22 @@ export class InfoProyecto extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    const NextPage = (e) => {
+      e.preventDefault();
+      if (
+        values.conocioSinapsis !== "" &&
+        values.nombreIniciativa !== "" &&
+        values.descIniciativa !== "" &&
+        values.prinSolucion !== "" &&
+        values.prinUsuario !== "" &&
+        values.MetodoValIniciaiva !== ""
+      ) {
+        this.continue();
+      } else {
+        return null;
+      }
+    };
+
     return (
       <>
         <div className="todo_encuesta_container">
@@ -42,7 +57,7 @@ export class InfoProyecto extends Component {
                 row
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
-                defaultValue={values.conocioSinapsis}
+                value={values.conocioSinapsis}
                 onChange={handleChange("conocioSinapsis")}
                 required
               >
@@ -151,7 +166,7 @@ export class InfoProyecto extends Component {
                 row
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
-                defaultValue={values.MetodoValIniciaiva}
+                value={values.MetodoValIniciaiva}
                 onChange={handleChange("MetodoValIniciaiva")}
               >
                 <FormControlLabel value={"Ninguno"} label="Ninguno" control={<Radio />} />
@@ -167,12 +182,7 @@ export class InfoProyecto extends Component {
                 Atr&aacute;s
               </Button>
 
-              <Button
-                variant="contained"
-                color="primary"
-                style={styles.button}
-                onClick={this.continue}
-              >
+              <Button variant="contained" color="primary" style={styles.button} onClick={NextPage}>
                 Continuar
               </Button>
             </div>

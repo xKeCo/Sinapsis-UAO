@@ -52,6 +52,7 @@ export default function Login() {
             displayName: form.nombre,
           });
         })
+
         .catch((err) => {
           if (err.code === "auth/email-already-in-use") {
             setErrors({
