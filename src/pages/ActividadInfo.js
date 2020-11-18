@@ -5,7 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 import { database } from "../firebase/client";
 // Componentes Utilizados
 import NavegationBar from "../components/NavegationBar";
-import Loader from "../components/Loader";
+import LoaderBottom from "../components/LoaderBottom";
 import { AuthContext } from "../components/Auth";
 // Material UI Components
 import {
@@ -151,7 +151,7 @@ export default function ActividadInfo(props) {
       <NavegationBar />
       {loading ? (
         <div>
-          <Loader />
+          <LoaderBottom />
         </div>
       ) : (
         <>
