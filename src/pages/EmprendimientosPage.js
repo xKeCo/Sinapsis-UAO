@@ -38,6 +38,7 @@ const EmprendimientosPage = (props) => {
     try {
       await database
         .collection("proyectos")
+        .orderBy("estado", "asc")
         .where("uID", "==", id)
         .onSnapshot((querysnapshot) => {
           const docs = [];

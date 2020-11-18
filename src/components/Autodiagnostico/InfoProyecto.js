@@ -93,6 +93,7 @@ export class InfoProyecto extends Component {
               onChange={handleChange("nombreIniciativa")}
               defaultValue={values.nombreIniciativa}
               multiline
+              helperText={`${values.nombreIniciativa.length} / 80 caracteres`}
             />
 
             <TextField
@@ -102,13 +103,13 @@ export class InfoProyecto extends Component {
               type="text"
               name="descIniciativa"
               required
-              helperText="Maximo 250 caracteres"
               multiline
               defaultValue={values.descIniciativa}
               onChange={handleChange("descIniciativa")}
               inputProps={{
                 maxLength: 250,
               }}
+              helperText={`${values.descIniciativa.length} / 250 caracteres`}
             />
 
             <TextField
@@ -124,6 +125,7 @@ export class InfoProyecto extends Component {
               }}
               defaultValue={values.prinSolucion}
               onChange={handleChange("prinSolucion")}
+              helperText={`${values.prinSolucion.length} / 80 caracteres`}
             />
 
             <TextField
@@ -134,11 +136,12 @@ export class InfoProyecto extends Component {
               name="prinUsuario"
               required
               multiline
-              // inputProps={{
-              //   maxLength: 41,
-              // }}
+              inputProps={{
+                maxLength: 80,
+              }}
               defaultValue={values.prinUsuario}
               onChange={handleChange("prinUsuario")}
+              helperText={`${values.prinUsuario.length} / 80 caracteres`}
             />
 
             <TextField
@@ -149,11 +152,12 @@ export class InfoProyecto extends Component {
               name="valIniciaiva"
               required
               multiline
-              // inputProps={{
-              //   maxLength: 41,
-              // }}
+              inputProps={{
+                maxLength: 150,
+              }}
               defaultValue={values.valIniciaiva}
               onChange={handleChange("valIniciaiva")}
+              helperText={`${values.valIniciaiva.length} / 150 caracteres`}
             />
 
             <FormControl component="fieldset" className="MuiFormLabel-root mt-4">
