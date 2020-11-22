@@ -141,7 +141,7 @@ export default function CrearActividadPage(props) {
             userID: id,
             userUsername: userUsername,
             userAvatar: userAvatar,
-            fileName: fileName,
+            fileName: fileName || "",
             archivoURL: refArchivo || null,
           },
           { merge: true }
