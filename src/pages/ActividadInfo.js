@@ -123,7 +123,7 @@ export default function ActividadInfo(props) {
   //         userID: id,
   //         userUsername: userUsername,
   //         userAvatar: userAvatar,
-  //         archivo: fileUrl,
+  //         archivoURL: fileUrl,
   //       },
   //       { merge: true }
   //     );
@@ -167,7 +167,7 @@ export default function ActividadInfo(props) {
                   <Link color="inherit" to="/home" className="text-decoration-none text-black-50">
                     Inicio
                   </Link>
-                  <Typography color="textPrimary">Actividad</Typography>
+                  <Typography color="textPrimary">Informaci&oacute;n de la actividad</Typography>
                 </Breadcrumbs>
               </div>
               <div className="Home-Actividad-Info_container">
@@ -182,10 +182,10 @@ export default function ActividadInfo(props) {
                     <div className="overflow-wrap">
                       <p className="mt-3 font-weight-normal">{Data.descActividad}</p>
                     </div>
-                    {/* {Data.archivo !== null && ( */}
+                    {/* {Data.archivoURL !== null && ( */}
                     <div className="mb-3">
-                      <a href={Data.archivo} target="_blank" rel="noopener noreferrer">
-                        <i aria-hidden="true">{Data.archivo}</i>
+                      <a href={Data.archivoURL} target="_blank" rel="noopener noreferrer">
+                        <i aria-hidden="true">{Data.fileName}</i>
                       </a>
                     </div>
                     {/* )} */}

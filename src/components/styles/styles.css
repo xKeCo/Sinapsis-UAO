@@ -65,6 +65,7 @@
 
 .Avatar + span {
   margin-left: 8px;
+  text-transform: capitalize;
 }
 
 .Avatar-Name {
@@ -446,7 +447,9 @@ span:hover {
   border-radius: 9999px;
 }
 .react-calendar__tile--active abbr {
+  /* border: 1px groove #9a66a8 !important; */
   color: black !important;
+  /* border-radius: 9999px; */
 }
 
 .react-calendar__month-view__days__day--neighboringMonth.react-calendar__tile--now {
@@ -613,6 +616,7 @@ span:hover {
 
 .sideMenu-Item-emprendedor:hover {
   border-bottom: none;
+  cursor: pointer;
 }
 /* Emprendedor Home END */
 
@@ -620,6 +624,10 @@ span:hover {
 .calendario-prueba-emprendedor .react-calendar {
   width: 335px !important;
   height: 330px !important;
+}
+
+.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend {
+  color: white;
 }
 
 /* Emprendedor calendario END */
@@ -642,6 +650,10 @@ span:hover {
 .addboxicon {
   color: #9a66a8;
   font-size: 27px !important;
+}
+
+.MuiPaper-root.MuiAccordion-root.mt-2.MuiAccordion-rounded.MuiPaper-elevation1.MuiPaper-rounded {
+  overflow-x: hidden;
 }
 
 .addboxicon_container {

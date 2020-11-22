@@ -90,7 +90,7 @@ function MentorEmprendedoresAsignado() {
                                 </span>
                                 <span className="novedades-otherText-mentor">
                                   Etapa actual:{" "}
-                                  <span className="font-weight-bold">{novedad.ruta}</span>
+                                  <span className="font-weight-bold">{novedad.etapa}</span>
                                 </span>
                               </div>
                             </div>

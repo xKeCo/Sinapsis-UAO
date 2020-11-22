@@ -40,13 +40,13 @@ export default function RevisarAutodiagnostico(props) {
   const [DataUser, setDataUser] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Errors, setErrors] = useState(null);
-  const [ruta, setRuta] = useState("");
+  const [etapa, setEtapa] = useState("");
   const [tipoEmprendimiento, setTipoEmprendimiento] = useState("");
   const [tipoEconomia, setTipoEconomia] = useState("");
   const [sectorEconomia, setSectorEconomia] = useState("");
   const [mentor, setMentor] = useState(null);
   const [inputValue, setInputValue] = useState("");
-  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openError, setOpenError] = useState(false);
   let history = useHistory();
 
   const id = props.match.params.id;
@@ -63,7 +63,7 @@ export default function RevisarAutodiagnostico(props) {
   const getData = async () => {
     try {
       setLoading(true);
-      const res = await database.collection("proyectos").where("uID", "==", id).get();
+      const res = await database.collection("emprendimientos").where("uID", "==", id).get();
       const docs = [];
 
       res.forEach((doc) => {
@@ -122,9 +122,9 @@ export default function RevisarAutodiagnostico(props) {
     }
   };
 
-  // Establecer el valor que se eligio en la casilla de ruta
-  const handleInputRuta = (event) => {
-    setRuta(event.target.value);
+  // Establecer el valor que se eligio en la casilla de etapa
+  const handleInputEtapa = (event) => {
+    setEtapa(event.target.value);
   };
 
   // Establecer el valor que se eligio en la casilla de Tipo de emprendimiento
@@ -146,7 +146,7 @@ export default function RevisarAutodiagnostico(props) {
   const handleAddInfo = async (e) => {
     e.preventDefault();
     if (
-      ruta !== "" &&
+      etapa !== "" &&
       mentor !== null &&
       tipoEconomia !== "" &&
       tipoEmprendimiento !== "" &&
@@ -156,11 +156,11 @@ export default function RevisarAutodiagnostico(props) {
         await database
           .collection("users")
           .doc(id)
-          .set({ ruta_asignada: true, ruta: ruta, mentor: mentor }, { merge: true });
+          .set({ ruta_asignada: true, etapa: etapa, mentor: mentor }, { merge: true });
 
-        await database.collection("proyectos").doc(Data.id).set(
+        await database.collection("emprendimientos").doc(Data.id).set(
           {
-            ruta: ruta,
+            etapa: etapa,
             mentor: mentor,
             tipoEconomia: tipoEconomia,
             tipoEmprendimiento: tipoEmprendimiento,
@@ -175,7 +175,7 @@ export default function RevisarAutodiagnostico(props) {
       }
       history.push("/home");
     } else {
-      setOpenSuccess(true);
+      setOpenError(true);
     }
   };
 
@@ -184,7 +184,7 @@ export default function RevisarAutodiagnostico(props) {
       return;
     }
 
-    setOpenSuccess(false);
+    setOpenError(false);
   };
 
   // Conseguir todos los mentores registrados para ponerlos en el AutoComplete
@@ -266,8 +266,8 @@ export default function RevisarAutodiagnostico(props) {
                         <Divider />
                         <ListItem className="overflow-wrap ">
                           <ListItemText
-                            primary="Nombre de la iniciativa"
-                            secondary={Data.nombreIniciativa}
+                            primary="Nombre del emprendimiento"
+                            secondary={Data.nombreEmprendimiento}
                           />
                         </ListItem>
                         <Divider />
@@ -276,8 +276,8 @@ export default function RevisarAutodiagnostico(props) {
                       <List disablePadding className="RevisarAutodiagnostico-List">
                         <ListItem className="overflow-wrap ">
                           <ListItemText
-                            primary="Descripción sobre la iniciativa"
-                            secondary={Data.descIniciativa}
+                            primary="Descripción sobre el emprendimiento"
+                            secondary={Data.descEmprendimiento}
                           />
                         </ListItem>
 
@@ -299,21 +299,21 @@ export default function RevisarAutodiagnostico(props) {
                         <ListItem>
                           <ListItemText
                             primary="Mencione las validaciones que ha realizado"
-                            secondary={Data.valIniciaiva}
+                            secondary={Data.valEmprendimiento}
                           />
                         </ListItem>
                         <Divider />
                         <ListItem className="overflow-wrap ">
                           <ListItemText
                             primary="Instrumentos que ha utilizado para las validaciones"
-                            secondary={Data.MetodoValIniciaiva}
+                            secondary={Data.MetodoValEmprendimiento}
                           />
                         </ListItem>
                         <Divider />
                       </List>
                     </div>
                     <h3 className="text-center mt-4 font-weight-bold">
-                      Asiganci&oacute;n del mentor y ruta
+                      Asiganci&oacute;n del mentor y etapa
                     </h3>
                     <form className="datos-proyecto_container mt-3">
                       <FormControl className="MuiFormLabel-root mt-3">
@@ -384,7 +384,7 @@ export default function RevisarAutodiagnostico(props) {
                         name="mentor"
                         // multiple
                         value={mentor}
-                        autoComplete="off"
+                        autoComplete={false}
                         onChange={(event, newValue) => {
                           setMentor(newValue);
                         }}
@@ -405,14 +405,14 @@ export default function RevisarAutodiagnostico(props) {
                       />
 
                       <FormControl className="MuiFormLabel-root mt-3">
-                        <InputLabel id="demo-simple-select-filled-label">Ruta</InputLabel>
+                        <InputLabel id="demo-simple-select-filled-label">Etapa</InputLabel>
                         <Select
-                          name="ruta"
+                          name="etapa"
                           labelid="demo-simple-select-outlined-label"
                           id="demo-mutiple-name"
                           label="genero"
-                          onChange={handleInputRuta}
-                          value={ruta}
+                          onChange={handleInputEtapa}
+                          value={etapa}
                           required
                           className="datos-proyecto mt-3"
                         >
@@ -422,7 +422,7 @@ export default function RevisarAutodiagnostico(props) {
                           <MenuItem value={"Arrancar"}>Arrancar</MenuItem>
                         </Select>
                       </FormControl>
-                      <Snackbar open={openSuccess} autoHideDuration={2000} onClose={handleClose}>
+                      <Snackbar open={openError} autoHideDuration={2000} onClose={handleClose}>
                         <Alert onClose={handleClose} severity="error">
                           Debe asignar todos los datos!
                         </Alert>

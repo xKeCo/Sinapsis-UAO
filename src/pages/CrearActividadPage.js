@@ -115,6 +115,7 @@ export default function CrearActividadPage(props) {
     event.preventDefault();
     const userUsername = Data.username;
     const userAvatar = Data.avatar;
+    const fileName = form.file.name;
     let refArchivo;
     if (form.file) {
       setLoading(true);
@@ -140,7 +141,8 @@ export default function CrearActividadPage(props) {
             userID: id,
             userUsername: userUsername,
             userAvatar: userAvatar,
-            archivo: refArchivo || null,
+            fileName: fileName,
+            archivoURL: refArchivo || null,
           },
           { merge: true }
         );
@@ -219,6 +221,7 @@ export default function CrearActividadPage(props) {
                         maxLength: 35,
                       }}
                       placeholder="Ej. Realizar el modelo canvas"
+                      helperText={`${form.nomActividad.length} / 35 caracteres`}
                     />
                     <TextField
                       className=" MuiFormLabel-root mt-4"
@@ -228,7 +231,7 @@ export default function CrearActividadPage(props) {
                       value={form.descActividad}
                       multiline
                       placeholder="Ej. Siga los siguientes pasos para realizar la actividad..."
-                      helperText="Max. 250 caracteres"
+                      helperText={`${form.descActividad.length} / 250 caracteres`}
                       required
                       autoComplete="off"
                       inputProps={{
@@ -240,8 +243,9 @@ export default function CrearActividadPage(props) {
                       rows={2}
                       onChange={handleInput}
                     />
-                    <div className="buttons-crearActividad mt-3">
-                      <div className="selectDate">
+
+                    <div className="buttons-crearActividad ">
+                      <div className="selectDate mt-3">
                         <p className="mb-0">Fecha de entrega</p>
                         <input
                           id="date"
@@ -258,7 +262,7 @@ export default function CrearActividadPage(props) {
                           onChange={handleDateChange}
                         />
                       </div>
-                      <div>
+                      <div className="mt-3">
                         <input
                           accept="media_type"
                           name="file"

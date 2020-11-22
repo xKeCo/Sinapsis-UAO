@@ -21,12 +21,12 @@ const Dialogo = (props) => {
       genero,
       nacimiento,
       conocioSinapsis,
-      nombreIniciativa,
-      descIniciativa,
+      nombreEmprendimiento,
+      descEmprendimiento,
       prinSolucion,
       prinUsuario,
-      valIniciaiva,
-      MetodoValIniciaiva,
+      valEmprendimiento,
+      MetodoValEmprendimiento,
     },
   } = props;
 
@@ -46,17 +46,17 @@ const Dialogo = (props) => {
             { cedula, direccion, ciudad, telefono, vinculoUni, programa, genero, nacimiento },
             { merge: true }
           );
-        await database.collection("proyectos").doc().set(
+        await database.collection("emprendimientos").doc().set(
           {
             uID: userData.uID,
             username: userData.username,
             conocioSinapsis,
-            nombreIniciativa,
-            descIniciativa,
+            nombreEmprendimiento,
+            descEmprendimiento,
             prinSolucion,
             prinUsuario,
-            valIniciaiva,
-            MetodoValIniciaiva,
+            valEmprendimiento,
+            MetodoValEmprendimiento,
             estado: "activo",
           },
           { merge: true }

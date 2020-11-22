@@ -32,12 +32,12 @@ const EmprendimientosPage = (props) => {
     getDataEmprendimientos();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   const getDataEmprendimientos = async () => {
     try {
       await database
-        .collection("proyectos")
+        .collection("emprendimientos")
         .orderBy("estado", "asc")
         .where("uID", "==", id)
         .onSnapshot((querysnapshot) => {
@@ -109,7 +109,7 @@ const EmprendimientosPage = (props) => {
                           </div>
                           <div className="EmprendimientoPage-details_container">
                             <div className="Novedades-details">
-                              <h5 className="font-weight-bold mb-0">{data.nombreIniciativa}</h5>
+                              <h5 className="font-weight-bold mb-0">{data.nombreEmprendimiento}</h5>
                             </div>
                           </div>
                         </div>
@@ -123,19 +123,24 @@ const EmprendimientosPage = (props) => {
         </>
       )}
       <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
-        <div>
-          <Link to="/home" className=" text-decoration-none items-dropdown">
-            <Button
-              type="input"
-              variant="contained"
-              className="button-0"
-              color="primary"
-              endIcon={<AddIcon />}
+        {userData.rol !== "emprendedor" && (
+          <div>
+            <Link
+              to={`/crearEmprendimiento/${id}`}
+              className=" text-decoration-none items-dropdown"
             >
-              Añadir nuevo emprendimiento
-            </Button>
-          </Link>
-        </div>
+              <Button
+                type="input"
+                variant="contained"
+                className="button-0"
+                color="primary"
+                endIcon={<AddIcon />}
+              >
+                Añadir nuevo emprendimiento
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
       <div className="Button-volver mt-4 mb-5 ">
         <Link to={`/perfil/${id}`} className=" text-decoration-none items-dropdown">

@@ -91,8 +91,8 @@ function MentorNovedades() {
                                   <br />
                                 </span>
                                 <span className="novedades-otherText-mentor">
-                                  Etapa actual:{" "}
-                                  <span className="font-weight-bold">{novedad.ruta}</span>
+                                  Etapa actual:
+                                  <span className="font-weight-bold">{novedad.etapa}</span>
                                 </span>
                               </div>
                             </div>

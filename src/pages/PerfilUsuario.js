@@ -40,6 +40,7 @@ const useStyles = makeStyles({
   },
   fullList: {
     width: "auto",
+    height: "200px",
   },
 });
 
@@ -113,6 +114,15 @@ export default function PerfilUsuario(props) {
             <ListItemText primary={"Crear nuevo reporte"} />
           </ListItem>
         </Link>
+
+        {/* <ListItem className="sideMenu-Item-emprendedor">
+          <ListItemText primary={""} />
+        </ListItem>
+
+        <ListItem className="sideMenu-Item-emprendedor">
+          <ListItemText primary={""} />
+        </ListItem> */}
+
         {/* <Link to="/" className="nav-item text-decoration-none items-dropdown">
           <ListItem className="sideMenu-Item-emprendedor">
             <ListItemText primary={"Resultados del autodiagnóstico"} />

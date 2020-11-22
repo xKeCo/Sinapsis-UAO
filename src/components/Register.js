@@ -95,9 +95,10 @@ export default function Login() {
             multiline
             autoComplete="off"
             inputProps={{
-              maxLength: 30,
+              maxLength: 45,
             }}
             onChange={handleInput}
+            placeholder="Ej. Pepito Perez"
           />
           <TextField
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
@@ -105,8 +106,10 @@ export default function Login() {
             variant="outlined"
             type="text"
             name="email"
+            autoComplete="off"
             required
             onChange={handleInput}
+            placeholder="Ej. pepito.perez"
           />
 
           <TextField

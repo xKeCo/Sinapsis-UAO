@@ -13,6 +13,7 @@ import CrearActividadPage from "../pages/CrearActividadPage";
 import ActividadInfo from "../pages/ActividadInfo";
 import EmprendimientosPage from "../pages/EmprendimientosPage";
 import EmprendimientoInfo from "../pages/EmprendimientoInfo";
+import CrearEmprendimiento from "../pages/CrearEmprendimiento";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route exact path="/perfil/:id" component={PerfilUsuario} />
           <Route exact path="/emprendimientos/:id" component={EmprendimientosPage} />
           <Route exact path="/emprendimientoInfo/:id" component={EmprendimientoInfo} />
+          <Route exact path="/crearEmprendimiento/:id" component={CrearEmprendimiento} />
           <Route exact path="/crearActividad/:id" component={CrearActividadPage} />
           <Route exact path="/actividad/:id" component={ActividadInfo} />
           <Route component={PageNotFound} />

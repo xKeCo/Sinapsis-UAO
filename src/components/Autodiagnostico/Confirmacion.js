@@ -36,12 +36,12 @@ export class InfoProyecto extends Component {
         genero,
         nacimiento,
         conocioSinapsis,
-        nombreIniciativa,
-        descIniciativa,
+        nombreEmprendimiento,
+        descEmprendimiento,
         prinSolucion,
         prinUsuario,
-        valIniciaiva,
-        MetodoValIniciaiva,
+        valEmprendimiento,
+        MetodoValEmprendimiento,
       },
     } = this.props;
 
@@ -95,13 +95,16 @@ export class InfoProyecto extends Component {
                 </ListItem>
                 <Divider />
                 <ListItem>
-                  <ListItemText primary="Nombre de la iniciativa" secondary={nombreIniciativa} />
+                  <ListItemText
+                    primary="Nombre del emprendimiento"
+                    secondary={nombreEmprendimiento}
+                  />
                 </ListItem>
                 <Divider />
                 <ListItem>
                   <ListItemText
                     primary="Descripción sobre la inciativa"
-                    secondary={descIniciativa}
+                    secondary={descEmprendimiento}
                   />
                 </ListItem>
                 <Divider />
@@ -119,14 +122,14 @@ export class InfoProyecto extends Component {
                 <ListItem>
                   <ListItemText
                     primary="Mencione las validaciones que ha realizado"
-                    secondary={valIniciaiva}
+                    secondary={valEmprendimiento}
                   />
                 </ListItem>
                 <Divider />
                 <ListItem>
                   <ListItemText
                     primary="Instrumentos que ha utilizado para las validaciones"
-                    secondary={MetodoValIniciaiva}
+                    secondary={MetodoValEmprendimiento}
                   />
                 </ListItem>
                 <Divider />
@@ -158,12 +161,12 @@ export class InfoProyecto extends Component {
                   genero,
                   nacimiento,
                   conocioSinapsis,
-                  nombreIniciativa,
-                  descIniciativa,
+                  nombreEmprendimiento,
+                  descEmprendimiento,
                   prinSolucion,
                   prinUsuario,
-                  valIniciaiva,
-                  MetodoValIniciaiva,
+                  valEmprendimiento,
+                  MetodoValEmprendimiento,
                 }}
               />
             </div>

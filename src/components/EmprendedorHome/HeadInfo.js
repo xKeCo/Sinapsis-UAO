@@ -60,7 +60,7 @@ function HeadInfo() {
       <div className="head-ruta_container">
         <div>
           <span className="ml-3">Etapa Actual:</span> <br />
-          <h3 className="mb-3 ml-3 mr-3 font-weight-bold">{userData.ruta}</h3>
+          <h3 className="mb-3 ml-3 mr-3 font-weight-bold">{userData.etapa}</h3>
         </div>
       </div>
       <div className="head-activitiesReport_container">

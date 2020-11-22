@@ -65,7 +65,7 @@ const EmprendedorHome = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      {userData.ruta === "Soñar" && (
+      {userData.etapa === "Soñar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
@@ -92,7 +92,7 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.ruta === "Pensar" && (
+      {userData.etapa === "Pensar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
@@ -128,7 +128,7 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.ruta === "Testear" && (
+      {userData.etapa === "Testear" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
@@ -167,7 +167,7 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.ruta === "Arrancar" && (
+      {userData.etapa === "Arrancar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />

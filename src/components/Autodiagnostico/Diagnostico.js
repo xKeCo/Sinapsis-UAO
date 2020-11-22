@@ -18,12 +18,12 @@ export class autoDiagnostico extends Component {
     genero: "",
     nacimiento: "",
     conocioSinapsis: "",
-    nombreIniciativa: "",
-    descIniciativa: "",
+    nombreEmprendimiento: "",
+    descEmprendimiento: "",
     prinSolucion: "",
     prinUsuario: "",
-    valIniciaiva: "",
-    MetodoValIniciaiva: "",
+    valEmprendimiento: "",
+    MetodoValEmprendimiento: "",
   };
 
   // Next Step
@@ -72,12 +72,12 @@ export class autoDiagnostico extends Component {
       genero,
       nacimiento,
       conocioSinapsis,
-      nombreIniciativa,
-      descIniciativa,
+      nombreEmprendimiento,
+      descEmprendimiento,
       prinSolucion,
       prinUsuario,
-      valIniciaiva,
-      MetodoValIniciaiva,
+      valEmprendimiento,
+      MetodoValEmprendimiento,
     } = this.state;
 
     const values = {
@@ -90,12 +90,12 @@ export class autoDiagnostico extends Component {
       genero,
       nacimiento,
       conocioSinapsis,
-      nombreIniciativa,
-      descIniciativa,
+      nombreEmprendimiento,
+      descEmprendimiento,
       prinSolucion,
       prinUsuario,
-      valIniciaiva,
-      MetodoValIniciaiva,
+      valEmprendimiento,
+      MetodoValEmprendimiento,
     };
 
     switch (step) {

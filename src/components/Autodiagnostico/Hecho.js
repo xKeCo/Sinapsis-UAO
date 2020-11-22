@@ -14,8 +14,8 @@ export default function Hecho() {
           <div>
             <h1 className="FirstLogin_header">¡Gracias por realizar tu autodiagn&oacute;stico!</h1>
             <h3 className="FirstLogin_detail">
-              El equipo de Sinapsis UAO analizar&aacute; tu iniciativa y recibir&aacute;s un correo
-              con futuras instrucciones.
+              El equipo de Sinapsis UAO analizar&aacute; tu emprendimiento y recibir&aacute;s un
+              correo con futuras instrucciones.
             </h3>
           </div>
         </div>

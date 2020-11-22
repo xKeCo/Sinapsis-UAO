@@ -71,6 +71,7 @@ export default function Login() {
             name="email"
             required
             onChange={handleInput}
+            placeholder="Ej. pepito.perez"
           />
 
           <TextField

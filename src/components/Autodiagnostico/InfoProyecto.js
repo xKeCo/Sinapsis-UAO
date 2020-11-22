@@ -30,11 +30,11 @@ export class InfoProyecto extends Component {
       e.preventDefault();
       if (
         values.conocioSinapsis !== "" &&
-        values.nombreIniciativa !== "" &&
-        values.descIniciativa !== "" &&
+        values.nombreEmprendimiento !== "" &&
+        values.descEmprendimiento !== "" &&
         values.prinSolucion !== "" &&
         values.prinUsuario !== "" &&
-        values.MetodoValIniciaiva !== ""
+        values.MetodoValEmprendimiento !== ""
       ) {
         this.continue();
       } else {
@@ -82,18 +82,18 @@ export class InfoProyecto extends Component {
             </FormControl>
 
             <TextField
-              label="Nombre de la iniciativa"
+              label="Nombre del emprendimiento"
               type="text"
-              name="nombreIniciativa"
+              name="nombreEmprendimiento"
               required
               autoComplete="off"
               inputProps={{
                 maxLength: 80,
               }}
-              onChange={handleChange("nombreIniciativa")}
-              defaultValue={values.nombreIniciativa}
+              onChange={handleChange("nombreEmprendimiento")}
+              defaultValue={values.nombreEmprendimiento}
               multiline
-              helperText={`${values.nombreIniciativa.length} / 80 caracteres`}
+              helperText={`${values.nombreEmprendimiento.length} / 80 caracteres`}
             />
 
             <TextField
@@ -101,15 +101,15 @@ export class InfoProyecto extends Component {
               noValidate
               label="Descripci&oacute;n sobre la inciativa"
               type="text"
-              name="descIniciativa"
+              name="descEmprendimiento"
               required
               multiline
-              defaultValue={values.descIniciativa}
-              onChange={handleChange("descIniciativa")}
+              defaultValue={values.descEmprendimiento}
+              onChange={handleChange("descEmprendimiento")}
               inputProps={{
                 maxLength: 250,
               }}
-              helperText={`${values.descIniciativa.length} / 250 caracteres`}
+              helperText={`${values.descEmprendimiento.length} / 250 caracteres`}
             />
 
             <TextField
@@ -149,15 +149,15 @@ export class InfoProyecto extends Component {
               noValidate
               label="Validaciones que ha realizado"
               type="text"
-              name="valIniciaiva"
+              name="valEmprendimiento"
               required
               multiline
               inputProps={{
                 maxLength: 150,
               }}
-              defaultValue={values.valIniciaiva}
-              onChange={handleChange("valIniciaiva")}
-              helperText={`${values.valIniciaiva.length} / 150 caracteres`}
+              defaultValue={values.valEmprendimiento}
+              onChange={handleChange("valEmprendimiento")}
+              helperText={`${values.valEmprendimiento.length} / 150 caracteres`}
             />
 
             <FormControl component="fieldset" className="MuiFormLabel-root mt-4">
@@ -165,13 +165,13 @@ export class InfoProyecto extends Component {
                 Instrumentos que ha utilizado para las validaciones
               </FormLabel>
               <RadioGroup
-                label="MetodoValIniciaiva"
-                name="MetodoValIniciaiva"
+                label="MetodoValEmprendimiento"
+                name="MetodoValEmprendimiento"
                 row
                 labelid="demo-simple-select-outlined-label"
                 id="demo-mutiple-name"
-                value={values.MetodoValIniciaiva}
-                onChange={handleChange("MetodoValIniciaiva")}
+                value={values.MetodoValEmprendimiento}
+                onChange={handleChange("MetodoValEmprendimiento")}
               >
                 <FormControlLabel value={"Ninguno"} label="Ninguno" control={<Radio />} />
                 <FormControlLabel value={"Entrevista"} label="Entrevista" control={<Radio />} />
