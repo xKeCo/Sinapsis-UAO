@@ -48,13 +48,17 @@ function Alert(props) {
 
 export default function CrearActividadPage(props) {
   const classes = useStyles();
+  const fechaHoy = new Date();
+
   const [form, setValues] = useState({
     nomActividad: "",
     descActividad: "",
     fechaEntregaAct: "",
     file: "",
   });
-  const [selectedDate, setSelectedDate] = useState(`${new Date()}`);
+  const [selectedDate, setSelectedDate] = useState(
+    `${fechaHoy.getFullYear()}-${fechaHoy.getMonth() + 1}-${fechaHoy.getDate()}`
+  );
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const { userData } = useContext(AuthContext);
@@ -132,6 +136,7 @@ export default function CrearActividadPage(props) {
         .set(
           {
             ActHecho: false,
+            ActCompletada: false,
             fechaEntregaAct: selectedDate,
             mentorUsername: userData.username,
             mentorID: userData.uID,
@@ -148,7 +153,7 @@ export default function CrearActividadPage(props) {
         );
       setLoading(false);
       setOpen(true);
-      setValues({ nomActividad: "", descActividad: "", fechaEntregaAct: "" });
+      setValues({ nomActividad: "", descActividad: "", fechaEntregaAct: "", file: "" });
     } catch (error) {
       setLoading(false);
       setErrors(error);
@@ -170,8 +175,6 @@ export default function CrearActividadPage(props) {
   if (userData.rol === "emprendedor") {
     return <Redirect to="/home" />;
   }
-
-  const fechaHoy = new Date();
 
   return (
     <div>

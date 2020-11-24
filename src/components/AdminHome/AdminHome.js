@@ -19,6 +19,7 @@ import { ExpandMore as ExpandMoreIcon, Add as AddIcon } from "@material-ui/icons
 // Componetes Utilizados AdminHome
 import AdminEmprendedoresAsignado from "../MentorHome/MentorEmprendedoresAsignado";
 import AdminHomeContainer from "./AdminHomeContainer";
+// import AdminActividades from "./AdminActividades";
 import Searchbar from "./Searchbar";
 // Material UI Styles
 import { makeStyles } from "@material-ui/core/styles";
@@ -48,6 +49,7 @@ const AdminHome = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <AdminHomeContainer />
+                {/* <AdminActividades /> */}
               </AccordionDetails>
             </Accordion>
             <div className="HomeButton-container mt-5 mb-5">

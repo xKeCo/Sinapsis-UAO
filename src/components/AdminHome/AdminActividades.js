@@ -7,9 +7,9 @@ import Loader from "../Loader";
 import Avatar from "../Avatar";
 import { AuthContext } from "../Auth";
 // Material UI Components
-import { Button, Tooltip, Zoom } from "@material-ui/core";
+import { Tooltip, Zoom } from "@material-ui/core";
 
-function MentorNovedades() {
+function AdminActividades() {
   const [novedades, setNovedades] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [Errors, setErrors] = useState(null);
@@ -59,19 +59,14 @@ function MentorNovedades() {
             <h3>Ocurri&oacute; un error.</h3>
           ) : (
             <>
-              {novedades.length === 0 ? (
-                <div className="SinNovedades_container">
-                  <div className="full-width">
-                    <div className="SinNovedades-details">
-                      <h6>No hay novedades.</h6>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <>
-                  {novedades.map((novedad) => {
-                    return (
-                      <div className="Novedades_container" key={novedad.id}>
+              {novedades.map((novedad) => {
+                return (
+                  <div className="Novedades_container" key={novedad.id}>
+                    <Link
+                      to={`/actividad/${novedad.id}`}
+                      className="text-decoration-none text-dark"
+                    >
+                      <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
                         <div className="Novedades-details_container">
                           <div className="Novedades-details_containerr">
                             <Avatar
@@ -86,27 +81,11 @@ function MentorNovedades() {
                             </div>
                           </div>
                         </div>
-                        <div className="Novedades-button_container">
-                          <Link
-                            to={`/actividad/${novedad.id}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="Novedades-button"
-                              >
-                                Ver
-                              </Button>
-                            </Tooltip>
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </>
-              )}
+                      </Tooltip>
+                    </Link>
+                  </div>
+                );
+              })}
             </>
           )}
         </>
@@ -115,4 +94,4 @@ function MentorNovedades() {
   );
 }
 
-export default MentorNovedades;
+export default AdminActividades;

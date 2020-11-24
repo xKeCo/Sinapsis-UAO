@@ -10,10 +10,12 @@ function HeadInfo() {
   const { userData } = useContext(AuthContext);
   const [actividades, setActividades] = useState([]);
   const [actividadesHechas, setActividadesHechas] = useState([]);
+  const [actividadesEnviadas, setActividadesEnviadas] = useState([]);
 
   useEffect(() => {
     getActividadesPendientes();
-    getActividadesHechas();
+    getActividadesEnviadas();
+    getActividadesCompletadas();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,9 +37,26 @@ function HeadInfo() {
         });
     } catch (error) {}
   };
+  const getActividadesCompletadas = async () => {
+    try {
+      await database
+        .collection("actividades")
+        .where("userID", "==", userData.uID)
+        .where("ActCompletada", "==", true)
+        .onSnapshot((querysnapshot) => {
+          const docs = [];
+
+          querysnapshot.forEach((doc) => {
+            docs.push({ id: doc.id });
+          });
+
+          setActividadesHechas(docs);
+        });
+    } catch (error) {}
+  };
 
   // Función para traer las actividades relacionadas con el usuario
-  const getActividadesHechas = async () => {
+  const getActividadesEnviadas = async () => {
     try {
       await database
         .collection("actividades")
@@ -50,7 +69,7 @@ function HeadInfo() {
             docs.push({ id: doc.id });
           });
 
-          setActividadesHechas(docs);
+          setActividadesEnviadas(docs);
         });
     } catch (error) {}
   };
@@ -67,6 +86,10 @@ function HeadInfo() {
         <div className="head-activity">
           <h1 className="mr-2 mb-3 h1-headInfo">{actividadesHechas.length}</h1>
           <span>Actividades completas</span>
+        </div>
+        <div className="head-activity">
+          <h1 className="mr-2 mb-3 h1-headInfo">{actividadesEnviadas.length}</h1>
+          <span>Actividades enviadas</span>
         </div>
         <div className="head-activity">
           <h1 className="mr-2 mb-3 h1-headInfo">{actividades.length}</h1>

@@ -7,6 +7,7 @@ import { Button, Tooltip, Zoom } from "@material-ui/core";
 // Componentes Utilizados
 import Loader from "../Loader";
 import Avatar from "../Avatar";
+import AdminActividades from "./AdminActividades";
 
 function AdminHomeContainer() {
   const [novedades, setNovedades] = useState([]);
@@ -65,54 +66,63 @@ function AdminHomeContainer() {
                 </div>
               ) : (
                 <>
-                  {novedades.map((novedad) => {
-                    return (
-                      <div className="Novedades_container" key={novedad.id}>
-                        <div className="Novedades-details_container">
-                          <Link
-                            to={`/perfil/${novedad.id}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            <div className="Novedades-details_containerr">
-                              <Avatar
-                                src={novedad.avatar}
-                                alt={"Avatar"}
-                                className="Novedades-Avatar_container"
-                              />
-                              <div className="Novedades-details">
-                                <span className="novedades-name">{novedad.username}</span> se ha
-                                registrado.{" "}
-                                <span className="novedades-otherText">
-                                  Revisa su autodiagn&oacute;stico.
-                                </span>
+                  {novedades.length > 0 ? (
+                    <>
+                      {novedades.map((novedad) => {
+                        return (
+                          <React.Fragment key={novedad.id}>
+                            <div className="Novedades_container">
+                              <div className="Novedades-details_container">
+                                <Link
+                                  to={`/perfil/${novedad.id}`}
+                                  className="text-decoration-none text-dark"
+                                >
+                                  <div className="Novedades-details_containerr">
+                                    <Avatar
+                                      src={novedad.avatar}
+                                      alt={"Avatar"}
+                                      className="Novedades-Avatar_container"
+                                    />
+                                    <div className="Novedades-details">
+                                      <span className="novedades-name">{novedad.username}</span> se
+                                      ha registrado.{" "}
+                                      <span className="novedades-otherText">
+                                        Revisa su autodiagn&oacute;stico.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </Link>
+                              </div>
+                              <div className="Novedades-button_container">
+                                <Link
+                                  to={`/revisar/${novedad.id}`}
+                                  className="text-decoration-none text-dark"
+                                >
+                                  <Tooltip
+                                    title="Revisar"
+                                    arrow
+                                    TransitionComponent={Zoom}
+                                    placement="right"
+                                  >
+                                    <Button
+                                      variant="contained"
+                                      color="primary"
+                                      className="Novedades-button"
+                                    >
+                                      Revisar
+                                    </Button>
+                                  </Tooltip>
+                                </Link>
                               </div>
                             </div>
-                          </Link>
-                        </div>
-                        <div className="Novedades-button_container">
-                          <Link
-                            to={`/revisar/${novedad.id}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            <Tooltip
-                              title="Revisar"
-                              arrow
-                              TransitionComponent={Zoom}
-                              placement="right"
-                            >
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="Novedades-button"
-                              >
-                                Revisar
-                              </Button>
-                            </Tooltip>
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  })}
+                            <AdminActividades />
+                          </React.Fragment>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </>
               )}
             </>
