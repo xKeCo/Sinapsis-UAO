@@ -72,7 +72,10 @@ const Dialogo = (props) => {
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
       <div className="DeleteBadgeModal">
         <h1>¿Tus datos son correctos?</h1>
-        <p>Una vez enviados los datos ya no se podran cambiar... Tomate tu tiempo :)</p>
+        <p>
+          Una vez enviados los datos solo podr&aacute;n ser cambiados por el mentor asignado. Tomate
+          tu tiempo :)
+        </p>
 
         <div>
           <button onClick={handleChangeForm} className="btn btn-danger mr-3 mb-3">

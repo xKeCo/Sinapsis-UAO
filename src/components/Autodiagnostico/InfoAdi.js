@@ -68,11 +68,11 @@ export class InfoAdi extends Component {
               defaultValue={values.telefono}
             />
             <div className="mt-4">
-              <p className="mb-0 ">Fecha de entrega</p>
+              <p className="mb-0 ">Fecha de nacimiento</p>
               <input
                 id="date"
-                label="Fecha de entrega"
-                name="fechaEntregaAct"
+                label="Fecha de nacimiento"
+                name="nacimiento"
                 className="MuiFormLabel-root mr-2"
                 type="date"
                 min={`${fechaHoy.getFullYear() - 80}-01-01`}
