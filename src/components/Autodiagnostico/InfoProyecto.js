@@ -54,12 +54,11 @@ export class InfoProyecto extends Component {
               <RadioGroup
                 label="conocioSinapsis"
                 name="conocioSinapsis"
-                row
                 labelid="demo-simple-select-outlined-label"
-                id="demo-mutiple-name"
                 value={values.conocioSinapsis}
                 onChange={handleChange("conocioSinapsis")}
-                required
+                row
+                className="roww"
               >
                 <FormControlLabel
                   value={"Medios masivos"}
@@ -80,7 +79,6 @@ export class InfoProyecto extends Component {
                 <FormControlLabel value={"Otro"} label="Otro" control={<Radio />} />
               </RadioGroup>
             </FormControl>
-
             <TextField
               label="Nombre del emprendimiento"
               type="text"
@@ -95,7 +93,6 @@ export class InfoProyecto extends Component {
               multiline
               helperText={`${values.nombreEmprendimiento.length} / 80 caracteres`}
             />
-
             <TextField
               className="MuiFormLabel-root mt-4"
               noValidate
@@ -111,7 +108,6 @@ export class InfoProyecto extends Component {
               }}
               helperText={`${values.descEmprendimiento.length} / 250 caracteres`}
             />
-
             <TextField
               className="MuiFormLabel-root mt-4"
               noValidate
@@ -127,7 +123,6 @@ export class InfoProyecto extends Component {
               onChange={handleChange("prinSolucion")}
               helperText={`${values.prinSolucion.length} / 80 caracteres`}
             />
-
             <TextField
               className="MuiFormLabel-root mt-4"
               noValidate
@@ -143,7 +138,6 @@ export class InfoProyecto extends Component {
               onChange={handleChange("prinUsuario")}
               helperText={`${values.prinUsuario.length} / 80 caracteres`}
             />
-
             <TextField
               className="MuiFormLabel-root mt-4"
               noValidate
@@ -159,7 +153,6 @@ export class InfoProyecto extends Component {
               onChange={handleChange("valEmprendimiento")}
               helperText={`${values.valEmprendimiento.length} / 150 caracteres`}
             />
-
             <FormControl component="fieldset" className="MuiFormLabel-root mt-4">
               <FormLabel id="demo-simple-select-filled-label">
                 Instrumentos que ha utilizado para las validaciones
@@ -169,7 +162,6 @@ export class InfoProyecto extends Component {
                 name="MetodoValEmprendimiento"
                 row
                 labelid="demo-simple-select-outlined-label"
-                id="demo-mutiple-name"
                 value={values.MetodoValEmprendimiento}
                 onChange={handleChange("MetodoValEmprendimiento")}
               >
@@ -180,7 +172,6 @@ export class InfoProyecto extends Component {
                 <FormControlLabel value={"Otro"} label="Otro" control={<Radio />} />
               </RadioGroup>
             </FormControl>
-
             <div className="encuesta_buttons_container mt-3">
               <Button variant="contained" color="primary" style={styles.button} onClick={this.back}>
                 Atr&aacute;s

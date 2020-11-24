@@ -115,10 +115,10 @@ function AdminHomeContainer() {
                                 </Link>
                               </div>
                             </div>
-                            <AdminActividades />
                           </React.Fragment>
                         );
                       })}
+                      <AdminActividades />
                     </>
                   ) : (
                     <></>

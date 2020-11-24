@@ -783,7 +783,7 @@ span:hover {
   text-align: center;
 }
 
-label {
+.labelButton {
   width: 100%;
 }
 /* Actividad info END */
@@ -908,6 +908,9 @@ label {
     padding: 0.875em 7%;
   }
   .Button-volver {
+    padding: 0.875em 7%;
+  }
+  .todo_encuesta_container {
     padding: 0.875em 7%;
   }
 }

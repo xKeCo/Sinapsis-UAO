@@ -311,7 +311,7 @@ export default function ActividadInfo(props) {
                             type="file"
                             onChange={handleInputFile}
                           />
-                          <label htmlFor="contained-button-file">
+                          <label className="labelButton" htmlFor="contained-button-file">
                             <Button
                               variant="contained"
                               color="primary"
