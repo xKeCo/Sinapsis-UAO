@@ -277,7 +277,7 @@ span:hover {
 }
 .Novedades_container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   max-width: 881px;
   padding-left: 15px;
@@ -786,6 +786,11 @@ span:hover {
 .labelButton {
   width: 100%;
 }
+
+/* .actividades-enviar-buttons_container {
+  max-width: 233px;
+  width: 100vw;
+} */
 /* Actividad info END */
 
 /* Emprendimientos Page */
@@ -912,6 +917,9 @@ span:hover {
   }
   .todo_encuesta_container {
     padding: 0.875em 7%;
+  }
+  .actividades-info-details_container {
+    max-width: 703px;
   }
 }
 @media screen and (max-width: 1103px) {

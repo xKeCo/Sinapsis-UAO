@@ -33,7 +33,7 @@ import {
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 
-// import Autocomplete from "@material-ui/lab/Autocomplete";
+// import Autocomplete from "@material-ui/lab/Autocomplete"
 
 // Material UI Icons
 import {
@@ -123,10 +123,17 @@ const EmprendimientosInfo = (props) => {
   }
 
   // Funcion para eliminar los datos del emprendimiento
-  const handleDeleteEmprendimiento = (e) => {
+  const handleDeleteEmprendimiento = async (e) => {
     e.preventDefault();
-    database.collection("emprendimientos").doc(id).delete();
-    history.push(`/emprendimientos/${Data.uID}`);
+    const numEmprendimientos = await database
+      .collection("emprendimientos")
+      .where("uID", "==", Data.uID)
+      .get();
+    if (numEmprendimientos.length === 1) {
+    } else {
+      database.collection("emprendimientos").doc(id).delete();
+      history.push(`/emprendimientos/${Data.uID}`);
+    }
   };
 
   // Drawer - Menu desplazable
@@ -188,7 +195,6 @@ const EmprendimientosInfo = (props) => {
             onClick={() => setOpenModificar(true)}
           />
         </ListItem>
-
         <ListItem className="sideMenu-Item-emprendedor " onClick={() => setOpen(true)}>
           <ListItemIcon>
             <DeleteIcon />

@@ -52,7 +52,7 @@ const AdminHome = () => {
                 {/* <AdminActividades /> */}
               </AccordionDetails>
             </Accordion>
-            <div className="HomeButton-container mt-5 mb-5">
+            {/* <div className="HomeButton-container mt-5 mb-5">
               <Link to="/añadir" className=" text-decoration-none items-dropdown">
                 <Button
                   variant="contained"
@@ -63,7 +63,7 @@ const AdminHome = () => {
                   Añadir un nuevo usuario
                 </Button>
               </Link>
-            </div>
+            </div> */}
             <div className="HomeButton-container-mentor mt-5 mb-5">
               <Accordion defaultExpanded={true} className="mt-2">
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>

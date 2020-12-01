@@ -300,7 +300,7 @@ export default function ActividadInfo(props) {
                     <div className="actividades-enviar_container">
                       <div className="actividades-enviar-details_container">
                         <h5>Tu entrega</h5>
-                        <div>
+                        <div className="actividades-enviar-buttons_container">
                           <p className="mb-0">{form.file.name || ""}</p>
                           <input
                             accept="media_type"
