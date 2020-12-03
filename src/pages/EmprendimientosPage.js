@@ -1,5 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import {
+  Redirect,
+  Link,
+  // useHistory
+} from "react-router-dom";
 // Conexion con la base de datos
 import { database } from "../firebase/client";
 // Estilos CSS
@@ -58,6 +62,8 @@ const EmprendimientosPage = (props) => {
       setErrors(error);
     }
   };
+
+  // const history = useHistory();
 
   if (!userData) {
     return <Redirect to="/" />;
@@ -149,6 +155,9 @@ const EmprendimientosPage = (props) => {
             color="secondary"
             className="button-2"
             startIcon={<ExitToAppIcon />}
+            // onClick={() => {
+            //   history.goBack();
+            // }}
           >
             Volver
           </Button>

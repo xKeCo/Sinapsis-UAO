@@ -11,13 +11,31 @@ function HeadInfo() {
   const [actividades, setActividades] = useState([]);
   const [actividadesHechas, setActividadesHechas] = useState([]);
   const [actividadesEnviadas, setActividadesEnviadas] = useState([]);
+  const [emprendimientos, setEmprendimientos] = useState([]);
 
   useEffect(() => {
     getActividadesPendientes();
     getActividadesEnviadas();
     getActividadesCompletadas();
+    getDataEmprendimiento();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const getDataEmprendimiento = async () => {
+    try {
+      const res = await database
+        .collection("emprendimientos")
+        .where("uID", "==", userData.uID)
+        .where("estado", "==", "activo")
+        .get();
+      const docs = [];
+      res.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+
+      setEmprendimientos(docs[0]);
+    } catch (error) {}
+  };
 
   // Función para traer las actividades relacionadas con el usuario
   const getActividadesPendientes = async () => {
@@ -79,7 +97,7 @@ function HeadInfo() {
       <div className="head-ruta_container">
         <div>
           <span className="ml-3">Etapa Actual:</span> <br />
-          <h3 className="mb-3 ml-3 mr-3 font-weight-bold">{userData.etapa}</h3>
+          <h3 className="mb-3 ml-3 mr-3 font-weight-bold">{emprendimientos.etapa}</h3>
         </div>
       </div>
       <div className="head-activitiesReport_container">

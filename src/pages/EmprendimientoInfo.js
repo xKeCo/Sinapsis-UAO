@@ -558,6 +558,9 @@ const EmprendimientosInfo = (props) => {
                           color="secondary"
                           className="button-2"
                           startIcon={<ExitToAppIcon />}
+                          onClick={() => {
+                            history.goBack();
+                          }}
                         >
                           Volver
                         </Button>

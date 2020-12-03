@@ -306,7 +306,7 @@ export default function CrearActividadPage(props) {
                         />
                       </div>
                     </div>
-                    <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                    <Snackbar open={open} autoHideDuration={1500} onClose={handleClose}>
                       <Alert onClose={handleClose} severity="success">
                         Actividad añadida!
                       </Alert>

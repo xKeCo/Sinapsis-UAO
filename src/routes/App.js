@@ -11,6 +11,7 @@ import RevisarAutodiagnostico from "../pages/RevisarAutodiagnostico";
 import PerfilUsuario from "../pages/PerfilUsuario";
 import CrearActividadPage from "../pages/CrearActividadPage";
 import ActividadInfo from "../pages/ActividadInfo";
+import ReporteEtapa from "../pages/ReporteEtapa";
 import EmprendimientosPage from "../pages/EmprendimientosPage";
 import EmprendimientoInfo from "../pages/EmprendimientoInfo";
 import CrearEmprendimiento from "../pages/CrearEmprendimiento";
@@ -29,8 +30,9 @@ export default function App() {
           <Route exact path="/emprendimientos/:id" component={EmprendimientosPage} />
           <Route exact path="/emprendimientoInfo/:id" component={EmprendimientoInfo} />
           <Route exact path="/crearEmprendimiento/:id" component={CrearEmprendimiento} />
-          <Route exact path="/crearActividad/:id" component={CrearActividadPage} />
           <Route exact path="/actividad/:id" component={ActividadInfo} />
+          <Route exact path="/reporte/:id" component={ReporteEtapa} />
+          <Route exact path="/crearActividad/:id" component={CrearActividadPage} />
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  //  useHistory
+} from "react-router-dom";
 // Material UI Componets
 import {
   TextField,
@@ -63,48 +66,7 @@ export default function AnadirUsuario() {
     });
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setErrors({});
-  //   setLoading(true);
-  //   const hash = md5(form.email);
-  //   document.querySelectorAll("input").forEach((input) => (input.disabled = true));
-  //   if (form.password === form.confirmPassword) {
-  //     firebaseConfig
-  //       .auth()
-  //       .createUser({
-  //         email: form.email,
-  //         password: form.password,
-  //         username: form.nombre,
-  //         avatar: `https://www.gravatar.com/avatar/${hash}?d=identicon`,
-  //       })
-  //       .then((userCredentials) => {
-  //         return userCredentials.user.updateProfile({
-  //           displayName: form.nombre,
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         if (err.code === "auth/email-already-in-use") {
-  //           setErrors({
-  //             email: true,
-  //           });
-  //           setLoading(false);
-  //         } else {
-  //           setErrors({
-  //             unexpected: true,
-  //           });
-  //           setLoading(false);
-  //         }
-  //       });
-  //     setLoading(true);
-  //   } else {
-  //     setErrors({
-  //       password: true,
-  //     });
-  //   }
-  //   document.querySelectorAll("input").forEach((input) => (input.disabled = false));
-  //   setLoading(false);
-  // };
+  // const history = useHistory();
 
   return (
     <div>
@@ -227,6 +189,9 @@ export default function AnadirUsuario() {
             color="secondary"
             className="button-2"
             startIcon={<ExitToAppIcon />}
+            // onClick={() => {
+            //   history.goBack();
+            // }}
           >
             Volver
           </Button>

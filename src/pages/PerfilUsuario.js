@@ -1,5 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import {
+  //  Redirect,
+  Link,
+  // useHistory,
+} from "react-router-dom";
 // Estilos CSS
 import "bootstrap/dist/css/bootstrap.css";
 // Conexion Firebase Database
@@ -133,10 +137,12 @@ export default function PerfilUsuario(props) {
   );
   // Drawer - Menu desplazable END
 
+  // const history = useHistory();
+
   // Funcion para sacar a un usuario que no tiene la sesión activa
-  if (!userData) {
-    return <Redirect to="/" />;
-  }
+  // if (!userData) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <>
@@ -279,7 +285,10 @@ export default function PerfilUsuario(props) {
                         <>
                           <div className="FirstLogin_button_container ml-3 mr-3 mt-4">
                             <div>
-                              <Link to="/home" className=" text-decoration-none items-dropdown">
+                              <Link
+                                to={`/reporte/${id}`}
+                                className=" text-decoration-none items-dropdown"
+                              >
                                 <Button
                                   type="input"
                                   variant="contained"
@@ -358,6 +367,9 @@ export default function PerfilUsuario(props) {
                           color="secondary"
                           className="button-2"
                           startIcon={<ExitToAppIcon />}
+                          // onClick={() => {
+                          //   history.goBack();
+                          // }}
                         >
                           Volver
                         </Button>

@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// Conexion a la base de datos
+import { database } from "../../firebase/client";
 // Componentes Utilizados
 import EmprendedorActividades from "./EmprendedorActividades";
 import EmprendedorReuniones from "./EmprendedorReuniones";
@@ -50,6 +52,12 @@ const EmprendedorHome = () => {
   const [state, setState] = React.useState({
     right: false,
   });
+  const [emprendimientos, setEmprendimientos] = useState([]);
+
+  useEffect(() => {
+    getDataEmprendimiento();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -58,6 +66,23 @@ const EmprendedorHome = () => {
 
     setState({ ...state, [anchor]: open });
   };
+
+  const getDataEmprendimiento = async () => {
+    try {
+      const res = await database
+        .collection("emprendimientos")
+        .where("uID", "==", userData.uID)
+        .where("estado", "==", "activo")
+        .get();
+      const docs = [];
+      res.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+
+      setEmprendimientos(docs[0]);
+    } catch (error) {}
+  };
+
   const list = (anchor) => (
     <div
       className={classes.fullList}
@@ -65,11 +90,19 @@ const EmprendedorHome = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      {userData.etapa === "Soñar" && (
+      {emprendimientos.etapa === "Soñar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
           </ListItemIcon>
+
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemText
+              primary={
+                "Estos talleres te permitirán cumplir los objetivos esperados para esta etapa:"
+              }
+            />
+          </ListItem>
 
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
@@ -92,11 +125,20 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.etapa === "Pensar" && (
+      {emprendimientos.etapa === "Pensar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
           </ListItemIcon>
+
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemText
+              primary={
+                "Estos talleres te permitirán cumplir los objetivos esperados para esta etapa:"
+              }
+            />
+          </ListItem>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller modelo de negocio (1)"} />
@@ -128,11 +170,20 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.etapa === "Testear" && (
+      {emprendimientos.etapa === "Testear" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
           </ListItemIcon>
+
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemText
+              primary={
+                "Estos talleres te permitirán cumplir los objetivos esperados para esta etapa:"
+              }
+            />
+          </ListItem>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller BMG (2)"} />
@@ -167,11 +218,20 @@ const EmprendedorHome = () => {
         </List>
       )}
 
-      {userData.etapa === "Arrancar" && (
+      {emprendimientos.etapa === "Arrancar" && (
         <List className="ml-3">
           <ListItemIcon className="mt-3">
             <CloseIcon onClose={toggleDrawer("right", false)} />
           </ListItemIcon>
+
+          <ListItem className="sideMenu-Item-emprendedor">
+            <ListItemText
+              primary={
+                "Estos talleres te permitirán cumplir los objetivos esperados para esta etapa:"
+              }
+            />
+          </ListItem>
+
           <Link to="/" className="nav-item text-decoration-none items-dropdown">
             <ListItem className="sideMenu-Item-emprendedor">
               <ListItemText primary={"Taller Técnicas de Ventas"} />

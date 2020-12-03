@@ -152,7 +152,7 @@ span:hover {
 }
 
 .MuiTypography-root {
-  width: 100%;
+  /* width: 100%; */
 }
 .MuiOutlinedInput-notchedOutline {
   border-color: white !important;
@@ -849,6 +849,21 @@ span:hover {
 }
 
 /* Emprendimientos Info END */
+
+/* REPORTE DE ETAPA  */
+
+.Reporte-ActivitiesInfo_container {
+  max-width: 658px;
+  max-height: 235px;
+  /* width: 100%; */
+  text-align: center;
+}
+
+.LinearProgressEtapa {
+  height: 65px;
+}
+
+/* REPORTE DE ETAPA END */
 
 .BreadCrumbs-container {
   /* margin: auto; */

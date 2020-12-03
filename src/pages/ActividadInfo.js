@@ -87,7 +87,7 @@ export default function ActividadInfo(props) {
     document.title = "Sinapsis UAO - Crear actividad";
     getActividadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   // Conseguir informacion del emprendedor a revisar
   const getActividadData = async () => {
@@ -344,28 +344,31 @@ export default function ActividadInfo(props) {
                       color="secondary"
                       className="button-2"
                       startIcon={<ExitToAppIcon />}
+                      // onClick={() => {
+                      //   history.goBack();
+                      // }}
                     >
                       Volver
                     </Button>
                   </Link>
 
                   {/* Alertas */}
-                  <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                  <Snackbar open={open} autoHideDuration={1500} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
                       Actividad entregada!
                     </Alert>
                   </Snackbar>
-                  <Snackbar open={openError} autoHideDuration={2000} onClose={handleClose}>
+                  <Snackbar open={openError} autoHideDuration={1500} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="error">
                       Debe agregar un archivo!
                     </Alert>
                   </Snackbar>
-                  <Snackbar open={openActIncomplete} autoHideDuration={2000} onClose={handleClose}>
+                  <Snackbar open={openActIncomplete} autoHideDuration={1500} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="warning">
                       Se le ha asignado la actividad de nuevo al emprendedor!
                     </Alert>
                   </Snackbar>
-                  <Snackbar open={openActComplete} autoHideDuration={2000} onClose={handleClose}>
+                  <Snackbar open={openActComplete} autoHideDuration={1500} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
                       Se ha marcado la actividad como completada!
                     </Alert>
