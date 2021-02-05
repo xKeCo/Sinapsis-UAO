@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // Componentes utilizados
 import { AuthContext } from "../../components/Auth";
 import { database } from "../../firebase/client";
+// import { Link } from "react-router-dom";
 
 function HeadInfo() {
   const { userData } = useContext(AuthContext);
@@ -95,10 +96,12 @@ function HeadInfo() {
   return (
     <div className="head_container ">
       <div className="head-ruta_container">
+        {/* <Link to="/etapaInfo" className="text-decoration-none text-dark"> */}
         <div>
           <span className="ml-3">Etapa Actual:</span> <br />
           <h3 className="mb-3 ml-3 mr-3 font-weight-bold">{emprendimientos.etapa}</h3>
         </div>
+        {/* </Link> */}
       </div>
       <div className="head-activitiesReport_container">
         <div className="head-activity">

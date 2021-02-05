@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // Conexión con Firebase Database
 import { database } from "../../firebase/client";
 // Componentes Utilizados
@@ -103,20 +103,20 @@ function EmprendedorReuniones() {
                           </div>
                         </div>
                         <div className="Novedades-button_container">
-                          <Link
+                          {/* <Link
                             to={`/actividad/${novedad.id}`}
                             className="text-decoration-none text-dark"
-                          >
-                            <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="Novedades-button"
-                              >
-                                Ir
-                              </Button>
-                            </Tooltip>
-                          </Link>
+                          > */}
+                          <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              className="Novedades-button"
+                            >
+                              Ir
+                            </Button>
+                          </Tooltip>
+                          {/* </Link> */}
                         </div>
                       </div>
                     );

@@ -30,8 +30,12 @@ function EmprendedorActividades() {
     try {
       await database
         .collection("actividades")
+        .orderBy("fechaEntregaAct", "asc")
         .where("userID", "==", userData.uID)
         .where("ActHecho", "==", false)
+        .where("ActCompletada", "==", false)
+        .limit(5)
+
         .onSnapshot((querysnapshot) => {
           const docs = [];
 
@@ -116,22 +120,6 @@ function EmprendedorActividades() {
                             </Tooltip>
                           </Link>
                         </div>
-                        {/* <div className="Novedades-button_container">
-                          <Link
-                            to={`/actividad/${novedad.id}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            <Tooltip title="Ver" arrow TransitionComponent={Zoom} placement="right">
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="Novedades-button"
-                              >
-                                Ver
-                              </Button>
-                            </Tooltip>
-                          </Link>
-                        </div> */}
                       </div>
                     );
                   })}

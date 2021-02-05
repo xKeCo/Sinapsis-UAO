@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import {
-  //  Redirect,
+  Redirect,
   Link,
   // useHistory,
 } from "react-router-dom";
@@ -140,9 +140,9 @@ export default function PerfilUsuario(props) {
   // const history = useHistory();
 
   // Funcion para sacar a un usuario que no tiene la sesión activa
-  // if (!userData) {
-  //   return <Redirect to="/" />;
-  // }
+  if (!userData) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>

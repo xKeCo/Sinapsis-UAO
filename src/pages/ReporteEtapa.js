@@ -49,6 +49,7 @@ import {
   //  makeStyles,
   withStyles,
 } from "@material-ui/core/styles";
+import Avatar from "../components/Avatar";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -84,7 +85,7 @@ export default function ReporteEtapa(props) {
   ] = useState(false);
   const { userData } = useContext(AuthContext);
   const [openDialog, setOpenDialog] = useState(false);
-  // const [Data, setData] = useState([]);
+  const [Data, setData] = useState([]);
   const [actividades, setActividades] = useState([]);
   const [actividadesHechas, setActividadesHechas] = useState([]);
 
@@ -94,14 +95,23 @@ export default function ReporteEtapa(props) {
     document.title = "Sinapsis UAO - Reporte";
     getActividadesPendientes();
     getActividadesCompletadas();
+    getUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   // Cerrar los Snackbar
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
+  };
+
+  // Función para traer las actividades relacionadas con el usuario
+  const getUser = async () => {
+    try {
+      const res = await database.collection("users").doc(id).get();
+      setData(res.data());
+    } catch (error) {}
   };
 
   // Función para traer las actividades relacionadas con el usuario
@@ -208,6 +218,9 @@ export default function ReporteEtapa(props) {
                   <Typography color="textPrimary">Reporte de etapa</Typography>
                 </Breadcrumbs>
               </div>
+              <div className="">
+                <Avatar src={Data.avatar} alt={"Avatar"} text={Data.username} />
+              </div>
               <div className="Home">
                 <h3 className="font-weight-bold mt-2 mb-2">Progreso de etapa</h3>
                 <div className="EmprendimientoInfo_container">
@@ -223,7 +236,7 @@ export default function ReporteEtapa(props) {
                 </div>
               </div>
               <div className="Button-volver mt-4 mb-5 ">
-                <Link to={`/home`} className=" text-decoration-none items-dropdown">
+                <Link to={`/perfil/${id}`} className=" text-decoration-none items-dropdown">
                   <Button
                     variant="contained"
                     color="secondary"

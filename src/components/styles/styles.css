@@ -151,9 +151,9 @@ span:hover {
   width: 100%;
 }
 
-.MuiTypography-root {
-  /* width: 100%; */
-}
+/* .MuiTypography-root {
+  width: 100%;
+} */
 .MuiOutlinedInput-notchedOutline {
   border-color: white !important;
 }

@@ -15,6 +15,7 @@ import ReporteEtapa from "../pages/ReporteEtapa";
 import EmprendimientosPage from "../pages/EmprendimientosPage";
 import EmprendimientoInfo from "../pages/EmprendimientoInfo";
 import CrearEmprendimiento from "../pages/CrearEmprendimiento";
+// import EtapaInfo from "../pages/EtapaInfo";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route exact path="/actividad/:id" component={ActividadInfo} />
           <Route exact path="/reporte/:id" component={ReporteEtapa} />
           <Route exact path="/crearActividad/:id" component={CrearActividadPage} />
+          {/* <Route exact path="/etapaInfo" component={EtapaInfo} /> */}
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
