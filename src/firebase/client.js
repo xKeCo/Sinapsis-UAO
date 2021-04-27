@@ -1,4 +1,6 @@
-import * as firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 // SDK para la conexion con Firebase
 const firebaseConfig = firebase.initializeApp({
@@ -34,5 +36,11 @@ export const loginWithGoogle = () => {
   const GoogleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(GoogleProvider);
 };
+
+if (!firebase.apps.length) {
+  firebase.initializeApp({});
+} else {
+  firebase.app(); // if already initialized, use that one
+}
 
 export default firebaseConfig;
