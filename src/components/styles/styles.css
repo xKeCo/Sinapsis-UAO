@@ -269,6 +269,7 @@ span:hover {
   justify-content: space-around;
   width: 1300px;
   flex-wrap: wrap;
+  padding: 0 2rem;
 }
 
 .HomeButton-container {
